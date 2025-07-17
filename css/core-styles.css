@@ -1,0 +1,226 @@
+/* 
+ * Core Styles for Lotuslion Course Platform
+ * Combined CSS Rules from sprint1-updates.md and css-fixes-sprint1.css
+ * Created: January 2025
+ * Feature ID: FEAT-001
+ */
+
+/* ===== PROGRESS INDICATOR STYLES ===== */
+.progress-indicator {
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+.progress-dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    margin: 20px 0;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.progress-dot.active {
+    background: #F4A261;
+    transform: scale(1.5);
+}
+
+.progress-dot:hover::after {
+    content: attr(data-title);
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-size: 12px;
+}
+
+/* ===== NAVIGATION STYLES ===== */
+.nav-trigger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #ffffff;
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* ===== GRID SYSTEMS ===== */
+.problem-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+
+.instructor-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    gap: 24px;
+}
+
+/* Grid utility classes */
+.grid-2col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+
+.grid-3col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.grid-4col {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+/* ===== CARD COMPONENTS ===== */
+.card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+    backdrop-filter: blur(8px);
+    padding: 32px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.3s;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    border-color: rgba(244, 162, 97, 0.3);
+}
+
+.instructor-stat {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 24px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.instructor-stat h3 {
+    color: #F4A261;
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.instructor-stat p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* ===== HERO SECTION STYLES ===== */
+.hero-title {
+    font-size: clamp(36px, 8vw, 64px);
+    font-weight: 800;
+    margin-bottom: 24px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    background: linear-gradient(90deg, #FFFFFF, #F4A261);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-description {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 48px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+}
+
+/* ===== SECTION LAYOUT ===== */
+section {
+    padding: 80px 40px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+/* Alternating section backgrounds */
+section:nth-child(even) {
+    background-color: rgba(26, 35, 50, 0.3);
+}
+
+/* ===== LIST STYLES ===== */
+.checkmark-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px 0;
+    text-align: left;
+}
+
+.checkmark-list li {
+    position: relative;
+    padding-left: 36px;
+    margin-bottom: 20px;
+}
+
+.checkmark-list li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #2CA58D;
+    font-size: 24px;
+    line-height: 1;
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+@media (max-width: 1024px) {
+    .grid-4col {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 60px 20px;
+        min-height: auto;
+    }
+    
+    .instructor-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .progress-indicator {
+        display: none;
+    }
+    
+    .problem-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .grid-2col,
+    .grid-3col,
+    .grid-4col {
+        grid-template-columns: 1fr;
+    }
+}
