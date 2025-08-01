@@ -1,0 +1,1444 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Bold;\f1\froman\fcharset0 Times-Roman;\f2\froman\fcharset0 Times-Italic;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red109\green109\blue109;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c50196\c50196\c50196;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sa321\partightenfactor0
+
+\f0\b\fs48 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 TERMS AND CONDITIONS OF SERVICE\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 LOTUSLION VENTURE LLP
+\f1\b0 \uc0\u8232 
+\f2\i (A Limited Liability Partnership incorporated under the Limited Liability Partnership Act, 2008)
+\f1\i0 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 PREAMBLE AND RECITALS\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 WHEREAS
+\f1\b0  Lotuslion Venture LLP ("
+\f0\b Company
+\f1\b0 ") is a limited liability partnership duly incorporated and validly existing under the laws of India, engaged in the business of providing specialized financial education services, proprietary investment learning methodologies, and related technological solutions;\
+
+\f0\b AND WHEREAS
+\f1\b0  the Company has developed, created, and owns exclusive intellectual property rights in and to certain financial education curricula, investment analysis frameworks, market research methodologies, assessment tools, and related materials collectively constituting "The Complete Indian Stock Investor" educational program ("
+\f0\b Educational Services
+\f1\b0 ");\
+
+\f0\b AND WHEREAS
+\f1\b0  the Company desires to establish comprehensive terms and conditions governing the access to, use of, and participation in its Educational Services through its digital platform and related technological infrastructure;\
+
+\f0\b AND WHEREAS
+\f1\b0  it is necessary to establish clear parameters for the protection of the Company's legitimate commercial interests, intellectual property rights, and proprietary information while defining the rights and obligations of users accessing such Educational Services;\
+
+\f0\b NOW THEREFORE
+\f1\b0  the Company hereby establishes these Terms and Conditions of Service ("
+\f0\b Terms
+\f1\b0 ") which shall govern all access to and use of the Company's Educational Services, digital platform, and related facilities.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE I: DEFINITIONS, INTERPRETATIONS AND CONSTRUCTION\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 1.1 Definitional Framework
+\f1\b0 \
+For the purposes of these Terms, and unless the context otherwise requires or admits of a different construction, the following expressions shall bear the meanings hereinafter respectively assigned to them:\
+
+\f0\b (a)
+\f1\b0  "
+\f0\b User
+\f1\b0 " shall mean and include any natural person, Hindu Undivided Family, company, partnership firm, limited liability partnership, society, trust, or any other legal entity, whether incorporated or unincorporated, resident or non-resident, who accesses, uses, or attempts to access or use the Platform or Educational Services, and shall include such person's successors-in-interest, assigns, legal representatives, heirs, executors, administrators, and permitted transferees;\
+
+\f0\b (b)
+\f1\b0  "
+\f0\b Subscriber
+\f1\b0 " shall mean and include any User who has executed a Subscription Agreement with the Company for the provision of Educational Services, including both paid subscribers and those accessing services under promotional or trial arrangements;\
+
+\f0\b (c)
+\f1\b0  "
+\f0\b Platform
+\f1\b0 " shall mean and include the Company's proprietary digital infrastructure for financial education, including but not limited to websites, mobile applications, learning management systems, content delivery networks, user interfaces, databases, servers, investment simulation tools, and all related technological components through which Educational Services are delivered;\
+
+\f0\b (d)
+\f1\b0  "
+\f0\b Educational Services
+\f1\b0 " shall mean and include the entirety of financial education content, investment curricula, analysis modules, market research lessons, assessment tools, examinations, interactive elements, multimedia presentations, downloadable resources, templates, frameworks, supplementary materials, community access, forum participation rights, certification programs, and all other services, facilities, and benefits provided by the Company, whether existing as of the date of these Terms or subsequently added, modified, or enhanced;\
+
+\f0\b (e)
+\f1\b0  "
+\f0\b Proprietary Materials
+\f1\b0 " shall mean and include all content, materials, information, data, investment methodologies, analytical frameworks, market research techniques, trading strategies, portfolio construction methods, risk assessment tools, know-how, trade secrets, algorithms, source codes, user interfaces, designs, graphics, logos, trademarks, copyrighted works, and intellectual property of whatsoever nature owned, developed, or licensed by the Company;\
+
+\f0\b (f)
+\f1\b0  "
+\f0\b Subscription Agreement
+\f1\b0 " shall mean and include the legally binding contractual arrangement between a User and the Company for the provision of Educational Services, executed through electronic acceptance, payment processing, or other binding mechanisms, and incorporating by reference these Terms, the Refund Policy, Privacy Policy, and all other applicable Company policies;\
+
+\f0\b (g)
+\f1\b0  "
+\f0\b Investment Education Content
+\f1\b0 " shall mean and include all educational materials related to stock market analysis, investment strategies, portfolio management techniques, risk assessment methodologies, market research processes, and financial analysis frameworks provided through the Educational Services;\
+
+\f0\b (h)
+\f1\b0  "
+\f0\b User-Generated Content
+\f1\b0 " shall mean and include any content, materials, information, data, feedback, reviews, comments, discussions, submissions, investment analyses, market opinions, or communications of any nature provided, uploaded, transmitted, or otherwise made available by Users through the Platform;\
+
+\f0\b (i)
+\f1\b0  "
+\f0\b Prohibited Activities
+\f1\b0 " shall mean and include any of the activities, conduct, or behaviors specifically enumerated in Article V hereof, the engagement in any one or more of which shall constitute a material breach of these Terms;\
+
+\f0\b (j)
+\f1\b0  "
+\f0\b Confidential Information
+\f1\b0 " shall mean and include all Proprietary Materials, investment methodologies, market research techniques, business strategies, user data, financial information, technical specifications, and any other information disclosed by the Company that is marked as confidential or would reasonably be considered confidential by a prudent business person;\
+
+\f0\b (k)
+\f1\b0  "
+\f0\b Force Majeure Events
+\f1\b0 " shall mean and include acts of God, natural disasters, pandemics, epidemics, government actions, regulatory changes, market volatility, stock market closures, war, terrorism, civil unrest, labor disputes, internet outages, cyber attacks, or any other events beyond the reasonable control of the Company;\
+
+\f0\b (l)
+\f1\b0  "
+\f0\b Applicable Laws
+\f1\b0 " shall mean and include all applicable central, state, and local laws, rules, regulations, ordinances, orders, judgments, decrees, and other legal requirements of India, including but not limited to the Information Technology Act, 2000, Consumer Protection Act, 2019, Copyright Act, 1957, Trade Marks Act, 1999, Securities Contracts (Regulation) Act, 1956, and all rules and regulations promulgated thereunder.\
+
+\f0\b 1.2 Financial Education Specific Definitions
+\f1\b0 \
+
+\f0\b (a)
+\f1\b0  "
+\f0\b Investment Education Framework
+\f1\b0 " shall mean the Company's proprietary methodology for teaching investment analysis, portfolio construction, risk management, and market research techniques through structured educational modules;\
+
+\f0\b (b)
+\f1\b0  "
+\f0\b Market Analysis Tools
+\f1\b0 " shall mean educational resources, templates, frameworks, and methodologies provided for learning purposes related to stock market analysis, company research, and investment decision-making processes;\
+
+\f0\b (c)
+\f1\b0  "
+\f0\b Educational Simulations
+\f1\b0 " shall mean hypothetical investment scenarios, portfolio construction exercises, and market analysis simulations provided for educational purposes only;\
+
+\f0\b (d)
+\f1\b0  "
+\f0\b Investment Learning Assessments
+\f1\b0 " shall mean examinations, quizzes, practical exercises, and evaluation tools designed to measure understanding of investment concepts and analytical techniques.\
+
+\f0\b 1.3 Rules of Construction and Interpretation
+\f1\b0 \
+
+\f0\b (a)
+\f1\b0  The headings, sub-headings, and article titles in these Terms are inserted for convenience of reference only and shall not affect the construction, interpretation, or legal effect of any provision hereof;\
+
+\f0\b (b)
+\f1\b0  Words importing the singular number shall include the plural number and vice versa, words importing the masculine gender shall include the feminine and neuter genders, and words importing persons shall include companies, corporations, firms, partnerships, joint ventures, associations, organizations, governments, governmental agencies, and other legal entities of every nature;\
+
+\f0\b (c)
+\f1\b0  References to any statute, enactment, order, regulation, policy, or other similar instrument shall be construed as references to such statute, enactment, order, regulation, policy, or instrument as the same may from time to time be amended, modified, supplemented, replaced, or re-enacted;\
+
+\f0\b (d)
+\f1\b0  The expressions "including," "include," "includes," and similar expressions shall be deemed to be followed by the phrase "without limitation" whether or not such phrase actually appears;\
+
+\f0\b (e)
+\f1\b0  Any reference to time periods, dates, deadlines, or temporal requirements shall be construed as references to Indian Standard Time unless otherwise specifically indicated;\
+
+\f0\b (f)
+\f1\b0  In the event of any conflict, inconsistency, or ambiguity between the provisions of these Terms and any other document, agreement, or policy, these Terms shall prevail to the extent of such conflict, inconsistency, or ambiguity, except where specifically stated otherwise.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE II: ACCEPTANCE AND BINDING EFFECT\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 2.1 Manifestation of Acceptance
+\f1\b0 \
+These Terms shall become binding upon any User through any one or more of the following manifestations of acceptance:\
+
+\f0\b (a)
+\f1\b0  Electronic acceptance through clicking "I Agree," "Accept," or similar affirmative action during registration or subscription processes;\
+
+\f0\b (b)
+\f1\b0  Payment processing for Educational Services, which shall constitute conclusive evidence of acceptance;\
+
+\f0\b (c)
+\f1\b0  Access to or use of the Platform or Educational Services, whether through active engagement or passive browsing;\
+
+\f0\b (d)
+\f1\b0  Creation of user accounts, profiles, or other Platform interactions;\
+
+\f0\b (e)
+\f1\b0  Participation in any Educational Services, assessments, or Platform activities;\
+
+\f0\b (f)
+\f1\b0  Continued use of the Platform or Educational Services after notification of modifications to these Terms.\
+
+\f0\b 2.2 Legal Capacity and Authority
+\f1\b0 \
+By accepting these Terms, each User represents, warrants, and covenants that:\
+
+\f0\b (a)
+\f1\b0  Such User has attained the age of majority (eighteen years) under Indian law and is a resident of India with legal capacity to enter into binding contractual arrangements;\
+
+\f0\b (b)
+\f1\b0  If representing any legal entity, such User has full corporate authority and power to bind such entity to these Terms;\
+
+\f0\b (c)
+\f1\b0  The execution of these Terms and compliance with the obligations hereunder will not violate any other agreement, court order, or legal restriction binding upon such User;\
+
+\f0\b (d)
+\f1\b0  All information provided during registration or subscription processes is accurate, complete, and current;\
+
+\f0\b (e)
+\f1\b0  Such User understands that the Educational Services are for educational purposes only and do not constitute investment advice or recommendations.\
+
+\f0\b 2.3 Investment Education Acknowledgments
+\f1\b0 \
+Users representing interest in financial education additionally represent and warrant that:\
+
+\f0\b (a)
+\f1\b0  They understand that investment markets involve risk and that educational content does not guarantee investment success;\
+
+\f0\b (b)
+\f1\b0  They acknowledge that the Company is not registered with SEBI as an investment advisor or research analyst;\
+
+\f0\b (c)
+\f1\b0  They will not treat educational content as personalized investment advice or recommendations;\
+
+\f0\b (d)
+\f1\b0  They understand the distinction between investment education and investment advisory services.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE III: SCOPE AND NATURE OF EDUCATIONAL SERVICES\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 3.1 Investment Education Service Description and Framework
+\f1\b0 \
+The Company provides Educational Services designed to impart knowledge, skills, and methodologies related to investment analysis, market research, portfolio construction, risk assessment, and related financial education competencies. The Educational Services include but are not limited to:\
+
+\f0\b (a)
+\f1\b0  Structured learning modules covering investment analysis frameworks and market research methodologies;\
+
+\f0\b (b)
+\f1\b0  Interactive presentations, video content, and multimedia educational materials related to financial markets;\
+
+\f0\b (c)
+\f1\b0  Assessment tools, practice exercises, and skill evaluation mechanisms for investment knowledge;\
+
+\f0\b (d)
+\f1\b0  Templates, frameworks, and practical implementation resources for investment analysis;\
+
+\f0\b (e)
+\f1\b0  Educational simulations and hypothetical investment scenarios for learning purposes;\
+
+\f0\b (f)
+\f1\b0  Community access and peer interaction opportunities for financial education discussions;\
+
+\f0\b (g)
+\f1\b0  Certification programs upon completion of prescribed educational requirements.\
+
+\f0\b 3.2 Educational Disclaimers and Limitations
+\f1\b0 \
+
+\f0\b 3.2.1 Educational Purpose Limitation
+\f1\b0 \
+The Educational Services are provided solely for educational and informational purposes. Users acknowledge and agree that:\
+
+\f0\b (a)
+\f1\b0  The Educational Services do not constitute investment advice, financial advisory services, portfolio management services, research analyst recommendations, or personalized investment guidance;\
+
+\f0\b (b)
+\f1\b0  The Company does not provide individualized investment recommendations tailored to specific financial situations, risk profiles, or investment objectives;\
+
+\f0\b (c)
+\f1\b0  Users should not treat any Educational Services content as substitute for professional consultation with qualified investment advisors or financial planners;\
+
+\f0\b (d)
+\f1\b0  The application of Educational Services content to specific investment decisions requires independent judgment and professional consultation;\
+
+\f0\b (e)
+\f1\b0  All investment strategies, techniques, and methodologies presented are for educational illustration only.\
+
+\f0\b 3.2.2 SEBI Registration Disclaimer
+\f1\b0 \
+The Company explicitly disclaims and Users acknowledge that:\
+
+\f0\b (a)
+\f1\b0  Lotuslion Venture LLP is NOT registered as an investment advisor under the Securities and Exchange Board of India (Investment Advisers) Regulations, 2013;\
+
+\f0\b (b)
+\f1\b0  The Company is NOT registered as a research analyst under the Securities and Exchange Board of India (Research Analysts) Regulations, 2014;\
+
+\f0\b (c)
+\f1\b0  The Educational Services do not constitute research reports, investment recommendations, or advisory services as defined under SEBI regulations;\
+
+\f0\b (d)
+\f1\b0  Users should seek advice from SEBI-registered investment advisors for personalized investment guidance;\
+
+\f0\b (e)
+\f1\b0  The Company operates exclusively as an educational platform providing general financial education content.\
+
+\f0\b 3.2.3 No Investment Performance Guarantees
+\f1\b0 \
+The Company makes no representation, warranty, or guarantee regarding:\
+
+\f0\b (a)
+\f1\b0  Achievement of any particular investment outcomes, returns, or financial performance;\
+
+\f0\b (b)
+\f1\b0  Specific results, profit generation, or quantifiable benefits from Educational Services utilization in actual investment activities;\
+
+\f0\b (c)
+\f1\b0  Compatibility of Educational Services content with any particular investment strategy, market condition, or individual risk profile;\
+
+\f0\b (d)
+\f1\b0  Suitability of Educational Services for any specific User investment requirements or financial objectives;\
+
+\f0\b (e)
+\f1\b0  Market performance, timing, or investment success based on educational content application.\
+
+\f0\b 3.2.4 Market Risk and Investment Disclaimers
+\f1\b0 \
+Users explicitly acknowledge and agree that:\
+
+\f0\b (a)
+\f1\b0  Investment in financial markets involves substantial risk of loss and is not suitable for all investors;\
+
+\f0\b (b)
+\f1\b0  Past performance of investment strategies or market examples presented in educational content does not guarantee future results;\
+
+\f0\b (c)
+\f1\b0  Market conditions, regulatory changes, and economic factors can significantly impact investment outcomes regardless of educational preparation;\
+
+\f0\b (d)
+\f1\b0  Individual investment results will vary based on numerous factors including market timing, execution quality, risk management, and external economic conditions;\
+
+\f0\b (e)
+\f1\b0  The Company disclaims all liability for investment losses or poor performance resulting from application of educational content to actual investment activities.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE IV: USER ACCOUNTS AND ACCESS MANAGEMENT\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 4.1 Account Creation and Registration Requirements
+\f1\b0 \
+
+\f0\b 4.1.1 Mandatory Information Provision
+\f1\b0 \
+Users seeking to access Educational Services must provide accurate and complete information including:\
+
+\f0\b (a)
+\f1\b0  Full legal name and contact information;\
+
+\f0\b (b)
+\f1\b0  Valid email address and mobile telephone number;\
+
+\f0\b (c)
+\f1\b0  Residential address and age verification documentation;\
+
+\f0\b (d)
+\f1\b0  Investment experience level and educational background information;\
+
+\f0\b (e)
+\f1\b0  Payment information and billing address details;\
+
+\f0\b (f)
+\f1\b0  Any additional information reasonably requested by the Company for verification or educational customization purposes.\
+
+\f0\b 4.1.2 Investment Education Eligibility Verification
+\f1\b0 \
+The Company reserves the right to:\
+
+\f0\b (a)
+\f1\b0  Verify User age and residency status to ensure compliance with eligibility requirements;\
+
+\f0\b (b)
+\f1\b0  Assess investment education background and experience level for appropriate content delivery;\
+
+\f0\b (c)
+\f1\b0  Request additional documentation to confirm User suitability for financial education content;\
+
+\f0\b (d)
+\f1\b0  Reject registration applications that do not meet Company criteria or legal requirements;\
+
+\f0\b (e)
+\f1\b0  Suspend or terminate accounts pending verification completion or compliance issues.\
+
+\f0\b 4.2 Account Security and Credential Management
+\f1\b0 \
+
+\f0\b 4.2.1 User Responsibilities
+\f1\b0 \
+Users are solely responsible for:\
+
+\f0\b (a)
+\f1\b0  Maintaining the confidentiality and security of account credentials;\
+
+\f0\b (b)
+\f1\b0  All activities occurring under their user accounts, whether authorized or unauthorized;\
+
+\f0\b (c)
+\f1\b0  Immediately notifying the Company of any suspected unauthorized access or security breaches;\
+
+\f0\b (d)
+\f1\b0  Implementing reasonable security measures to protect account access from unauthorized use;\
+
+\f0\b (e)
+\f1\b0  Ensuring that account information remains accurate and up-to-date.\
+
+\f0\b 4.2.2 Company Rights and Remedies
+\f1\b0 \
+The Company may, in its sole discretion:\
+
+\f0\b (a)
+\f1\b0  Suspend or terminate accounts showing suspicious activity patterns or security compromises;\
+
+\f0\b (b)
+\f1\b0  Require password changes, multi-factor authentication, or additional security measures;\
+
+\f0\b (c)
+\f1\b0  Implement enhanced security protocols or access restrictions as necessary;\
+
+\f0\b (d)
+\f1\b0  Monitor account usage patterns for security, compliance, and educational optimization purposes;\
+
+\f0\b (e)
+\f1\b0  Restrict access to specific features or content based on security or compliance concerns.\
+
+\f0\b 4.3 Account Suspension and Termination
+\f1\b0 \
+
+\f0\b 4.3.1 Company Termination Rights
+\f1\b0 \
+The Company may immediately suspend or terminate User accounts upon:\
+
+\f0\b (a)
+\f1\b0  Material breach of these Terms or any Company policy;\
+
+\f0\b (b)
+\f1\b0  Engagement in Prohibited Activities as defined in Article V;\
+
+\f0\b (c)
+\f1\b0  Provision of false or misleading information during registration or account maintenance;\
+
+\f0\b (d)
+\f1\b0  Non-payment of subscription fees or other amounts due to the Company;\
+
+\f0\b (e)
+\f1\b0  Violation of intellectual property rights, confidentiality obligations, or proprietary information misuse;\
+
+\f0\b (f)
+\f1\b0  Any conduct that the Company reasonably determines may harm its business interests, reputation, or other Users;\
+
+\f0\b (g)
+\f1\b0  Misuse of educational content for unauthorized commercial purposes or investment advisory activities.\
+
+\f0\b 4.3.2 Effect of Termination
+\f1\b0 \
+Upon account termination:\
+
+\f0\b (a)
+\f1\b0  User access to Educational Services shall immediately cease;\
+
+\f0\b (b)
+\f1\b0  All User obligations regarding confidentiality, intellectual property, and proprietary information shall survive termination;\
+
+\f0\b (c)
+\f1\b0  The Company may retain User data as required by law, legitimate business purposes, or educational analytics;\
+
+\f0\b (d)
+\f1\b0  No refunds shall be provided except as specifically set forth in the Company's Refund Policy;\
+
+\f0\b (e)
+\f1\b0  All licenses to use Proprietary Materials shall immediately terminate.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE V: PROHIBITED ACTIVITIES AND USAGE RESTRICTIONS\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 5.1 Intellectual Property Violations
+\f1\b0 \
+Users are strictly prohibited from:\
+
+\f0\b (a)
+\f1\b0  Reproducing, copying, duplicating, or creating derivative works from any Proprietary Materials, Investment Education Content, or Market Analysis Tools without express written authorization;\
+
+\f0\b (b)
+\f1\b0  Distributing, transmitting, broadcasting, or making available Proprietary Materials to any third parties for commercial or non-commercial purposes;\
+
+\f0\b (c)
+\f1\b0  Reverse engineering, decompiling, disassembling, or attempting to derive source code from any Platform components or educational software;\
+
+\f0\b (d)
+\f1\b0  Removing, altering, or obscuring any copyright, trademark, or other proprietary notices from educational materials;\
+
+\f0\b (e)
+\f1\b0  Using Proprietary Materials, investment methodologies, or analytical frameworks to create competing educational products or services;\
+
+\f0\b (f)
+\f1\b0  Recording, downloading, or capturing Educational Services content through any technological means for redistribution or commercial use.\
+
+\f0\b 5.2 Investment Advisory and Commercial Violations
+\f1\b0 \
+Users are prohibited from:\
+
+\f0\b (a)
+\f1\b0  Using Educational Services content to provide investment advice, portfolio management services, or research analyst services to third parties;\
+
+\f0\b (b)
+\f1\b0  Representing themselves as investment advisors, research analysts, or financial professionals based on Educational Services completion;\
+
+\f0\b (c)
+\f1\b0  Charging fees for investment advice or recommendations based on Educational Services content;\
+
+\f0\b (d)
+\f1\b0  Creating investment advisory businesses, research services, or financial consulting services using Company methodologies;\
+
+\f0\b (e)
+\f1\b0  Misrepresenting the nature or scope of Educational Services as constituting professional investment advisory services;\
+
+\f0\b (f)
+\f1\b0  Violating SEBI regulations or other securities laws through misuse of educational content.\
+
+\f0\b 5.3 Platform Interference and Security Violations
+\f1\b0 \
+Users shall not:\
+
+\f0\b (a)
+\f1\b0  Introduce viruses, malware, or other harmful code into the Platform or educational systems;\
+
+\f0\b (b)
+\f1\b0  Attempt to gain unauthorized access to Platform systems, networks, databases, or other Users' accounts;\
+
+\f0\b (c)
+\f1\b0  Interfere with or disrupt Platform operations, servers, networks, or educational service delivery;\
+
+\f0\b (d)
+\f1\b0  Engage in any activity that could disable, overburden, or impair Platform functionality or educational content delivery;\
+
+\f0\b (e)
+\f1\b0  Use the Platform in any manner that could damage, disable, or compromise Platform security or educational data integrity;\
+
+\f0\b (f)
+\f1\b0  Attempt to breach or circumvent any Platform security measures or educational content protection systems.\
+
+\f0\b 5.4 Account and Access Violations
+\f1\b0 \
+Users are prohibited from:\
+
+\f0\b (a)
+\f1\b0  Sharing account credentials with any third parties or permitting unauthorized access to educational content;\
+
+\f0\b (b)
+\f1\b0  Creating multiple accounts to circumvent usage limitations, restrictions, or subscription requirements;\
+
+\f0\b (c)
+\f1\b0  Using automated systems, scripts, or bots to access the Platform or educational content;\
+
+\f0\b (d)
+\f1\b0  Attempting to bypass security measures, access controls, or usage monitoring systems;\
+
+\f0\b (e)
+\f1\b0  Impersonating other persons, entities, or investment professionals in connection with Platform usage;\
+
+\f0\b (f)
+\f1\b0  Providing false or misleading information during registration, subscription, or educational participation.\
+
+\f0\b 5.5 Legal and Regulatory Violations
+\f1\b0 \
+Users shall not use the Platform or Educational Services:\
+
+\f0\b (a)
+\f1\b0  For any unlawful purpose or in violation of any Applicable Laws, including securities regulations;\
+
+\f0\b (b)
+\f1\b0  To transmit or distribute content that is illegal, harmful, threatening, defamatory, or offensive;\
+
+\f0\b (c)
+\f1\b0  To infringe upon the intellectual property rights of any third parties;\
+
+\f0\b (d)
+\f1\b0  To violate any privacy rights, data protection regulations, or confidentiality obligations;\
+
+\f0\b (e)
+\f1\b0  To engage in any fraudulent, deceptive, misleading, or manipulative market practices;\
+
+\f0\b (f)
+\f1\b0  To provide unlicensed investment advisory services or securities research to third parties.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE VI: INTELLECTUAL PROPERTY RIGHTS AND PROTECTION\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 6.1 Company Ownership Rights
+\f1\b0 \
+
+\f0\b 6.1.1 Exclusive Proprietary Rights
+\f1\b0 \
+The Company exclusively owns all right, title, and interest in and to:\
+
+\f0\b (a)
+\f1\b0  All Educational Services content, including investment curricula, analytical frameworks, market research methodologies, and assessment tools;\
+
+\f0\b (b)
+\f1\b0  The Platform and all underlying software, algorithms, user interfaces, educational delivery systems, and technological components;\
+
+\f0\b (c)
+\f1\b0  All trademarks, service marks, logos, trade names, and brand identifiers related to financial education services;\
+
+\f0\b (d)
+\f1\b0  All copyrightable materials, including text, graphics, videos, audio content, multimedia presentations, and educational resources;\
+
+\f0\b (e)
+\f1\b0  All trade secrets, proprietary investment processes, analytical techniques, and confidential business information;\
+
+\f0\b (f)
+\f1\b0  All improvements, modifications, enhancements, or derivative works created by the Company related to financial education delivery.\
+
+\f0\b 6.1.2 Investment Education Specific Intellectual Property
+\f1\b0 \
+The Company's intellectual property specifically includes:\
+
+\f0\b (a)
+\f1\b0  Proprietary investment analysis frameworks and methodologies developed for educational purposes;\
+
+\f0\b (b)
+\f1\b0  Market research techniques, stock analysis processes, and portfolio construction educational methods;\
+
+\f0\b (c)
+\f1\b0  Risk assessment tools, investment evaluation criteria, and financial analysis educational resources;\
+
+\f0\b (d)
+\f1\b0  Educational simulations, hypothetical investment scenarios, and learning assessment tools;\
+
+\f0\b (e)
+\f1\b0  Certification programs, competency evaluation methods, and educational achievement recognition systems.\
+
+\f0\b 6.2 Limited License Grant to Users
+\f1\b0 \
+
+\f0\b 6.2.1 Scope of Licensed Rights
+\f1\b0 \
+Subject to compliance with these Terms, the Company grants each Subscriber a limited, non-exclusive, non-transferable, revocable license to:\
+
+\f0\b (a)
+\f1\b0  Access and use Educational Services solely for personal educational purposes related to investment learning;\
+
+\f0\b (b)
+\f1\b0  View and interact with Proprietary Materials through the Platform interface for educational consumption;\
+
+\f0\b (c)
+\f1\b0  Download and use specifically designated educational materials for individual learning purposes only;\
+
+\f0\b (d)
+\f1\b0  Create personal notes and learning materials derived from Educational Services for individual educational use;\
+
+\f0\b (e)
+\f1\b0  Participate in educational assessments, simulations, and learning activities as intended by the educational program.\
+
+\f0\b 6.2.2 Investment Education License Restrictions and Limitations
+\f1\b0 \
+The license granted herein does not permit:\
+
+\f0\b (a)
+\f1\b0  Commercial use, resale, or redistribution of any Proprietary Materials or investment methodologies;\
+
+\f0\b (b)
+\f1\b0  Modification, adaptation, or creation of derivative works from educational content;\
+
+\f0\b (c)
+\f1\b0  Public display, performance, or transmission of Proprietary Materials or investment frameworks;\
+
+\f0\b (d)
+\f1\b0  Use of Proprietary Materials for providing investment advisory services or research to third parties;\
+
+\f0\b (e)
+\f1\b0  Transfer or assignment of license rights to any third parties or commercial entities;\
+
+\f0\b (f)
+\f1\b0  Use of educational content beyond the specific subscription period or authorized access duration.\
+
+\f0\b 6.3 User-Generated Content Rights
+\f1\b0 \
+
+\f0\b 6.3.1 User Retention of Ownership
+\f1\b0 \
+Users retain ownership of original User-Generated Content, subject to the license grants set forth herein and restrictions on investment advisory activities.\
+
+\f0\b 6.3.2 License Grant to Company
+\f1\b0 \
+By submitting User-Generated Content, Users grant the Company a worldwide, royalty-free, perpetual, irrevocable license to:\
+
+\f0\b (a)
+\f1\b0  Use, reproduce, modify, adapt, and display such content in connection with Educational Services improvement;\
+
+\f0\b (b)
+\f1\b0  Incorporate user feedback, educational suggestions, and learning insights into Educational Services enhancements;\
+
+\f0\b (c)
+\f1\b0  Create anonymized case studies, educational examples, and learning illustrations from user interactions;\
+
+\f0\b (d)
+\f1\b0  Use aggregated and anonymized user data for educational research, course development, and business intelligence purposes;\
+
+\f0\b (e)
+\f1\b0  Share anonymized educational outcomes and learning effectiveness data for educational research purposes.\
+
+\f0\b 6.4 Intellectual Property Enforcement
+\f1\b0 \
+
+\f0\b 6.4.1 Infringement Notification and Response
+\f1\b0 \
+Users agree to immediately notify the Company of any suspected intellectual property infringement related to educational content and cooperate in enforcement efforts.\
+
+\f0\b 6.4.2 Remedies for IP Violations
+\f1\b0 \
+Violation of intellectual property rights shall entitle the Company to:\
+
+\f0\b (a)
+\f1\b0  Immediate injunctive relief and other equitable remedies to prevent further infringement;\
+
+\f0\b (b)
+\f1\b0  Liquidated damages of \uc0\u8377 2,00,000 (Two Lakh Rupees) per instance of unauthorized commercial use or distribution of investment education content;\
+
+\f0\b (c)
+\f1\b0  Recovery of all attorneys' fees, litigation costs, and enforcement expenses;\
+
+\f0\b (d)
+\f1\b0  Any additional remedies available under Applicable Laws, including criminal prosecution under the Copyright Act, 1957 and Information Technology Act, 2000;\
+
+\f0\b (e)
+\f1\b0  Permanent injunction against future use of Company's intellectual property or educational methodologies.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE VII: PAYMENT TERMS AND FINANCIAL OBLIGATIONS\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 7.1 Subscription Fees and Pricing Structure
+\f1\b0 \
+
+\f0\b 7.1.1 Current Pricing Terms
+\f1\b0 \
+Educational Services are provided at the current subscription fee of \uc0\u8377 9,999 (Rupees Nine Thousand Nine Hundred and Ninety-Nine Only) for "The Complete Indian Stock Investor" educational program.\
+
+\f0\b 7.1.2 Pricing Modification Rights
+\f1\b0 \
+The Company reserves the right to:\
+
+\f0\b (a)
+\f1\b0  Modify subscription fees with sixty (60) days advance notice to existing Subscribers for renewal subscriptions;\
+
+\f0\b (b)
+\f1\b0  Offer promotional pricing, educational discounts, or special arrangements at its sole discretion;\
+
+\f0\b (c)
+\f1\b0  Implement different pricing structures for different educational service tiers, specialization tracks, or user categories;\
+
+\f0\b (d)
+\f1\b0  Adjust pricing to reflect changes in costs, market conditions, educational content enhancements, or regulatory requirements.\
+
+\f0\b 7.2 Payment Processing and Terms
+\f1\b0 \
+
+\f0\b 7.2.1 Payment Methods and Processing
+\f1\b0 \
+
+\f0\b (a)
+\f1\b0  All payments must be made through the Company's designated payment processing systems and approved payment gateways;\
+
+\f0\b (b)
+\f1\b0  The Company may offer installment payment options through third-party financing arrangements subject to eligibility criteria;\
+
+\f0\b (c)
+\f1\b0  Users are responsible for all payment processing fees, gateway charges, applicable taxes, and related financial service costs;\
+
+\f0\b (d)
+\f1\b0  Payment authorization constitutes acceptance of these Terms and the applicable Subscription Agreement for educational services.\
+
+\f0\b 7.2.2 Currency and Tax Obligations
+\f1\b0 \
+
+\f0\b (a)
+\f1\b0  All fees are denominated and payable in Indian Rupees unless otherwise specified for international educational partnerships;\
+
+\f0\b (b)
+\f1\b0  Users are responsible for all applicable taxes, duties, and governmental charges related to educational services;\
+
+\f0\b (c)
+\f1\b0  The Company may collect and remit taxes as required by Applicable Laws and tax regulations;\
+
+\f0\b (d)
+\f1\b0  International Users remain responsible for compliance with their local tax obligations related to educational service purchases.\
+
+\f0\b 7.3 Refund and Cancellation Terms
+\f1\b0 \
+
+\f0\b 7.3.1 Refund Policy Integration
+\f1\b0 \
+All refund requests are subject to the Company's separate Refund and Restitution Policy, which is incorporated herein by reference and forms an integral part of these Terms.\
+
+\f0\b 7.3.2 Non-Refundable Amounts
+\f1\b0 \
+Certain charges are non-refundable under all circumstances, including:\
+
+\f0\b (a)
+\f1\b0  Payment processing fees, gateway charges, and third-party financial service costs;\
+
+\f0\b (b)
+\f1\b0  Administrative processing fees and account management charges;\
+
+\f0\b (c)
+\f1\b0  Amounts related to educational services already consumed, accessed, or delivered;\
+
+\f0\b (d)
+\f1\b0  Third-party licensing fees, educational content costs, or external service provider charges.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE VIII: PRIVACY, DATA PROTECTION AND CONFIDENTIALITY\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 8.1 Data Collection and Processing
+\f1\b0 \
+
+\f0\b 8.1.1 Information Gathering Scope
+\f1\b0 \
+The Company collects, processes, and utilizes User information as detailed in its Privacy Policy, including:\
+
+\f0\b (a)
+\f1\b0  Personal identification and contact information for educational service delivery;\
+
+\f0\b (b)
+\f1\b0  Educational background, investment experience, and professional experience data for content customization;\
+
+\f0\b (c)
+\f1\b0  Platform usage patterns, learning progress, engagement metrics, and educational outcome data;\
+
+\f0\b (d)
+\f1\b0  Payment and billing information for subscription management and financial processing;\
+
+\f0\b (e)
+\f1\b0  Technical data including device information, IP addresses, usage logs, and educational platform interaction data.\
+
+\f0\b 8.1.2 Educational Data Processing Legal Basis
+\f1\b0 \
+Educational data processing is conducted based on:\
+
+\f0\b (a)
+\f1\b0  Contractual necessity for educational service provision and learning outcome measurement;\
+
+\f0\b (b)
+\f1\b0  Legitimate business interests in educational service improvement, content optimization, and learning effectiveness measurement;\
+
+\f0\b (c)
+\f1\b0  Legal compliance requirements under Applicable Laws and educational regulations;\
+
+\f0\b (d)
+\f1\b0  User consent where specifically obtained for additional educational features or marketing communications.\
+
+\f0\b 8.2 Confidentiality Obligations
+\f1\b0 \
+
+\f0\b 8.2.1 Mutual Confidentiality
+\f1\b0 \
+Both parties acknowledge that Confidential Information may be disclosed during the educational relationship and agree to:\
+
+\f0\b (a)
+\f1\b0  Maintain strict confidentiality of all Confidential Information, including investment methodologies and educational techniques;\
+
+\f0\b (b)
+\f1\b0  Use Confidential Information solely for authorized educational purposes and personal learning;\
+
+\f0\b (c)
+\f1\b0  Implement reasonable security measures to protect against unauthorized disclosure of educational content;\
+
+\f0\b (d)
+\f1\b0  Return or destroy Confidential Information upon termination of the educational relationship as required.\
+
+\f0\b 8.2.2 Investment Education Confidentiality
+\f1\b0 \
+Users specifically acknowledge and agree to maintain confidentiality regarding:\
+
+\f0\b (a)
+\f1\b0  Proprietary investment analysis frameworks and methodologies disclosed through educational content;\
+
+\f0\b (b)
+\f1\b0  Market research techniques, analytical processes, and evaluation criteria taught in educational programs;\
+
+\f0\b (c)
+\f1\b0  Educational assessment methods, certification criteria, and competency evaluation processes;\
+
+\f0\b (d)
+\f1\b0  Business strategies, competitive information, and proprietary educational development processes disclosed during educational delivery.\
+
+\f0\b 8.3 Data Security and Protection Measures
+\f1\b0 \
+The Company implements industry-standard security measures including:\
+
+\f0\b (a)
+\f1\b0  Encryption of sensitive educational data in transit and at rest using advanced cryptographic protocols;\
+
+\f0\b (b)
+\f1\b0  Regular security audits, vulnerability assessments, and penetration testing of educational platforms;\
+
+\f0\b (c)
+\f1\b0  Access controls, authentication mechanisms, and authorization systems for educational content protection;\
+
+\f0\b (d)
+\f1\b0  Incident response procedures, breach notification protocols, and educational data recovery systems.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE IX: LIMITATION OF LIABILITY AND RISK ALLOCATION\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 9.1 Educational Service Provision Disclaimers
+\f1\b0 \
+
+\f0\b 9.1.1 "As-Is" Educational Service Provision
+\f1\b0 \
+Educational Services are provided on an "as-is" and "as-available" basis without warranties of any kind, whether express, implied, or statutory, including but not limited to:\
+
+\f0\b (a)
+\f1\b0  Warranties of merchantability, fitness for particular educational purposes, or non-infringement of third-party rights;\
+
+\f0\b (b)
+\f1\b0  Warranties regarding accuracy, completeness, reliability, or currentness of Educational Services content or investment information;\
+
+\f0\b (c)
+\f1\b0  Warranties of uninterrupted or error-free educational service availability or platform accessibility;\
+
+\f0\b (d)
+\f1\b0  Warranties regarding specific educational outcomes, investment success, or financial results from Educational Services utilization.\
+
+\f0\b 9.1.2 Investment Education Specific Disclaimers
+\f1\b0 \
+The Company specifically disclaims any warranties or representations regarding:\
+
+\f0\b (a)
+\f1\b0  Investment performance, market returns, or financial outcomes resulting from application of educational content;\
+
+\f0\b (b)
+\f1\b0  Suitability of educational content for specific investment strategies, market conditions, or individual financial circumstances;\
+
+\f0\b (c)
+\f1\b0  Accuracy of market data, historical information, or forward-looking educational examples;\
+
+\f0\b (d)
+\f1\b0  Compliance of educational content with changing market conditions, regulatory requirements, or investment best practices.\
+
+\f0\b 9.2 Exclusion of Consequential Damages
+\f1\b0 \
+
+\f0\b 9.2.1 Investment-Related Damages Exclusion Scope
+\f1\b0 \
+To the maximum extent permitted by Applicable Laws, the Company shall not be liable for any indirect, incidental, special, consequential, punitive, or exemplary damages, including but not limited to:\
+
+\f0\b (a)
+\f1\b0  Investment losses, trading losses, or poor investment performance resulting from application of educational content;\
+
+\f0\b (b)
+\f1\b0  Lost profits, revenue, business opportunities, or investment returns attributed to educational content utilization;\
+
+\f0\b (c)
+\f1\b0  Loss of investment data, portfolio information, or financial records related to educational activities;\
+
+\f0\b (d)
+\f1\b0  Cost of substitute educational services, investment advisory services, or professional financial guidance;\
+
+\f0\b (e)
+\f1\b0  Business interruption, operational disruption, or investment opportunity losses;\
+
+\f0\b (f)
+\f1\b0  Damage to professional reputation, investment credibility, or financial standing;\
+
+\f0\b (g)
+\f1\b0  Any other investment-related losses that are not directly and immediately caused by the Company's actions.\
+
+\f0\b 9.2.2 Market Risk and External Factor Exclusions
+\f1\b0 \
+The exclusions set forth herein specifically apply to damages resulting from:\
+
+\f0\b (a)
+\f1\b0  Market volatility, economic downturns, regulatory changes, or external financial market conditions;\
+
+\f0\b (b)
+\f1\b0  Individual investment decisions, timing, execution, or strategy implementation by Users;\
+
+\f0\b (c)
+\f1\b0  Third-party investment platforms, brokers, financial institutions, or service providers;\
+
+\f0\b (d)
+\f1\b0  Government actions, policy changes, tax implications, or regulatory enforcement affecting investments.\
+
+\f0\b 9.3 Aggregate Liability Cap
+\f1\b0 \
+
+\f0\b 9.3.1 Maximum Liability Limitation
+\f1\b0 \
+The Company's total aggregate liability to any User for any and all claims arising out of or relating to these Terms, Educational Services, or investment education content shall not exceed the total amount paid by such User to the Company in the twelve (12) months preceding the event giving rise to liability.\
+
+\f0\b 9.3.2 Investment Education Liability Considerations
+\f1\b0 \
+For investment education services specifically:\
+
+\f0\b (a)
+\f1\b0  Liability limitations reflect the educational nature of services and the inherent risks of investment markets;\
+
+\f0\b (b)
+\f1\b0  Users acknowledge that investment education cannot eliminate market risks or guarantee investment success;\
+
+\f0\b (c)
+\f1\b0  Educational content is provided for learning purposes and individual investment outcomes depend on numerous external factors;\
+
+\f0\b (d)
+\f1\b0  The Company's role is limited to education provision and does not extend to investment advisory services or performance guarantees.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE X: INDEMNIFICATION AND HOLD HARMLESS PROVISIONS\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 10.1 User Indemnification Obligations
+\f1\b0 \
+Each User agrees to indemnify, defend, and hold harmless the Company, its partners, officers, directors, employees, agents, and affiliates from and against any and all claims, liabilities, damages, losses, costs, and expenses (including reasonable attorneys' fees and litigation costs) arising out of or relating to:\
+
+\f0\b (a)
+\f1\b0  User's breach of these Terms or any Company policy related to educational services;\
+
+\f0\b (b)
+\f1\b0  User's violation of any Applicable Laws, including securities regulations and investment advisory requirements;\
+
+\f0\b (c)
+\f1\b0  User's infringement of any third-party intellectual property rights through misuse of educational content;\
+
+\f0\b (d)
+\f1\b0  User's negligent acts or omissions in connection with Educational Services utilization or investment activities;\
+
+\f0\b (e)
+\f1\b0  Any User-Generated Content or materials submitted through the Platform;\
+
+\f0\b (f)
+\f1\b0  Investment decisions, trading activities, or financial strategies implemented based on educational content;\
+
+\f0\b (g)
+\f1\b0  User's provision of unauthorized investment advice, research services, or financial guidance to third parties using educational content;\
+
+\f0\b (h)
+\f1\b0  User's violation of any third-party rights, including privacy, publicity, or confidentiality rights related to educational activities.\
+
+\f0\b 10.2 Investment Education Specific Indemnification
+\f1\b0 \
+Users specifically agree to indemnify the Company for claims arising from:\
+
+\f0\b (a)
+\f1\b0  Misrepresentation of educational content as investment advice or professional recommendations;\
+
+\f0\b (b)
+\f1\b0  Unauthorized commercial use of investment methodologies or analytical frameworks for advisory services;\
+
+\f0\b (c)
+\f1\b0  Securities law violations resulting from misuse of educational content for unlicensed advisory activities;\
+
+\f0\b (d)
+\f1\b0  Investment losses claimed by third parties based on User's application or communication of educational content;\
+
+\f0\b (e)
+\f1\b0  Regulatory enforcement actions related to User's unauthorized investment advisory activities using educational content.\
+
+\f0\b 10.3 Defense and Settlement Rights
+\f1\b0 \
+
+\f0\b 10.3.1 Company Control of Defense
+\f1\b0 \
+The Company reserves the right to assume the exclusive defense and control of any matter subject to indemnification, in which case the User shall cooperate fully in such defense.\
+
+\f0\b 10.3.2 Settlement Authorization
+\f1\b0 \
+Users may not settle any claim subject to indemnification without the Company's prior written consent, which consent shall not be unreasonably withheld.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE XI: DISPUTE RESOLUTION AND ARBITRATION\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 11.1 Mandatory Alternative Dispute Resolution
+\f1\b0 \
+
+\f0\b 11.1.1 Exclusive Dispute Resolution Mechanism
+\f1\b0 \
+All disputes, differences, claims, or controversies arising out of or in connection with these Terms, the Educational Services, investment education content, or any related agreements shall be resolved exclusively through binding arbitration in accordance with the provisions set forth herein.\
+
+\f0\b 11.1.2 Waiver of Court Proceedings
+\f1\b0 \
+Users hereby waive any right to institute legal proceedings in any court of law, consumer forum, or other judicial or quasi-judicial body, except for:\
+
+\f0\b (a)
+\f1\b0  Enforcement of arbitral awards;\
+
+\f0\b (b)
+\f1\b0  Seeking interim relief pending arbitration proceedings;\
+
+\f0\b (c)
+\f1\b0  Claims specifically exempted from arbitration under Applicable Laws.\
+
+\f0\b 11.2 Arbitration Procedures and Framework
+\f1\b0 \
+
+\f0\b 11.2.1 Governing Arbitration Law
+\f1\b0 \
+All arbitration proceedings shall be conducted in accordance with the Arbitration and Conciliation Act, 2015, and institutional arbitration rules as specified herein.\
+
+\f0\b 11.2.2 Tribunal Constitution
+\f1\b0 \
+
+\f0\b (a)
+\f1\b0  Disputes involving claims up to \uc0\u8377 50,00,000 (Fifty Lakh Rupees) shall be decided by a sole arbitrator with expertise in commercial law and financial services;\
+
+\f0\b (b)
+\f1\b0  Disputes involving claims exceeding \uc0\u8377 50,00,000 shall be decided by a tribunal of three arbitrators;\
+
+\f0\b (c)
+\f1\b0  Each party shall appoint one arbitrator within thirty (30) days of arbitration notice, with the third arbitrator appointed by mutual agreement or through institutional appointment procedures;\
+
+\f0\b (d)
+\f1\b0  All arbitrators must be qualified advocates with minimum fifteen (15) years of practice experience in commercial law, with preference for financial services expertise.\
+
+\f0\b 11.3 Seat, Language, and Procedural Rules
+\f1\b0 \
+
+\f0\b 11.3.1 Arbitration Logistics
+\f1\b0 \
+
+\f0\b (a)
+\f1\b0  The seat and venue of arbitration shall be Mumbai, Maharashtra, India;\
+
+\f0\b (b)
+\f1\b0  All proceedings shall be conducted in the English language;\
+
+\f0\b (c)
+\f1\b0  The arbitration shall follow expedited procedures with awards to be rendered within six (6) months of tribunal constitution;\
+
+\f0\b (d)
+\f1\b0  The Indian Evidence Act, 1872 shall govern evidentiary matters and procedural questions.\
+
+\f0\b 11.3.2 Discovery and Evidence Limitations
+\f1\b0 \
+
+\f0\b (a)
+\f1\b0  Discovery shall be limited to essential documents and information directly relevant to the dispute;\
+
+\f0\b (b)
+\f1\b0  Each party may examine a maximum of three (3) witnesses unless the tribunal orders otherwise for complex matters;\
+
+\f0\b (c)
+\f1\b0  Expert testimony shall be limited to written reports unless oral examination is specifically authorized by the tribunal;\
+
+\f0\b (d)
+\f1\b0  The tribunal may impose additional limitations to ensure expeditious proceedings and cost-effectiveness.\
+
+\f0\b 11.4 Costs and Fees Allocation
+\f1\b0 \
+
+\f0\b 11.4.1 Initial Cost Bearing
+\f1\b0 \
+Each party shall initially bear its own attorneys' fees, costs, and expenses, with arbitrator fees to be shared equally unless the tribunal orders otherwise.\
+
+\f0\b 11.4.2 Prevailing Party Cost Awards
+\f1\b0 \
+The arbitral tribunal may award reasonable attorneys' fees and costs to the prevailing party, particularly in cases involving:\
+
+\f0\b (a)
+\f1\b0  Frivolous or vexatious claims or defenses lacking factual or legal merit;\
+
+\f0\b (b)
+\f1\b0  Material breach of these Terms or bad faith conduct during proceedings;\
+
+\f0\b (c)
+\f1\b0  Misuse of educational content for unauthorized commercial purposes or securities violations.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE XII: FORCE MAJEURE AND SERVICE INTERRUPTIONS\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 12.1 Force Majeure Events Definition and Scope
+\f1\b0 \
+Neither party shall be liable for any failure or delay in performance under these Terms that is due to Force Majeure Events, provided that the affected party:\
+
+\f0\b (a)
+\f1\b0  Promptly notifies the other party of the Force Majeure Event and its expected impact on service delivery;\
+
+\f0\b (b)
+\f1\b0  Uses reasonable efforts to mitigate the effects of such event and minimize service disruption;\
+
+\f0\b (c)
+\f1\b0  Resumes performance as soon as reasonably practicable after the event ceases or its effects are mitigated.\
+
+\f0\b 12.2 Educational Service Availability and Maintenance
+\f1\b0 \
+
+\f0\b 12.2.1 Reasonable Efforts Standard
+\f1\b0 \
+While the Company endeavors to maintain continuous Platform availability and educational service delivery, Users acknowledge that:\
+
+\f0\b (a)
+\f1\b0  Periodic maintenance, updates, improvements, and content enhancements may require temporary service interruptions;\
+
+\f0\b (b)
+\f1\b0  Technical issues, infrastructure failures, market data disruptions, or third-party service outages may occasionally affect educational service availability;\
+
+\f0\b (c)
+\f1\b0  The Company makes no guarantee of uninterrupted educational service availability or continuous platform accessibility;\
+
+\f0\b (d)
+\f1\b0  Educational content updates, regulatory compliance modifications, or curriculum improvements may require temporary access restrictions.\
+
+\f0\b 12.2.2 Planned Maintenance Procedures
+\f1\b0 \
+
+\f0\b (a)
+\f1\b0  The Company will provide reasonable advance notice of planned maintenance activities affecting educational service availability;\
+
+\f0\b (b)
+\f1\b0  Maintenance will generally be scheduled during off-peak hours to minimize impact on educational activities;\
+
+\f0\b (c)
+\f1\b0  Emergency maintenance may be performed without advance notice when necessary for security, regulatory compliance, or system integrity;\
+
+\f0\b (d)
+\f1\b0  Educational content updates and curriculum improvements may require temporary access restrictions with appropriate user notification.\
+
+\f0\b 12.3 Service Level Commitments
+\f1\b0 \
+
+\f0\b 12.3.1 Target Availability
+\f1\b0 \
+The Company strives to maintain Platform availability of at least ninety-five percent (95%) on a monthly basis, excluding planned maintenance and Force Majeure Events.\
+
+\f0\b 12.3.2 Remedies for Service Interruptions
+\f1\b0 \
+In the event of significant service interruptions exceeding seventy-two (72) continuous hours:\
+
+\f0\b (a)
+\f1\b0  The Company may extend subscription periods to compensate for lost educational access time;\
+
+\f0\b (b)
+\f1\b0  Users may be eligible for service credits at the Company's discretion based on the nature and duration of interruption;\
+
+\f0\b (c)
+\f1\b0  No monetary refunds shall be provided solely due to service interruptions unless specifically covered by the Refund Policy;\
+
+\f0\b (d)
+\f1\b0  Alternative educational content delivery methods may be implemented during extended outages.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE XIII: GOVERNING LAW AND JURISDICTION\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 13.1 Applicable Law
+\f1\b0 \
+
+\f0\b 13.1.1 Governing Legal Framework
+\f1\b0 \
+These Terms shall be governed by and construed in accordance with the laws of India, including:\
+
+\f0\b (a)
+\f1\b0  The Indian Contract Act, 1872;\
+
+\f0\b (b)
+\f1\b0  The Information Technology Act, 2000;\
+
+\f0\b (c)
+\f1\b0  The Consumer Protection Act, 2019;\
+
+\f0\b (d)
+\f1\b0  The Securities Contracts (Regulation) Act, 1956, where applicable to educational content;\
+
+\f0\b (e)
+\f1\b0  All other Applicable Laws of India relating to educational services and commercial transactions.\
+
+\f0\b 13.1.2 Conflict of Laws Exclusion
+\f1\b0 \
+The application of conflict of law principles that would require the application of any other jurisdiction's laws is hereby excluded.\
+
+\f0\b 13.2 Jurisdiction and Venue
+\f1\b0 \
+
+\f0\b 13.2.1 Exclusive Jurisdiction
+\f1\b0 \
+Subject to the mandatory arbitration provisions set forth in Article XI, the courts located in Mumbai, Maharashtra, India shall have exclusive jurisdiction over any legal proceedings related to these Terms.\
+
+\f0\b 13.2.2 Submission to Jurisdiction
+\f1\b0 \
+Users hereby submit to the personal jurisdiction of such courts and waive any objection to venue or inconvenient forum for enforcement proceedings.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE XIV: MODIFICATION AND AMENDMENT PROCEDURES\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 14.1 Company's Right to Modify Terms
+\f1\b0 \
+
+\f0\b 14.1.1 Unilateral Modification Authority
+\f1\b0 \
+The Company reserves the right to modify, amend, or update these Terms at any time in its sole discretion, provided that material changes shall be communicated to Users in accordance with the notice procedures set forth herein.\
+
+\f0\b 14.1.2 Notice Requirements
+\f1\b0 \
+
+\f0\b (a)
+\f1\b0  Material modifications shall be communicated via email to Users' registered email addresses at least thirty (30) days prior to the effective date;\
+
+\f0\b (b)
+\f1\b0  Non-material modifications may be communicated through Platform notifications, website postings, or in-app messages;\
+
+\f0\b (c)
+\f1\b0  The current version of these Terms shall always be available on the Company's website with clear version identification;\
+
+\f0\b (d)
+\f1\b0  Regulatory compliance updates or legal requirement modifications may be implemented with shorter notice periods as required by law.\
+
+\f0\b 14.2 User Acceptance of Modifications
+\f1\b0 \
+
+\f0\b 14.2.1 Deemed Acceptance
+\f1\b0 \
+Continued use of Educational Services after the effective date of any modifications shall constitute acceptance of the modified Terms.\
+
+\f0\b 14.2.2 Rejection of Modifications
+\f1\b0 \
+Users who do not accept material modifications may:\
+
+\f0\b (a)
+\f1\b0  Discontinue use of Educational Services prior to the effective date of modifications;\
+
+\f0\b (b)
+\f1\b0  Request account cancellation with potential refund eligibility under the Company's Refund Policy;\
+
+\f0\b (c)
+\f1\b0  Not access Educational Services after the effective date of modifications;\
+
+\f0\b (d)
+\f1\b0  Contact customer support to discuss modification concerns and potential alternatives.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE XV: GENERAL PROVISIONS\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 15.1 Entire Agreement
+\f1\b0 \
+These Terms, together with the Company's Refund Policy, Privacy Policy, and any other policies incorporated by reference, constitute the entire agreement between the parties and supersede all prior negotiations, representations, or agreements relating to the subject matter hereof.\
+
+\f0\b 15.2 Severability
+\f1\b0 \
+If any provision of these Terms is held to be invalid, illegal, or unenforceable by a court of competent jurisdiction, the remaining provisions shall continue in full force and effect, and the invalid provision shall be modified to the minimum extent necessary to make it enforceable while preserving its original intent.\
+
+\f0\b 15.3 Assignment
+\f1\b0 \
+
+\f0\b 15.3.1 Company Assignment Rights
+\f1\b0 \
+The Company may assign these Terms and its rights and obligations hereunder to any affiliate, subsidiary, or successor entity, or in connection with any merger, acquisition, sale of assets, or corporate reorganization.\
+
+\f0\b 15.3.2 User Assignment Restrictions
+\f1\b0 \
+Users may not assign these Terms or any rights or obligations hereunder without the Company's prior written consent, and any attempted assignment without such consent shall be void.\
+
+\f0\b 15.4 Waiver
+\f1\b0 \
+No waiver of any provision of these Terms shall be effective unless in writing and signed by the party against whom such waiver is sought. No failure or delay in exercising any right or remedy shall constitute a waiver thereof or preclude future exercise of such right or remedy.\
+
+\f0\b 15.5 Survival
+\f1\b0 \
+The following provisions shall survive termination of these Terms: intellectual property rights, confidentiality obligations, limitation of liability, indemnification, dispute resolution, and any other provisions that by their nature should survive termination.\
+
+\f0\b 15.6 Headings and Construction
+\f1\b0 \
+Section headings are for convenience only and shall not affect the interpretation of these Terms. These Terms shall be construed without regard to any presumption against the drafting party.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE XVI: CONTACT INFORMATION AND NOTICES\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 16.1 Company Contact Information
+\f1\b0 \
+
+\f0\b Lotuslion Venture LLP
+\f1\b0 \uc0\u8232 
+\f0\b Registered Office:
+\f1\b0  K 204, Raheja Vistas, Raheja Vihar Complex, Chandivali, Mumbai 400072, Maharashtra, India\uc0\u8232 
+\f0\b PAN:
+\f1\b0  AAKFL9144N\uc0\u8232 
+\f0\b Email:
+\f1\b0  investoreducation@lotuslion.in\uc0\u8232 
+\f0\b Phone:
+\f1\b0  +91-9082138060\
+
+\f0\b 16.2 Notice Procedures
+\f1\b0 \
+All notices required or permitted under these Terms shall be in writing and delivered via:\
+
+\f0\b (a)
+\f1\b0  Email to the addresses specified herein with delivery confirmation;\
+
+\f0\b (b)
+\f1\b0  Registered post or courier to the registered addresses with acknowledgment receipt;\
+
+\f0\b (c)
+\f1\b0  Platform notifications for routine communications and educational updates.\
+
+\f0\b 16.3 Effective Date
+\f1\b0 \
+These Terms are effective as of August 1, 2025, and supersede all previous versions.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf0 \strokec2 ACCEPTANCE ACKNOWLEDGMENT
+\f1\b0 \
+
+\f0\b By accessing or using the Platform or Educational Services, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions of Service. These Terms contain important legal obligations and significantly affect your rights. You are advised to seek independent legal counsel if you require clarification of any provision contained herein.
+\f1\b0 \
+
+\f0\b You specifically acknowledge that the Educational Services are for educational purposes only and do not constitute investment advice. You understand that the Company is not registered with SEBI as an investment advisor or research analyst, and you will not treat educational content as personalized investment recommendations.
+\f1\b0 \
+
+\f0\b Your continued use of our services constitutes ongoing acceptance of these Terms as they may be modified from time to time in accordance with the procedures set forth herein.
+\f1\b0 \
+}

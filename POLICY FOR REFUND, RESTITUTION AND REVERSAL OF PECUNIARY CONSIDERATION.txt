@@ -1,0 +1,554 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Bold;\f1\froman\fcharset0 Times-Roman;\f2\froman\fcharset0 Times-Italic;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red109\green109\blue109;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c50196\c50196\c50196;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sa321\partightenfactor0
+
+\f0\b\fs48 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 POLICY FOR REFUND, RESTITUTION AND REVERSAL OF PECUNIARY CONSIDERATION\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 \strokec2 LOTUSLION VENTURE LLP
+\f1\b0 \uc0\u8232 
+\f2\i (A Limited Liability Partnership duly incorporated and registered under the provisions of the Limited Liability Partnership Act, 2008)
+\f1\i0 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 PREAMBLE AND RECITALS\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 WHEREAS
+\f1\b0  Lotuslion Venture LLP ("
+\f0\b Company
+\f1\b0 ") is engaged in the business of providing specialized financial education services, proprietary investment methodologies, and related technological solutions through digital platforms;\
+
+\f0\b AND WHEREAS
+\f1\b0  the Company has developed, created, and owns exclusive intellectual property rights in and to certain financial educational curricula, investment frameworks, analytical methodologies, assessment tools, and related materials collectively constituting "The Complete Indian Stock Investor" educational program ("
+\f0\b Educational Services
+\f1\b0 ");\
+
+\f0\b AND WHEREAS
+\f1\b0  the Company desires to establish comprehensive terms and conditions governing the circumstances under which pecuniary consideration paid by subscribers may be subject to refund, restitution, or reversal;\
+
+\f0\b AND WHEREAS
+\f1\b0  it is necessary to establish clear parameters for the protection of the Company's legitimate commercial interests while providing appropriate recourse to subscribers in cases of genuine grievance;\
+
+\f0\b NOW THEREFORE
+\f1\b0  the Company hereby establishes this Policy for Refund, Restitution and Reversal of Pecuniary Consideration ("
+\f0\b Policy
+\f1\b0 ") which shall govern all subscription agreements and related transactions.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE I: DEFINITIONS, INTERPRETATIONS AND CONSTRUCTION\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 1.1 Definitional Framework
+\f1\b0 \
+For the purposes of this Policy, and unless the context otherwise requires or admits of a different construction, the following expressions shall bear the meanings hereinafter respectively assigned to them:\
+
+\f0\b (a)
+\f1\b0  "
+\f0\b Subscriber
+\f1\b0 " shall mean and include any natural person, Hindu Undivided Family, company, partnership firm, limited liability partnership, society, trust, or any other legal entity, whether incorporated or unincorporated, resident or non-resident, who has executed the Subscription Agreement with the Company for availing the Educational Services, and shall include such person's successors-in-interest, assigns, legal representatives, heirs, executors, administrators, and permitted transferees;\
+
+\f0\b (b)
+\f1\b0  "
+\f0\b Educational Services
+\f1\b0 " shall mean and include the proprietary financial education content, investment modules, market analysis frameworks, portfolio construction methodologies, risk assessment tools, interactive elements, downloadable resources, and ancillary materials provided through the digital platform owned and operated by the Company;\
+
+\f0\b (c)
+\f1\b0  "
+\f0\b Subscription Agreement
+\f1\b0 " shall mean the legally binding contractual arrangement executed between the Subscriber and the Company, incorporating by reference this Policy, Terms of Service, Privacy Policy, and all other applicable Company policies;\
+
+\f0\b (d)
+\f1\b0  "
+\f0\b Mandatory Assessment Period
+\f1\b0 " shall mean the compulsory preliminary evaluation period of ninety-six (96) consecutive hours commencing from the date and time of initial platform access by the Subscriber, during which period the Subscriber is required to complete and fulfill all obligations set forth in sub-clause (e) hereof;\
+
+\f0\b (e)
+\f1\b0  "
+\f0\b Core Module Completion Requirements
+\f1\b0 " shall mean the successful completion, in their entirety and in sequential order, of the first four (4) educational modules designated as core modules, including but not limited to: (i) all video content consumption; (ii) all reading materials review; (iii) all interactive exercises participation; (iv) all assessments and evaluations attempted with minimum passing scores of seventy percent (70%); (v) all practical assignments submission; and (vi) all other activities, exercises, or requirements as may be prescribed within such core modules;\
+
+\f0\b (f)
+\f1\b0  "
+\f0\b Minimum Engagement Threshold
+\f1\b0 " shall mean the completion of not less than twelve (12) aggregate hours of documented platform interaction and engagement, as measured and recorded by the Company's technological infrastructure, tracking systems, and analytics tools, which aggregate hours shall include only active engagement and shall exclude idle time, paused content, or inactive platform presence;\
+
+\f0\b (g)
+\f1\b0  "
+\f0\b Disqualifying Events
+\f1\b0 " shall mean any of the circumstances, actions, or omissions set forth in Article III hereof, the occurrence of any one or more of which shall render the Subscriber absolutely and irrevocably ineligible for any refund, restitution, or reversal of pecuniary consideration;\
+
+\f0\b (h)
+\f1\b0  "
+\f0\b Pecuniary Consideration
+\f1\b0 " shall mean all amounts paid or payable by the Subscriber to the Company in connection with the Subscription Agreement, including but not limited to subscription fees, taxes, processing charges, platform fees, and any other charges or levies;\
+
+\f0\b (i)
+\f1\b0  "
+\f0\b Proprietary Materials
+\f1\b0 " shall mean all content, materials, information, data, investment methodologies, analytical frameworks, proprietary algorithms, market research, trading strategies, and intellectual property of whatsoever nature contained within or forming part of the Educational Services;\
+
+\f0\b (j)
+\f1\b0  "
+\f0\b Qualifying Deficiency
+\f1\b0 " shall mean a material breach by the Company of its express representations regarding the Educational Services, substantiated by documentary evidence and independent expert validation, and not attributable to Subscriber's technical limitations, internet connectivity, device compatibility issues, market volatility, or individual investment performance variations.\
+
+\f0\b 1.2 Rules of Construction and Interpretation
+\f1\b0 \
+
+\f0\b (a)
+\f1\b0  The headings and sub-headings in this Policy are inserted for convenience of reference only and shall not affect the construction or interpretation of any provision hereof;\
+
+\f0\b (b)
+\f1\b0  Words importing the singular number shall include the plural number and vice versa, words importing the masculine gender shall include the feminine and neuter genders, and words importing persons shall include companies, corporations, firms, partnerships, joint ventures, associations, organizations, governments, governmental agencies, and other legal entities;\
+
+\f0\b (c)
+\f1\b0  References to any statute, enactment, order, regulation, or other similar instrument shall be construed as references to such statute, enactment, order, regulation, or instrument as the same may from time to time be amended, modified, supplemented, or re-enacted;\
+
+\f0\b (d)
+\f1\b0  The expressions "including," "include," and "includes" shall be deemed to be followed by the phrase "without limitation" whether or not such phrase actually appears;\
+
+\f0\b (e)
+\f1\b0  Any reference to time periods, dates, or deadlines shall be construed as references to Indian Standard Time;\
+
+\f0\b (f)
+\f1\b0  In the event of any conflict, inconsistency, or ambiguity between the provisions of this Policy and any other document, this Policy shall prevail to the extent of such conflict, inconsistency, or ambiguity.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE II: ELIGIBILITY MATRIX FOR REFUND CONSIDERATION\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 2.1 Fundamental Prerequisites for Refund Eligibility
+\f1\b0 \
+No Subscriber shall be entitled to claim, demand, or receive any refund, restitution, or reversal of pecuniary consideration unless and until such Subscriber has satisfied each and every one of the following cumulative conditions precedent, the satisfaction of which shall be determined solely at the discretion of the Company:\
+
+\f0\b (a)
+\f1\b0  
+\f0\b Extended Assessment Compliance
+\f1\b0 : The Subscriber shall have completed the entire duration of the Mandatory Assessment Period of ninety-six (96) consecutive hours without interruption, suspension, or premature termination, and shall submit any application for refund consideration only during the period commencing on the fifth (5th) day following the date of purchase and ending on the tenth (10th) day following such date of purchase, both days inclusive;\
+
+\f0\b (b)
+\f1\b0  
+\f0\b Comprehensive Educational Engagement
+\f1\b0 : The Subscriber shall have completed, to the entire satisfaction of the Company, all Core Module Completion Requirements as evidenced by the Company's tracking and monitoring systems, including achievement of minimum seventy percent (70%) scores on all assessments;\
+
+\f0\b (c)
+\f1\b0  "
+\f0\b Enhanced Engagement Verification
+\f1\b0 : The Subscriber shall have satisfied the Minimum Engagement Threshold of twelve (12) hours as recorded and verified by the Company's technological infrastructure;\
+
+\f0\b (d)
+\f1\b0  
+\f0\b Procedural Compliance Demonstration
+\f1\b0 : The Subscriber shall have complied with all procedural requirements set forth in Article IV hereof;\
+
+\f0\b (e)
+\f1\b0  
+\f0\b Absence of Disqualifying Events
+\f1\b0 : No Disqualifying Events shall have occurred in relation to the Subscriber or the Subscriber's use of the Educational Services;\
+
+\f0\b (f)
+\f1\b0  
+\f0\b Investment Performance Disclaimer Acknowledgment
+\f1\b0 : The Subscriber must demonstrate understanding that investment education does not guarantee market performance and that refund requests based on market losses or investment outcomes are categorically excluded.\
+
+\f0\b 2.2 Substantive Grounds for Refund Consideration
+\f1\b0 \
+Even upon satisfaction of all conditions precedent set forth in sub-clause 2.1 hereof, refund consideration shall be available solely upon demonstration by the Subscriber of Qualifying Deficiency, supported by:\
+
+\f0\b (a)
+\f1\b0  Independent financial education expert report validating alleged deficiencies in course methodology;\
+
+\f0\b (b)
+\f1\b0  Comparative analysis with recognized industry-standard financial education curricula;\
+
+\f0\b (c)
+\f1\b0  Documentary evidence of material misrepresentations in course content not attributable to market conditions or regulatory changes;\
+
+\f0\b (d)
+\f1\b0  Technical audit report from certified IT professionals regarding platform functionality deficiencies.\
+
+\f0\b 2.3 Absolute Exclusions from Refund Eligibility
+\f1\b0 \
+Refund consideration shall be categorically unavailable in the following circumstances:\
+
+\f0\b (a)
+\f1\b0  Investment losses or poor market performance subsequent to course completion;\
+
+\f0\b (b)
+\f1\b0  Changes in market conditions, regulatory environment, or economic circumstances;\
+
+\f0\b (c)
+\f1\b0  Subscriber's failure to implement course teachings or investment strategies;\
+
+\f0\b (d)
+\f1\b0  Subjective dissatisfaction with course presentation style or teaching methodology;\
+
+\f0\b (e)
+\f1\b0  Technical issues attributable to Subscriber's equipment, internet connectivity, or device limitations;\
+
+\f0\b (f)
+\f1\b0  Force majeure events affecting course delivery or market conditions.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE III: ABSOLUTE DISQUALIFICATION CRITERIA\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 3.1 Temporal Disqualification Events
+\f1\b0 \
+The following temporal events shall constitute Disqualifying Events rendering any Subscriber absolutely and irrevocably ineligible for refund consideration:\
+
+\f0\b (a)
+\f1\b0  Submission of refund application prior to completion of the Mandatory Assessment Period of ninety-six (96) hours;\
+
+\f0\b (b)
+\f1\b0  Submission of refund application subsequent to the expiration of ten (10) calendar days from the date of purchase;\
+
+\f0\b (c)
+\f1\b0  Failure to complete the Mandatory Assessment Period within the prescribed timeframe without acceptable justification;\
+
+\f0\b (d)
+\f1\b0  Any interruption, suspension, or premature termination of the Mandatory Assessment Period by the Subscriber for reasons not constituting force majeure.\
+
+\f0\b 3.2 Engagement-Based Disqualification Events
+\f1\b0 \
+The following engagement-related events shall constitute Disqualifying Events:\
+
+\f0\b (a)
+\f1\b0  Failure to complete any component of the Core Module Completion Requirements;\
+
+\f0\b (b)
+\f1\b0  Achievement of assessment scores below the minimum seventy percent (70%) threshold;\
+
+\f0\b (c)
+\f1\b0  Failure to satisfy the Minimum Engagement Threshold of twelve (12) hours;\
+
+\f0\b (d)
+\f1\b0  Any attempt to circumvent, bypass, or manipulate the Company's tracking and monitoring systems;\
+
+\f0\b (e)
+\f1\b0  Completion of educational modules beyond the core modules;\
+
+\f0\b (f)
+\f1\b0  Utilization of course materials for actual investment decisions or trading activities.\
+
+\f0\b 3.3 Usage-Based Disqualification Events
+\f1\b0 \
+The following usage-related events shall constitute Disqualifying Events:\
+
+\f0\b (a)
+\f1\b0  Downloading, saving, copying, or otherwise obtaining offline access to any Proprietary Materials;\
+
+\f0\b (b)
+\f1\b0  Sharing, distributing, or providing access to the Educational Services to any third party;\
+
+\f0\b (c)
+\f1\b0  Attempting to reverse engineer, decompile, or extract any Proprietary Materials or investment methodologies;\
+
+\f0\b (d)
+\f1\b0  Commercial use of course content, strategies, or methodologies;\
+
+\f0\b (e)
+\f1\b0  Creation of competing educational products using Company's intellectual property;\
+
+\f0\b (f)
+\f1\b0  Violation of any intellectual property rights or confidentiality obligations.\
+
+\f0\b 3.4 Market-Related Disqualification Events
+\f1\b0 \
+The following market-related events shall constitute Disqualifying Events:\
+
+\f0\b (a)
+\f1\b0  Making investment decisions based on course content during the assessment period;\
+
+\f0\b (b)
+\f1\b0  Attributing investment losses to course inadequacies;\
+
+\f0\b (c)
+\f1\b0  Expecting guaranteed investment returns or market performance;\
+
+\f0\b (d)
+\f1\b0  Failure to acknowledge inherent market risks and volatility;\
+
+\f0\b (e)
+\f1\b0  Unrealistic expectations regarding investment education outcomes.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE IV: PROCEDURAL COMPLIANCE MANDATES\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 4.1 Application Formalities
+\f1\b0 \
+Every refund application shall comply with the following mandatory requirements:\
+
+\f0\b (a)
+\f1\b0  Submission via registered email to investoreducation@lotuslion.in with delivery confirmation and read receipt;\
+
+\f0\b (b)
+\f1\b0  Execution of a sworn affidavit before a Notary Public, deposing to the grounds for refund and acknowledging understanding of investment risks;\
+
+\f0\b (c)
+\f1\b0  Submission of comprehensive course completion documentation including screenshots, assessment scores, and engagement logs;\
+
+\f0\b (d)
+\f1\b0  Payment of non-refundable processing fee of \uc0\u8377 499/- (Rupees Four Hundred and Ninety-Nine Only);\
+
+\f0\b (e)
+\f1\b0  Provision of independent expert evaluation of alleged course deficiencies.\
+
+\f0\b 4.2 Documentary Evidence Matrix
+\f1\b0 \
+The Subscriber shall furnish:\
+
+\f0\b (a)
+\f1\b0  Complete platform engagement history with timestamps and activity logs;\
+
+\f0\b (b)
+\f1\b0  Screenshots evidencing completion of all Core Module Completion Requirements;\
+
+\f0\b (c)
+\f1\b0  Assessment scorecards demonstrating minimum seventy percent (70%) achievement;\
+
+\f0\b (d)
+\f1\b0  Independent financial education expert report substantiating deficiency claims;\
+
+\f0\b (e)
+\f1\b0  Comparative market analysis of similar educational services;\
+
+\f0\b (f)
+\f1\b0  Legal opinion from a qualified advocate supporting the refund claim;\
+
+\f0\b (g)
+\f1\b0  Technical device specifications and internet connectivity documentation.\
+
+\f0\b 4.3 Expert Validation Requirements
+\f1\b0 \
+
+\f0\b (a)
+\f1\b0  Independent expert reports must be prepared by certified financial analysts with minimum ten (10) years of experience in investment education;\
+
+\f0\b (b)
+\f1\b0  Expert evaluation must specifically address course methodology, content accuracy, and pedagogical effectiveness;\
+
+\f0\b (c)
+\f1\b0  Comparative analysis must include at least three (3) competing financial education programs;\
+
+\f0\b (d)
+\f1\b0  All expert reports must be notarized and include expert's credentials and certification details.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE V: SETTLEMENT AND RECOVERY PROVISIONS\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 5.1 Approved Refund Processing
+\f1\b0 \
+In the extraordinary event that the Company, in its sole and absolute discretion, approves a refund application:\
+
+\f0\b (a)
+\f1\b0  Processing fee of \uc0\u8377 499/- shall be deducted from refund amount;\
+
+\f0\b (b)
+\f1\b0  Administrative charges equal to twenty percent (20%) of subscription amount shall be deducted;\
+
+\f0\b (c)
+\f1\b0  Expert evaluation costs incurred by the Company shall be deducted;\
+
+\f0\b (d)
+\f1\b0  Payment gateway charges and transaction costs shall be borne by Subscriber;\
+
+\f0\b (e)
+\f1\b0  Refund processing shall occur within forty-five (45) to sixty (60) business days;\
+
+\f0\b (f)
+\f1\b0  Currency fluctuation risks shall be borne exclusively by Subscriber.\
+
+\f0\b 5.2 Intellectual Property Recovery
+\f1\b0 \
+
+\f0\b (a)
+\f1\b0  All accessed Proprietary Materials shall remain subject to perpetual confidentiality obligations;\
+
+\f0\b (b)
+\f1\b0  Any commercial use of investment methodologies shall attract liquidated damages of \uc0\u8377 2,00,000/- per instance;\
+
+\f0\b (c)
+\f1\b0  Breach of confidentiality shall invite prosecution under applicable intellectual property laws;\
+
+\f0\b (d)
+\f1\b0  Company reserves rights to monitor and enforce intellectual property protection indefinitely.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE VI: WAIVER OF CONSUMER REMEDIES AND DISPUTE RESOLUTION\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 6.1 Statutory Rights Waiver
+\f1\b0 \
+Subject to applicable law, the Subscriber expressly waives:\
+
+\f0\b (a)
+\f1\b0  Rights under the Consumer Protection Act, 2019, to the maximum extent legally permissible;\
+
+\f0\b (b)
+\f1\b0  Recourse to Consumer Dispute Redressal Commissions/Forums for refund-related disputes;\
+
+\f0\b (c)
+\f1\b0  Class action or representative proceedings related to refund policies;\
+
+\f0\b (d)
+\f1\b0  Rights to approach civil courts for monetary remedies except for enforcement of arbitration awards.\
+
+\f0\b 6.2 Mandatory Arbitration Framework
+\f1\b0 \
+
+\f0\b 6.2.1 Arbitration Agreement
+\f1\b0 \
+All disputes arising from this Policy shall be resolved exclusively through binding arbitration under the Arbitration and Conciliation Act, 2015.\
+
+\f0\b 6.2.2 Tribunal Constitution
+\f1\b0 \
+
+\f0\b (a)
+\f1\b0  Arbitration shall be conducted by a panel of three (3) arbitrators with specialized knowledge in financial services and education;\
+
+\f0\b (b)
+\f1\b0  Each party shall appoint one arbitrator, with the third appointed by mutual agreement;\
+
+\f0\b (c)
+\f1\b0  Seat of arbitration shall be Mumbai, Maharashtra, India;\
+
+\f0\b (d)
+\f1\b0  Language of proceedings shall be English;\
+
+\f0\b (e)
+\f1\b0  Arbitral proceedings shall follow expedited procedures with awards within six (6) months.\
+
+\f0\b 6.2.3 Costs and Expenses
+\f1\b0 \
+
+\f0\b (a)
+\f1\b0  Unsuccessful party shall bear all arbitration costs and opponent's legal fees;\
+
+\f0\b (b)
+\f1\b0  Frivolous claims shall attract punitive cost awards;\
+
+\f0\b (c)
+\f1\b0  Arbitrator fees shall be shared equally unless tribunal directs otherwise.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE VII: GOVERNING LAW AND JURISDICTION\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 7.1
+\f1\b0  This Policy shall be governed by and construed in accordance with the laws of India, with particular reference to:\
+
+\f0\b (a)
+\f1\b0  Digital Personal Data Protection Act, 2023;\uc0\u8232 
+\f0\b (b)
+\f1\b0  Information Technology Act, 2000;\uc0\u8232 
+\f0\b (c)
+\f1\b0  Consumer Protection Act, 2019;\uc0\u8232 
+\f0\b (d)
+\f1\b0  Securities and Exchange Board of India regulations;\uc0\u8232 
+\f0\b (e)
+\f1\b0  Reserve Bank of India guidelines.\
+
+\f0\b 7.2
+\f1\b0  Subject to mandatory arbitration provisions, courts at Mumbai, Maharashtra shall have exclusive jurisdiction for enforcement of arbitral awards and interim relief.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE VIII: SEVERABILITY AND MODIFICATION\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 8.1
+\f1\b0  If any provision of this Policy is held invalid, illegal, or unenforceable, remaining provisions shall continue in full force and effect.\
+
+\f0\b 8.2
+\f1\b0  The Company reserves the right to modify this Policy upon thirty (30) days written notice, with continued use constituting acceptance of modifications.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE IX: ENTIRE AGREEMENT AND ACKNOWLEDGMENT\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 9.1
+\f1\b0  This Policy constitutes the entire agreement between parties concerning refunds and supersedes all prior agreements, understandings, negotiations, and discussions.\
+
+\f0\b 9.2
+\f1\b0  The Subscriber acknowledges having read, understood, and agreed to be bound by this Policy in its entirety.\
+
+\f0\b 9.3
+\f1\b0  Investment education involves inherent risks, and the Subscriber acknowledges that no educational program can guarantee investment success or market performance.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 ARTICLE X: REGULATORY COMPLIANCE AND DISCLAIMERS\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 10.1 SEBI Compliance
+\f1\b0 \
+This educational program complies with Securities and Exchange Board of India guidelines for investment education and does not constitute investment advice, portfolio management, or securities recommendations.\
+
+\f0\b 10.2 RBI Guidelines
+\f1\b0 \
+All payment processing and refund procedures comply with Reserve Bank of India regulations and guidelines for digital payment systems.\
+
+\f0\b 10.3 Market Risk Acknowledgment
+\f1\b0 \
+Subscribers acknowledge that:\
+
+\f0\b (a)
+\f1\b0  Investment markets are subject to volatility and risk;\uc0\u8232 
+\f0\b (b)
+\f1\b0  Past performance does not guarantee future results;\uc0\u8232 
+\f0\b (c)
+\f1\b0  Investment education cannot eliminate market risks;\uc0\u8232 
+\f0\b (d)
+\f1\b0  Individual investment outcomes depend on multiple external factors.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf0 \strokec2 EFFECTIVE DATE
+\f1\b0 : August 1, 2025\uc0\u8232 
+\f0\b LAST UPDATED
+\f1\b0 : August 1, 2025\
+
+\f0\b LOTUSLION VENTURE LLP
+\f1\b0 \uc0\u8232 
+\f2\i By: Authorized Signatory
+\f1\i0 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf0 \strokec2 ACCEPTANCE ACKNOWLEDGMENT
+\f1\b0 \
+By proceeding with any purchase or subscription, you acknowledge that you have read, understood, and agree to be bound by all terms and conditions contained in this Refund and Restitution Policy. This Policy contains complex legal provisions that significantly affect your rights and obligations. You are advised to seek independent legal counsel if clarification of any provision is required.\
+Your continued use of our services constitutes ongoing acceptance of this Policy as it may be modified from time to time in accordance with the procedures set forth herein.\
+}
