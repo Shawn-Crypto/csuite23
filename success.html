@@ -279,19 +279,44 @@
     </div>
     
     <script>
-        // Push purchase event to dataLayer (Google Tag Manager)
         window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          'event': 'purchase',
-          'ecommerce': {
-              'transaction_id': 'TRANSACTION_ID_PLACEHOLDER' // Replace with a dynamic transaction ID
-          }
-        });
+        
+        // Read the transaction details from the browser's storage
+        const orderId = localStorage.getItem('pendingTransactionId');
+        const amount = localStorage.getItem('pendingTransactionValue') || 1999.00;
+        
+        if (orderId) {
+            dataLayer.push({
+                'event': 'purchase',
+                'ecommerce': {
+                    'transaction_id': orderId,
+                    'value': parseFloat(amount),
+                    'currency': 'INR',
+                    'items': [{
+                        'item_id': 'lotuslion-course',
+                        'item_name': 'LotusLion Course',
+                        'price': parseFloat(amount),
+                        'quantity': 1
+                    }]
+                }
+            });
+            
+            // Log for debugging (remove in production)
+            console.log('Purchase event tracked:', {
+                transaction_id: orderId,
+                value: parseFloat(amount),
+                currency: 'INR'
+            });
+            
+            // Clear the stored data to prevent re-tracking on page refresh
+            localStorage.removeItem('pendingTransactionId');
+            localStorage.removeItem('pendingTransactionValue');
+        } else {
+            console.log('No pending transaction found in localStorage');
+        }
         
         // Set current year in copyright
         document.getElementById('copyright-year-success').textContent = new Date().getFullYear();
-        
-        console.log('Payment successful! Purchase event tracked.');
     </script>
 </body>
 </html>

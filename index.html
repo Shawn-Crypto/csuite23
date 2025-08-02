@@ -2113,5 +2113,32 @@
     <script src="js/main-scripts.js" defer></script>
     <script src="js/faq-accordion.js" defer></script>
     <script src="js/lazy-loading.js" defer></script>
+    
+    <!-- Transaction Tracking for Payment Links -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Find all links to Cashfree payment form
+            const paymentLinks = document.querySelectorAll('a[href*="payments.cashfree.com"]');
+            
+            paymentLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Generate unique transaction ID
+                    const transactionId = 'CFPay_' + Date.now();
+                    const transactionValue = 1999.00; // Product price
+                    
+                    // Store in localStorage
+                    localStorage.setItem('pendingTransactionId', transactionId);
+                    localStorage.setItem('pendingTransactionValue', transactionValue);
+                    
+                    console.log('Transaction data stored:', {
+                        id: transactionId,
+                        value: transactionValue
+                    });
+                    
+                    // Allow the default link behavior to continue
+                });
+            });
+        });
+    </script>
 </body>
 </html>
