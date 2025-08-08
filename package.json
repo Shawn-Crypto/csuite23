@@ -2,8 +2,17 @@
   "name": "lotuslion-course",
   "version": "1.0.0",
   "description": "Lotuslion Stock Investment Course Landing Page",
+  "type": "module",
   "scripts": {
     "build": "echo 'Static site - no build required'",
     "start": "echo 'Static site ready for deployment'"
+  },
+  "dependencies": {
+    "razorpay": "^2.9.2",
+    "axios": "^1.6.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
+
