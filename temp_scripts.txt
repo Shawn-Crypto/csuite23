@@ -1,0 +1,4 @@
+    
+    <!-- Razorpay Checkout Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="js/razorpay-integration.js" defer></script>
