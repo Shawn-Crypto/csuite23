@@ -4,6 +4,21 @@
   "description": "Lotuslion Stock Investment Course Landing Page",
   "scripts": {
     "build": "echo 'Static site - no build required'",
-    "start": "echo 'Static site ready for deployment'"
+    "start": "echo 'Static site ready for deployment'",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^17.2.1",
+    "razorpay": "^2.9.6"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.2",
+    "playwright": "^1.54.2",
+    "serve": "^14.2.4"
   }
 }

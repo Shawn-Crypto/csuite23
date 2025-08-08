@@ -1550,62 +1550,60 @@
 
     <section class="hero" id="hero">
         <div class="container">
-            <a href="https://payments.cashfree.com/forms/lotuslion-course" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
-                <div class="hero-badge"><i class="ph-light ph-books"></i> 17+ YEARS EXPERT TEACHING</div>
+            <div class="hero-badge"><i class="ph-light ph-books"></i> 17+ YEARS EXPERT TEACHING</div>
 
-                <h1>Learn Smart Stock Investing</h1>
+            <h1>Learn Smart Stock Investing</h1>
 
-                <p class="subtitle">Learn how professionals pick winning stocks step-by-step</p>
+            <p class="subtitle">Learn how professionals pick winning stocks step-by-step</p>
 
-                <div class="hero-credentials">
-                    <div class="credential-highlight">
-                        <span class="credential-number">17+</span>
-                        <span class="credential-text">Years at Top Investment Banks</span>
-                    </div>
-                    <div class="credential-highlight">
-                        <span class="credential-number">100+</span>
-                        <span class="credential-text">Companies Analyzed</span>
-                    </div>
-                    <div class="credential-highlight">
-                        <span class="credential-number">₹10+ Trn</span>
-                        <span class="credential-text">Institutional AUM Advised</span>
-                    </div>
+            <div class="hero-credentials">
+                <div class="credential-highlight">
+                    <span class="credential-number">17+</span>
+                    <span class="credential-text">Years at Top Investment Banks</span>
                 </div>
-
-                <p class="description">
-                    Learn the exact methods used by top investment professionals to pick winning stocks in the Indian market.
-                </p>
-
-                <p style="font-size: 14px; color: rgba(255,255,255,0.7); text-align: center; margin-top: 20px;">
-                    <em>Educational content only. Not SEBI registered investment advice. 
-                    Consult qualified advisors for personalized recommendations.</em>
-                </p>
-
-                <p style="font-size: 14px; color: rgba(255, 255, 255, 0.6); margin-bottom: 24px;">
-                    This is an educational course designed to enhance financial literacy. Not personalized investment advice.
-                </p>
-
-                <div class="cta-button" style="display: inline-block; margin-bottom: 24px;">
-                    START LEARNING TODAY
+                <div class="credential-highlight">
+                    <span class="credential-number">100+</span>
+                    <span class="credential-text">Companies Analyzed</span>
                 </div>
-
-                <div class="price-box">
-                    <span class="original">₹9,999</span>
-                    <span class="current">₹1,999</span>
-                    <span class="discount">80% OFF - Limited Period</span>
-                    <div class="emi-option">
-                        Or just <strong>₹333/month</strong> (6 EMI)
-                    </div>
+                <div class="credential-highlight">
+                    <span class="credential-number">₹10+ Trn</span>
+                    <span class="credential-text">Institutional AUM Advised</span>
                 </div>
+            </div>
 
-                <div class="guarantee-badge">
-                    <span class="guarantee-icon">🛡️</span>
-                    <div class="guarantee-text">
-                        <strong>Learning Success Guarantee</strong>
-                        <span>We're confident in our institutional methodology*</span>
-                    </div>
-                </div>
+            <p class="description">
+                Learn the exact methods used by top investment professionals to pick winning stocks in the Indian market.
+            </p>
+
+            <p style="font-size: 14px; color: rgba(255,255,255,0.7); text-align: center; margin-top: 20px;">
+                <em>Educational content only. Not SEBI registered investment advice. 
+                Consult qualified advisors for personalized recommendations.</em>
+            </p>
+
+            <p style="font-size: 14px; color: rgba(255, 255, 255, 0.6); margin-bottom: 24px;">
+                This is an educational course designed to enhance financial literacy. Not personalized investment advice.
+            </p>
+
+            <a href="https://payments.cashfree.com/forms/lotuslion-course" class="cta-button" style="display: inline-block; margin-bottom: 24px;">
+                START LEARNING TODAY
             </a>
+
+            <div class="price-box">
+                <span class="original">₹9,999</span>
+                <span class="current">₹1,999</span>
+                <span class="discount">80% OFF - Limited Period</span>
+                <div class="emi-option">
+                    Or just <strong>₹333/month</strong> (6 EMI)
+                </div>
+            </div>
+
+            <div class="guarantee-badge">
+                <span class="guarantee-icon">🛡️</span>
+                <div class="guarantee-text">
+                    <strong>Learning Success Guarantee</strong>
+                    <span>We're confident in our institutional methodology*</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -2114,31 +2112,7 @@
     <script src="js/faq-accordion.js" defer></script>
     <script src="js/lazy-loading.js" defer></script>
     
-    <!-- Transaction Tracking for Payment Links -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Find all links to Cashfree payment form
-            const paymentLinks = document.querySelectorAll('a[href*="payments.cashfree.com"]');
-            
-            paymentLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    // Generate unique transaction ID
-                    const transactionId = 'CFPay_' + Date.now();
-                    const transactionValue = 1999.00; // Product price
-                    
-                    // Store in localStorage
-                    localStorage.setItem('pendingTransactionId', transactionId);
-                    localStorage.setItem('pendingTransactionValue', transactionValue);
-                    
-                    console.log('Transaction data stored:', {
-                        id: transactionId,
-                        value: transactionValue
-                    });
-                    
-                    // Allow the default link behavior to continue
-                });
-            });
-        });
-    </script>
+    <!-- Razorpay Checkout Integration -->
+    <script src="js/razorpay-checkout.js" defer></script>
 </body>
 </html>
