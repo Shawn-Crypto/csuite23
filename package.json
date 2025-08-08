@@ -1,9 +1,19 @@
 {
   "name": "lotuslion-course",
   "version": "1.0.0",
-  "description": "Lotuslion Stock Investment Course Landing Page",
+  "description": "Lotuslion Stock Investment Course Landing Page with Razorpay Integration",
   "scripts": {
     "build": "echo 'Static site - no build required'",
-    "start": "echo 'Static site ready for deployment'"
+    "start": "echo 'Static site ready for deployment'",
+    "dev": "vercel dev",
+    "test": "echo 'Tests will be implemented with Playwright'"
+  },
+  "dependencies": {
+    "razorpay": "^2.9.4",
+    "crypto": "^1.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
+
