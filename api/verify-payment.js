@@ -1,8 +1,10 @@
 const crypto = require('crypto');
 const { getLogger } = require('./lib/logger');
+const { ErrorHandler } = require('./lib/error-handler');
 
 module.exports = async (req, res) => {
   const logger = getLogger();
+  const errorHandler = new ErrorHandler();
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', req.headers.origin || '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
@@ -14,17 +16,22 @@ module.exports = async (req, res) => {
   }
 
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
+    const { response, statusCode } = errorHandler.createAPIResponse('METHOD_NOT_ALLOWED', { method: req.method });
+    return res.status(statusCode).json(response);
   }
 
   try {
     const { razorpay_order_id, razorpay_payment_id, razorpay_signature, customer_data } = req.body;
 
     if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature) {
-      return res.status(400).json({
-        success: false,
-        error: 'Missing required payment parameters'
+      const { response, statusCode } = errorHandler.createAPIResponse('REQUIRED_FIELD_MISSING', { 
+        missing_fields: [
+          !razorpay_order_id && 'order_id',
+          !razorpay_payment_id && 'payment_id', 
+          !razorpay_signature && 'signature'
+        ].filter(Boolean)
       });
+      return res.status(statusCode).json(response);
     }
 
     // Verify signature
@@ -39,16 +46,12 @@ module.exports = async (req, res) => {
     const isValid = expectedSignature === razorpay_signature;
 
     if (!isValid) {
-      console.error('Invalid payment signature:', {
+      const { response, statusCode } = errorHandler.createAPIResponse('UNAUTHORIZED_ERROR', {
         order_id: razorpay_order_id,
         payment_id: razorpay_payment_id,
-        timestamp: new Date().toISOString()
+        reason: 'signature_verification_failed'
       });
-      
-      return res.status(400).json({
-        success: false,
-        error: 'Invalid payment signature'
-      });
+      return res.status(statusCode).json(response);
     }
 
     // Log successful payment verification with deduplication
@@ -82,11 +85,12 @@ module.exports = async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Error verifying payment:', error);
-    res.status(500).json({
-      success: false,
-      error: 'Failed to verify payment',
-      message: error.message
+    const { response, statusCode } = errorHandler.createAPIResponse('SERVER_ERROR', {
+      operation: 'payment_verification',
+      order_id: req.body?.razorpay_order_id,
+      payment_id: req.body?.razorpay_payment_id,
+      originalError: error.message
     });
+    return res.status(statusCode).json(response);
   }
 };

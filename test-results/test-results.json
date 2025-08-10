@@ -1,0 +1,915 @@
+{
+  "config": {
+    "configFile": "/Users/shounakshetty/Desktop/csuite23/playwright.config.js",
+    "rootDir": "/Users/shounakshetty/Desktop/csuite23/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "testType": "e2e-integration",
+      "environment": "test",
+      "version": "1.0.0",
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "test-results/html-report"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/test-results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "test-results/junit.xml"
+        }
+      ],
+      [
+        "list",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "testType": "e2e-integration",
+          "environment": "test",
+          "version": "1.0.0",
+          "actualWorkers": 4
+        },
+        "id": "e2e-chrome",
+        "name": "e2e-chrome",
+        "testDir": "/Users/shounakshetty/Desktop/csuite23/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/e2e/**/*.spec.js"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "testType": "e2e-integration",
+          "environment": "test",
+          "version": "1.0.0",
+          "actualWorkers": 4
+        },
+        "id": "e2e-mobile",
+        "name": "e2e-mobile",
+        "testDir": "/Users/shounakshetty/Desktop/csuite23/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/e2e/**/*.spec.js"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "testType": "e2e-integration",
+          "environment": "test",
+          "version": "1.0.0",
+          "actualWorkers": 4
+        },
+        "id": "api-integration",
+        "name": "api-integration",
+        "testDir": "/Users/shounakshetty/Desktop/csuite23/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/integration/**/*.spec.js"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "testType": "e2e-integration",
+          "environment": "test",
+          "version": "1.0.0",
+          "actualWorkers": 4
+        },
+        "id": "performance",
+        "name": "performance",
+        "testDir": "/Users/shounakshetty/Desktop/csuite23/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/performance/**/*.spec.js"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "testType": "e2e-integration",
+          "environment": "test",
+          "version": "1.0.0",
+          "actualWorkers": 4
+        },
+        "id": "e2e-firefox",
+        "name": "e2e-firefox",
+        "testDir": "/Users/shounakshetty/Desktop/csuite23/tests",
+        "testIgnore": [
+          "**/*"
+        ],
+        "testMatch": [
+          "**/e2e/**/*.spec.js"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "testType": "e2e-integration",
+          "environment": "test",
+          "version": "1.0.0",
+          "actualWorkers": 4
+        },
+        "id": "e2e-safari",
+        "name": "e2e-safari",
+        "testDir": "/Users/shounakshetty/Desktop/csuite23/tests",
+        "testIgnore": [
+          "**/*"
+        ],
+        "testMatch": [
+          "**/e2e/**/*.spec.js"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.54.2",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "e2e/lead-capture-modal.spec.js",
+      "file": "e2e/lead-capture-modal.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Lead Capture Modal - E2E Tests",
+          "file": "e2e/lead-capture-modal.spec.js",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should open lead capture modal on CTA click",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e-chrome",
+                  "projectName": "e2e-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 9071,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n    at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:23:53",
+                        "location": {
+                          "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                          "column": 53,
+                          "line": 23
+                        },
+                        "snippet": "  21 |     \n  22 |     // Should open lead capture modal (not Razorpay modal)\n> 23 |     await expect(page.locator('#leadCaptureModal')).toBeVisible({ timeout: 5000 });\n     |                                                     ^\n  24 |     \n  25 |     // Modal should have proper content\n  26 |     await expect(page.locator('#modalTitle')).toContainText('Complete Indian Investor');"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                            "column": 53,
+                            "line": 23
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n\n  21 |     \n  22 |     // Should open lead capture modal (not Razorpay modal)\n> 23 |     await expect(page.locator('#leadCaptureModal')).toBeVisible({ timeout: 5000 });\n     |                                                     ^\n  24 |     \n  25 |     // Modal should have proper content\n  26 |     await expect(page.locator('#modalTitle')).toContainText('Complete Indian Investor');\n    at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:23:53"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-09T14:43:30.434Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-9099e--capture-modal-on-CTA-click-e2e-chrome/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-9099e--capture-modal-on-CTA-click-e2e-chrome/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-9099e--capture-modal-on-CTA-click-e2e-chrome/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-9099e--capture-modal-on-CTA-click-e2e-chrome/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                        "column": 53,
+                        "line": 23
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "dc0eecb53ff4d115f749-be03bf7d94e1addbfd79",
+              "file": "e2e/lead-capture-modal.spec.js",
+              "line": 17,
+              "column": 7
+            },
+            {
+              "title": "should validate form fields correctly",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e-chrome",
+                  "projectName": "e2e-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 9062,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n    at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:36:53",
+                        "location": {
+                          "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                          "column": 53,
+                          "line": 36
+                        },
+                        "snippet": "  34 |     \n  35 |     // Wait for modal\n> 36 |     await expect(page.locator('#leadCaptureModal')).toBeVisible();\n     |                                                     ^\n  37 |     \n  38 |     // Try to submit empty form\n  39 |     const submitBtn = page.locator('#leadCaptureModal button[type=\"submit\"]');"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                            "column": 53,
+                            "line": 36
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n\n  34 |     \n  35 |     // Wait for modal\n> 36 |     await expect(page.locator('#leadCaptureModal')).toBeVisible();\n     |                                                     ^\n  37 |     \n  38 |     // Try to submit empty form\n  39 |     const submitBtn = page.locator('#leadCaptureModal button[type=\"submit\"]');\n    at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:36:53"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-09T14:43:30.427Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-a90ec-idate-form-fields-correctly-e2e-chrome/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-a90ec-idate-form-fields-correctly-e2e-chrome/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-a90ec-idate-form-fields-correctly-e2e-chrome/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-a90ec-idate-form-fields-correctly-e2e-chrome/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                        "column": 53,
+                        "line": 36
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "dc0eecb53ff4d115f749-8e3e79922edc7f32eac4",
+              "file": "e2e/lead-capture-modal.spec.js",
+              "line": 30,
+              "column": 7
+            },
+            {
+              "title": "should handle form submission with valid data",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e-chrome",
+                  "projectName": "e2e-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 9063,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n    at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:52:53",
+                        "location": {
+                          "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                          "column": 53,
+                          "line": 52
+                        },
+                        "snippet": "  50 |     \n  51 |     // Wait for modal\n> 52 |     await expect(page.locator('#leadCaptureModal')).toBeVisible();\n     |                                                     ^\n  53 |     \n  54 |     // Fill form with valid data\n  55 |     await page.fill('input[name=\"name\"]', 'John Doe');"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                            "column": 53,
+                            "line": 52
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n\n  50 |     \n  51 |     // Wait for modal\n> 52 |     await expect(page.locator('#leadCaptureModal')).toBeVisible();\n     |                                                     ^\n  53 |     \n  54 |     // Fill form with valid data\n  55 |     await page.fill('input[name=\"name\"]', 'John Doe');\n    at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:52:53"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-09T14:43:30.434Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-e1747--submission-with-valid-data-e2e-chrome/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-e1747--submission-with-valid-data-e2e-chrome/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-e1747--submission-with-valid-data-e2e-chrome/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-e1747--submission-with-valid-data-e2e-chrome/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                        "column": 53,
+                        "line": 52
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "dc0eecb53ff4d115f749-d6a4c2e65ad26199aa27",
+              "file": "e2e/lead-capture-modal.spec.js",
+              "line": 46,
+              "column": 7
+            },
+            {
+              "title": "should be responsive on mobile",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e-chrome",
+                  "projectName": "e2e-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 9059,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n    at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:80:53",
+                        "location": {
+                          "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                          "column": 53,
+                          "line": 80
+                        },
+                        "snippet": "  78 |     \n  79 |     // Modal should be visible and properly sized\n> 80 |     await expect(page.locator('#leadCaptureModal')).toBeVisible();\n     |                                                     ^\n  81 |     \n  82 |     const modal = page.locator('.modal-container');\n  83 |     const boundingBox = await modal.boundingBox();"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                            "column": 53,
+                            "line": 80
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n\n  78 |     \n  79 |     // Modal should be visible and properly sized\n> 80 |     await expect(page.locator('#leadCaptureModal')).toBeVisible();\n     |                                                     ^\n  81 |     \n  82 |     const modal = page.locator('.modal-container');\n  83 |     const boundingBox = await modal.boundingBox();\n    at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:80:53"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-09T14:43:30.433Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-00264-uld-be-responsive-on-mobile-e2e-chrome/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-00264-uld-be-responsive-on-mobile-e2e-chrome/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-00264-uld-be-responsive-on-mobile-e2e-chrome/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-00264-uld-be-responsive-on-mobile-e2e-chrome/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                        "column": 53,
+                        "line": 80
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "dc0eecb53ff4d115f749-6e79fdd6add7f3cc1d9e",
+              "file": "e2e/lead-capture-modal.spec.js",
+              "line": 71,
+              "column": 7
+            },
+            {
+              "title": "should close modal on escape key",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e-chrome",
+                  "projectName": "e2e-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 8751,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n    at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:94:53",
+                        "location": {
+                          "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                          "column": 53,
+                          "line": 94
+                        },
+                        "snippet": "  92 |     await ctaButton.click();\n  93 |     \n> 94 |     await expect(page.locator('#leadCaptureModal')).toBeVisible();\n     |                                                     ^\n  95 |     \n  96 |     // Press escape key\n  97 |     await page.keyboard.press('Escape');"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                            "column": 53,
+                            "line": 94
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n\n  92 |     await ctaButton.click();\n  93 |     \n> 94 |     await expect(page.locator('#leadCaptureModal')).toBeVisible();\n     |                                                     ^\n  95 |     \n  96 |     // Press escape key\n  97 |     await page.keyboard.press('Escape');\n    at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:94:53"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-09T14:43:40.100Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-7a26f-d-close-modal-on-escape-key-e2e-chrome/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-7a26f-d-close-modal-on-escape-key-e2e-chrome/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-7a26f-d-close-modal-on-escape-key-e2e-chrome/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-7a26f-d-close-modal-on-escape-key-e2e-chrome/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                        "column": 53,
+                        "line": 94
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "dc0eecb53ff4d115f749-6176cc64248456bc9c51",
+              "file": "e2e/lead-capture-modal.spec.js",
+              "line": 89,
+              "column": 7
+            },
+            {
+              "title": "should close modal on overlay click",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e-chrome",
+                  "projectName": "e2e-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 8770,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n    at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:108:53",
+                        "location": {
+                          "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                          "column": 53,
+                          "line": 108
+                        },
+                        "snippet": "  106 |     await ctaButton.click();\n  107 |     \n> 108 |     await expect(page.locator('#leadCaptureModal')).toBeVisible();\n      |                                                     ^\n  109 |     \n  110 |     // Click on overlay (outside modal content)\n  111 |     await page.locator('#leadCaptureModal').click({ position: { x: 10, y: 10 } });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                            "column": 53,
+                            "line": 108
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n\n  106 |     await ctaButton.click();\n  107 |     \n> 108 |     await expect(page.locator('#leadCaptureModal')).toBeVisible();\n      |                                                     ^\n  109 |     \n  110 |     // Click on overlay (outside modal content)\n  111 |     await page.locator('#leadCaptureModal').click({ position: { x: 10, y: 10 } });\n    at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:108:53"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-09T14:43:40.127Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-1a73a-lose-modal-on-overlay-click-e2e-chrome/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-1a73a-lose-modal-on-overlay-click-e2e-chrome/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-1a73a-lose-modal-on-overlay-click-e2e-chrome/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-1a73a-lose-modal-on-overlay-click-e2e-chrome/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                        "column": 53,
+                        "line": 108
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "dc0eecb53ff4d115f749-34ba107f82e94ec2c76f",
+              "file": "e2e/lead-capture-modal.spec.js",
+              "line": 103,
+              "column": 7
+            },
+            {
+              "title": "should validate indian phone numbers correctly",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e-chrome",
+                  "projectName": "e2e-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 8690,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n    at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:122:53",
+                        "location": {
+                          "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                          "column": 53,
+                          "line": 122
+                        },
+                        "snippet": "  120 |     await ctaButton.click();\n  121 |     \n> 122 |     await expect(page.locator('#leadCaptureModal')).toBeVisible();\n      |                                                     ^\n  123 |     \n  124 |     const phoneInput = page.locator('input[name=\"phone\"]');\n  125 |     "
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                            "column": 53,
+                            "line": 122
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n\n  120 |     await ctaButton.click();\n  121 |     \n> 122 |     await expect(page.locator('#leadCaptureModal')).toBeVisible();\n      |                                                     ^\n  123 |     \n  124 |     const phoneInput = page.locator('input[name=\"phone\"]');\n  125 |     \n    at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:122:53"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-09T14:43:40.143Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-9c31a-ian-phone-numbers-correctly-e2e-chrome/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-9c31a-ian-phone-numbers-correctly-e2e-chrome/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-9c31a-ian-phone-numbers-correctly-e2e-chrome/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-9c31a-ian-phone-numbers-correctly-e2e-chrome/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                        "column": 53,
+                        "line": 122
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "dc0eecb53ff4d115f749-7364ea6c9624986a4276",
+              "file": "e2e/lead-capture-modal.spec.js",
+              "line": 117,
+              "column": 7
+            },
+            {
+              "title": "should show course information in modal",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e-chrome",
+                  "projectName": "e2e-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 8545,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n    at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:146:53",
+                        "location": {
+                          "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                          "column": 53,
+                          "line": 146
+                        },
+                        "snippet": "  144 |     await ctaButton.click();\n  145 |     \n> 146 |     await expect(page.locator('#leadCaptureModal')).toBeVisible();\n      |                                                     ^\n  147 |     \n  148 |     // Should show course info\n  149 |     await expect(page.locator('.course-info')).toBeVisible();"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                            "column": 53,
+                            "line": 146
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n\n  144 |     await ctaButton.click();\n  145 |     \n> 146 |     await expect(page.locator('#leadCaptureModal')).toBeVisible();\n      |                                                     ^\n  147 |     \n  148 |     // Should show course info\n  149 |     await expect(page.locator('.course-info')).toBeVisible();\n    at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:146:53"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-09T14:43:40.178Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-9a3a8-course-information-in-modal-e2e-chrome/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-9a3a8-course-information-in-modal-e2e-chrome/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-9a3a8-course-information-in-modal-e2e-chrome/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-9a3a8-course-information-in-modal-e2e-chrome/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                        "column": 53,
+                        "line": 146
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "dc0eecb53ff4d115f749-63885a51ca8b5e961a78",
+              "file": "e2e/lead-capture-modal.spec.js",
+              "line": 141,
+              "column": 7
+            },
+            {
+              "title": "should handle accessibility correctly",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e-chrome",
+                  "projectName": "e2e-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 8428,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n    at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:164:25",
+                        "location": {
+                          "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                          "column": 25,
+                          "line": 164
+                        },
+                        "snippet": "  162 |     \n  163 |     const modal = page.locator('#leadCaptureModal');\n> 164 |     await expect(modal).toBeVisible();\n      |                         ^\n  165 |     \n  166 |     // Should have proper ARIA attributes\n  167 |     await expect(modal).toHaveAttribute('role', 'dialog');"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                            "column": 25,
+                            "line": 164
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#leadCaptureModal')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#leadCaptureModal')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" id=\"leadCaptureModal\" class=\"modal-overlay\" aria-labelledby=\"modalTitle\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n\n  162 |     \n  163 |     const modal = page.locator('#leadCaptureModal');\n> 164 |     await expect(modal).toBeVisible();\n      |                         ^\n  165 |     \n  166 |     // Should have proper ARIA attributes\n  167 |     await expect(modal).toHaveAttribute('role', 'dialog');\n    at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:164:25"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-09T14:43:49.302Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-f7e5c-dle-accessibility-correctly-e2e-chrome/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-f7e5c-dle-accessibility-correctly-e2e-chrome/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-f7e5c-dle-accessibility-correctly-e2e-chrome/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/shounakshetty/Desktop/csuite23/test-results/artifacts/e2e-lead-capture-modal-Lea-f7e5c-dle-accessibility-correctly-e2e-chrome/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js",
+                        "column": 25,
+                        "line": 164
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "dc0eecb53ff4d115f749-433a42e67454afb68458",
+              "file": "e2e/lead-capture-modal.spec.js",
+              "line": 158,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-08-09T14:43:30.088Z",
+    "duration": 27785.248,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 9,
+    "flaky": 0
+  }
+}

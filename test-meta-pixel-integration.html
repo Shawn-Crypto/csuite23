@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta Pixel Integration Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        button { padding: 10px 20px; margin: 10px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .results { margin-top: 20px; padding: 10px; background: #f8f9fa; border-radius: 5px; }
+        .event-log { background: #e9ecef; padding: 10px; margin: 5px 0; font-family: monospace; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <h1>Meta Pixel Integration Test</h1>
+    <p>This page tests the Meta Pixel client-side integration with deduplication.</p>
+
+    <h2>Event Testing</h2>
+    <button onclick="testPurchase()">Test Purchase Event</button>
+    <button onclick="testLead()">Test Lead Event</button>
+    <button onclick="testCheckout()">Test InitiateCheckout Event</button>
+    <button onclick="clearEvents()">Clear Event History</button>
+
+    <h2>Form Test</h2>
+    <form id="testForm">
+        <input type="email" placeholder="test@example.com" value="test@example.com">
+        <input type="tel" placeholder="+91 9876543210" value="9876543210">
+        <input type="text" placeholder="Full Name" value="Test User">
+        <button type="submit">Submit Form (Triggers Lead)</button>
+    </form>
+
+    <div class="results">
+        <h3>Event Log</h3>
+        <div id="eventLog"></div>
+    </div>
+
+    <div class="results">
+        <h3>Client Status</h3>
+        <div id="clientStatus"></div>
+    </div>
+
+    <!-- Include the Meta Pixel client -->
+    <script src="js/meta-pixel.js"></script>
+    
+    <script>
+        // Initialize data layer for GTM simulation
+        window.dataLayer = window.dataLayer || [];
+        
+        // Event logging
+        const eventLog = document.getElementById('eventLog');
+        const clientStatus = document.getElementById('clientStatus');
+        
+        function logEvent(message) {
+            const timestamp = new Date().toISOString();
+            const logEntry = document.createElement('div');
+            logEntry.className = 'event-log';
+            logEntry.textContent = `[${timestamp}] ${message}`;
+            eventLog.insertBefore(logEntry, eventLog.firstChild);
+        }
+        
+        function updateStatus() {
+            if (window.metaPixelClient) {
+                const status = {
+                    initialized: window.metaPixelClient.initialized,
+                    debugMode: window.metaPixelClient.debugMode,
+                    pixelId: window.metaPixelClient.pixelId,
+                    sentEventsCount: window.metaPixelClient.sentEvents.size,
+                    queuedEvents: window.metaPixelClient.eventQueue.length
+                };
+                
+                clientStatus.innerHTML = `
+                    <strong>Initialized:</strong> ${status.initialized}<br>
+                    <strong>Debug Mode:</strong> ${status.debugMode}<br>
+                    <strong>Pixel ID:</strong> ${status.pixelId}<br>
+                    <strong>Events Sent:</strong> ${status.sentEventsCount}<br>
+                    <strong>Queued Events:</strong> ${status.queuedEvents}
+                `;
+            } else {
+                clientStatus.textContent = 'Meta Pixel Client not available';
+            }
+        }
+        
+        // Test functions
+        function testPurchase() {
+            const transactionId = 'test_order_' + Date.now();
+            
+            // Simulate GTM dataLayer push
+            window.dataLayer.push({
+                event: 'purchase',
+                ecommerce: {
+                    transaction_id: transactionId,
+                    value: 1999,
+                    currency: 'INR',
+                    items: [{
+                        item_id: 'complete_indian_investor',
+                        item_name: 'The Complete Indian Investor Course',
+                        price: 1999,
+                        quantity: 1
+                    }]
+                }
+            });
+            
+            logEvent(`Purchase event triggered: ${transactionId}`);
+        }
+        
+        function testLead() {
+            const leadId = 'test_lead_' + Date.now();
+            
+            window.dataLayer.push({
+                event: 'lead_capture',
+                lead_id: leadId,
+                form_type: 'manual_test'
+            });
+            
+            logEvent(`Lead event triggered: ${leadId}`);
+        }
+        
+        function testCheckout() {
+            window.dataLayer.push({
+                event: 'initiate_checkout',
+                checkout_trigger: 'manual_test',
+                button_text: 'Test Checkout Button'
+            });
+            
+            logEvent('InitiateCheckout event triggered');
+        }
+        
+        function clearEvents() {
+            if (window.metaPixelClient) {
+                window.metaPixelClient.sentEvents.clear();
+                logEvent('Event history cleared');
+                updateStatus();
+            }
+        }
+        
+        // Monitor console for Meta Pixel events
+        const originalConsoleLog = console.log;
+        console.log = function(...args) {
+            if (args[0] && args[0].includes && args[0].includes('[META_PIXEL_CLIENT]')) {
+                logEvent(`Console: ${args.join(' ')}`);
+            }
+            originalConsoleLog.apply(console, args);
+        };
+        
+        // Update status periodically
+        setInterval(updateStatus, 1000);
+        
+        // Initial status update
+        setTimeout(updateStatus, 100);
+        
+        logEvent('Test page loaded - Meta Pixel integration ready');
+    </script>
+</body>
+</html>

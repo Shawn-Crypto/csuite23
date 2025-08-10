@@ -1,0 +1,44 @@
+<div id="leadCaptureModal" class="fixed inset-0 z-50 bg-black/80" style="display: none;">
+  <div class="fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg sm:rounded-lg md:w-full modal-content">
+    
+    <div class="flex flex-col space-y-1.5 text-center sm:text-left modal-header">
+      <h2 class="text-lg font-semibold leading-none tracking-tight">
+        🎉 You're 30 seconds away from mastering investor pitches!
+      </h2>
+    </div>
+    
+    <div class="space-y-4 modal-body">
+      <p class="text-sm text-muted-foreground">Before we process your ₹1,499 payment:</p>
+      
+      <form id="leadCaptureForm" class="space-y-4" novalidate>
+        <div class="space-y-2 form-group">
+          <label class="text-sm font-medium leading-none" for="email">Email Address *</label>
+          <input class="flex h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-sm email-input" id="email" name="email" type="email" placeholder="your@email.com" required autocomplete="email" />
+        </div>
+        
+        <div class="space-y-2 form-group">
+          <label class="text-sm font-medium leading-none" for="firstName">First Name *</label>
+          <input class="flex h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-sm" id="firstName" name="firstName" type="text" placeholder="First name" required />
+        </div>
+        
+        <div class="space-y-2 form-group">
+          <label class="text-sm font-medium leading-none" for="lastName">Last Name *</label>
+          <input class="flex h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-sm" id="lastName" name="lastName" type="text" placeholder="Last name" required />
+        </div>
+        
+        <div class="space-y-2 form-group">
+          <label class="text-sm font-medium leading-none" for="phone">Mobile Number *</label>
+          <div class="flex gap-2 phone-number-container">
+            <select id="countryCode" name="countryCode" class="flex h-11 rounded-md border border-input bg-background px-3 py-2 text-sm country-code-select" required></select>
+            <input class="flex h-11 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 flex-1 min-w-0 phone-number-input" id="phoneNumber" name="phoneNumber" type="tel" placeholder="98765 43210" pattern="[0-9]{10,15}" required />
+          </div>
+        </div>
+      </form>
+      
+      <div class="modal-footer">
+        <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium h-12 px-6 py-2 w-full text-lg font-semibold primary-button" style="background-color: #4285f4; color: white;" id="continueToPayment">Continue to Payment →</button>
+        <p class="text-sm text-muted-foreground text-center mt-3 help-text" id="helpText">💡 Your information will pre-fill the checkout for faster payment</p>
+      </div>
+    </div>
+  </div>
+</div>

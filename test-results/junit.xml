@@ -1,0 +1,508 @@
+<testsuites id="" name="" tests="9" failures="9" skipped="0" errors="0" time="27.785248">
+<testsuite name="e2e/lead-capture-modal.spec.js" timestamp="2025-08-09T14:43:30.134Z" hostname="e2e-chrome" tests="9" failures="9" skipped="0" time="79.439" errors="0">
+<testcase name="Lead Capture Modal - E2E Tests › should open lead capture modal on CTA click" classname="e2e/lead-capture-modal.spec.js" time="9.071">
+<failure message="lead-capture-modal.spec.js:17:7 should open lead capture modal on CTA click" type="FAILURE">
+<![CDATA[  [e2e-chrome] › e2e/lead-capture-modal.spec.js:17:7 › Lead Capture Modal - E2E Tests › should open lead capture modal on CTA click 
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: locator('#leadCaptureModal')
+    Expected: visible
+    Received: hidden
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for locator('#leadCaptureModal')
+        9 × locator resolved to <div role="dialog" aria-modal="true" id="leadCaptureModal" class="modal-overlay" aria-labelledby="modalTitle">…</div>
+          - unexpected value "hidden"
+
+
+      21 |     
+      22 |     // Should open lead capture modal (not Razorpay modal)
+    > 23 |     await expect(page.locator('#leadCaptureModal')).toBeVisible({ timeout: 5000 });
+         |                                                     ^
+      24 |     
+      25 |     // Modal should have proper content
+      26 |     await expect(page.locator('#modalTitle')).toContainText('Complete Indian Investor');
+        at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:23:53
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-9099e--capture-modal-on-CTA-click-e2e-chrome/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-9099e--capture-modal-on-CTA-click-e2e-chrome/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/artifacts/e2e-lead-capture-modal-Lea-9099e--capture-modal-on-CTA-click-e2e-chrome/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-9099e--capture-modal-on-CTA-click-e2e-chrome/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/artifacts/e2e-lead-capture-modal-Lea-9099e--capture-modal-on-CTA-click-e2e-chrome/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-9099e--capture-modal-on-CTA-click-e2e-chrome/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-9099e--capture-modal-on-CTA-click-e2e-chrome/video.webm]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-9099e--capture-modal-on-CTA-click-e2e-chrome/error-context.md]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-9099e--capture-modal-on-CTA-click-e2e-chrome/trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Lead Capture Modal - E2E Tests › should validate form fields correctly" classname="e2e/lead-capture-modal.spec.js" time="9.062">
+<failure message="lead-capture-modal.spec.js:30:7 should validate form fields correctly" type="FAILURE">
+<![CDATA[  [e2e-chrome] › e2e/lead-capture-modal.spec.js:30:7 › Lead Capture Modal - E2E Tests › should validate form fields correctly 
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: locator('#leadCaptureModal')
+    Expected: visible
+    Received: hidden
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for locator('#leadCaptureModal')
+        9 × locator resolved to <div role="dialog" aria-modal="true" id="leadCaptureModal" class="modal-overlay" aria-labelledby="modalTitle">…</div>
+          - unexpected value "hidden"
+
+
+      34 |     
+      35 |     // Wait for modal
+    > 36 |     await expect(page.locator('#leadCaptureModal')).toBeVisible();
+         |                                                     ^
+      37 |     
+      38 |     // Try to submit empty form
+      39 |     const submitBtn = page.locator('#leadCaptureModal button[type="submit"]');
+        at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:36:53
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-a90ec-idate-form-fields-correctly-e2e-chrome/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-a90ec-idate-form-fields-correctly-e2e-chrome/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/artifacts/e2e-lead-capture-modal-Lea-a90ec-idate-form-fields-correctly-e2e-chrome/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-a90ec-idate-form-fields-correctly-e2e-chrome/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/artifacts/e2e-lead-capture-modal-Lea-a90ec-idate-form-fields-correctly-e2e-chrome/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-a90ec-idate-form-fields-correctly-e2e-chrome/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-a90ec-idate-form-fields-correctly-e2e-chrome/video.webm]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-a90ec-idate-form-fields-correctly-e2e-chrome/error-context.md]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-a90ec-idate-form-fields-correctly-e2e-chrome/trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Lead Capture Modal - E2E Tests › should handle form submission with valid data" classname="e2e/lead-capture-modal.spec.js" time="9.063">
+<failure message="lead-capture-modal.spec.js:46:7 should handle form submission with valid data" type="FAILURE">
+<![CDATA[  [e2e-chrome] › e2e/lead-capture-modal.spec.js:46:7 › Lead Capture Modal - E2E Tests › should handle form submission with valid data 
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: locator('#leadCaptureModal')
+    Expected: visible
+    Received: hidden
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for locator('#leadCaptureModal')
+        9 × locator resolved to <div role="dialog" aria-modal="true" id="leadCaptureModal" class="modal-overlay" aria-labelledby="modalTitle">…</div>
+          - unexpected value "hidden"
+
+
+      50 |     
+      51 |     // Wait for modal
+    > 52 |     await expect(page.locator('#leadCaptureModal')).toBeVisible();
+         |                                                     ^
+      53 |     
+      54 |     // Fill form with valid data
+      55 |     await page.fill('input[name="name"]', 'John Doe');
+        at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:52:53
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-e1747--submission-with-valid-data-e2e-chrome/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-e1747--submission-with-valid-data-e2e-chrome/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/artifacts/e2e-lead-capture-modal-Lea-e1747--submission-with-valid-data-e2e-chrome/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-e1747--submission-with-valid-data-e2e-chrome/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/artifacts/e2e-lead-capture-modal-Lea-e1747--submission-with-valid-data-e2e-chrome/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-e1747--submission-with-valid-data-e2e-chrome/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-e1747--submission-with-valid-data-e2e-chrome/video.webm]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-e1747--submission-with-valid-data-e2e-chrome/error-context.md]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-e1747--submission-with-valid-data-e2e-chrome/trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Lead Capture Modal - E2E Tests › should be responsive on mobile" classname="e2e/lead-capture-modal.spec.js" time="9.059">
+<failure message="lead-capture-modal.spec.js:71:7 should be responsive on mobile" type="FAILURE">
+<![CDATA[  [e2e-chrome] › e2e/lead-capture-modal.spec.js:71:7 › Lead Capture Modal - E2E Tests › should be responsive on mobile 
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: locator('#leadCaptureModal')
+    Expected: visible
+    Received: hidden
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for locator('#leadCaptureModal')
+        9 × locator resolved to <div role="dialog" aria-modal="true" id="leadCaptureModal" class="modal-overlay" aria-labelledby="modalTitle">…</div>
+          - unexpected value "hidden"
+
+
+      78 |     
+      79 |     // Modal should be visible and properly sized
+    > 80 |     await expect(page.locator('#leadCaptureModal')).toBeVisible();
+         |                                                     ^
+      81 |     
+      82 |     const modal = page.locator('.modal-container');
+      83 |     const boundingBox = await modal.boundingBox();
+        at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:80:53
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-00264-uld-be-responsive-on-mobile-e2e-chrome/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-00264-uld-be-responsive-on-mobile-e2e-chrome/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/artifacts/e2e-lead-capture-modal-Lea-00264-uld-be-responsive-on-mobile-e2e-chrome/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-00264-uld-be-responsive-on-mobile-e2e-chrome/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/artifacts/e2e-lead-capture-modal-Lea-00264-uld-be-responsive-on-mobile-e2e-chrome/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-00264-uld-be-responsive-on-mobile-e2e-chrome/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-00264-uld-be-responsive-on-mobile-e2e-chrome/video.webm]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-00264-uld-be-responsive-on-mobile-e2e-chrome/error-context.md]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-00264-uld-be-responsive-on-mobile-e2e-chrome/trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Lead Capture Modal - E2E Tests › should close modal on escape key" classname="e2e/lead-capture-modal.spec.js" time="8.751">
+<failure message="lead-capture-modal.spec.js:89:7 should close modal on escape key" type="FAILURE">
+<![CDATA[  [e2e-chrome] › e2e/lead-capture-modal.spec.js:89:7 › Lead Capture Modal - E2E Tests › should close modal on escape key 
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: locator('#leadCaptureModal')
+    Expected: visible
+    Received: hidden
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for locator('#leadCaptureModal')
+        9 × locator resolved to <div role="dialog" aria-modal="true" id="leadCaptureModal" class="modal-overlay" aria-labelledby="modalTitle">…</div>
+          - unexpected value "hidden"
+
+
+      92 |     await ctaButton.click();
+      93 |     
+    > 94 |     await expect(page.locator('#leadCaptureModal')).toBeVisible();
+         |                                                     ^
+      95 |     
+      96 |     // Press escape key
+      97 |     await page.keyboard.press('Escape');
+        at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:94:53
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-7a26f-d-close-modal-on-escape-key-e2e-chrome/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-7a26f-d-close-modal-on-escape-key-e2e-chrome/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/artifacts/e2e-lead-capture-modal-Lea-7a26f-d-close-modal-on-escape-key-e2e-chrome/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-7a26f-d-close-modal-on-escape-key-e2e-chrome/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/artifacts/e2e-lead-capture-modal-Lea-7a26f-d-close-modal-on-escape-key-e2e-chrome/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-7a26f-d-close-modal-on-escape-key-e2e-chrome/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-7a26f-d-close-modal-on-escape-key-e2e-chrome/video.webm]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-7a26f-d-close-modal-on-escape-key-e2e-chrome/error-context.md]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-7a26f-d-close-modal-on-escape-key-e2e-chrome/trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Lead Capture Modal - E2E Tests › should close modal on overlay click" classname="e2e/lead-capture-modal.spec.js" time="8.77">
+<failure message="lead-capture-modal.spec.js:103:7 should close modal on overlay click" type="FAILURE">
+<![CDATA[  [e2e-chrome] › e2e/lead-capture-modal.spec.js:103:7 › Lead Capture Modal - E2E Tests › should close modal on overlay click 
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: locator('#leadCaptureModal')
+    Expected: visible
+    Received: hidden
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for locator('#leadCaptureModal')
+        9 × locator resolved to <div role="dialog" aria-modal="true" id="leadCaptureModal" class="modal-overlay" aria-labelledby="modalTitle">…</div>
+          - unexpected value "hidden"
+
+
+      106 |     await ctaButton.click();
+      107 |     
+    > 108 |     await expect(page.locator('#leadCaptureModal')).toBeVisible();
+          |                                                     ^
+      109 |     
+      110 |     // Click on overlay (outside modal content)
+      111 |     await page.locator('#leadCaptureModal').click({ position: { x: 10, y: 10 } });
+        at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:108:53
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-1a73a-lose-modal-on-overlay-click-e2e-chrome/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-1a73a-lose-modal-on-overlay-click-e2e-chrome/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/artifacts/e2e-lead-capture-modal-Lea-1a73a-lose-modal-on-overlay-click-e2e-chrome/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-1a73a-lose-modal-on-overlay-click-e2e-chrome/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/artifacts/e2e-lead-capture-modal-Lea-1a73a-lose-modal-on-overlay-click-e2e-chrome/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-1a73a-lose-modal-on-overlay-click-e2e-chrome/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-1a73a-lose-modal-on-overlay-click-e2e-chrome/video.webm]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-1a73a-lose-modal-on-overlay-click-e2e-chrome/error-context.md]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-1a73a-lose-modal-on-overlay-click-e2e-chrome/trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Lead Capture Modal - E2E Tests › should validate indian phone numbers correctly" classname="e2e/lead-capture-modal.spec.js" time="8.69">
+<failure message="lead-capture-modal.spec.js:117:7 should validate indian phone numbers correctly" type="FAILURE">
+<![CDATA[  [e2e-chrome] › e2e/lead-capture-modal.spec.js:117:7 › Lead Capture Modal - E2E Tests › should validate indian phone numbers correctly 
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: locator('#leadCaptureModal')
+    Expected: visible
+    Received: hidden
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for locator('#leadCaptureModal')
+        9 × locator resolved to <div role="dialog" aria-modal="true" id="leadCaptureModal" class="modal-overlay" aria-labelledby="modalTitle">…</div>
+          - unexpected value "hidden"
+
+
+      120 |     await ctaButton.click();
+      121 |     
+    > 122 |     await expect(page.locator('#leadCaptureModal')).toBeVisible();
+          |                                                     ^
+      123 |     
+      124 |     const phoneInput = page.locator('input[name="phone"]');
+      125 |     
+        at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:122:53
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-9c31a-ian-phone-numbers-correctly-e2e-chrome/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-9c31a-ian-phone-numbers-correctly-e2e-chrome/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/artifacts/e2e-lead-capture-modal-Lea-9c31a-ian-phone-numbers-correctly-e2e-chrome/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-9c31a-ian-phone-numbers-correctly-e2e-chrome/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/artifacts/e2e-lead-capture-modal-Lea-9c31a-ian-phone-numbers-correctly-e2e-chrome/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-9c31a-ian-phone-numbers-correctly-e2e-chrome/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-9c31a-ian-phone-numbers-correctly-e2e-chrome/video.webm]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-9c31a-ian-phone-numbers-correctly-e2e-chrome/error-context.md]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-9c31a-ian-phone-numbers-correctly-e2e-chrome/trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Lead Capture Modal - E2E Tests › should show course information in modal" classname="e2e/lead-capture-modal.spec.js" time="8.545">
+<failure message="lead-capture-modal.spec.js:141:7 should show course information in modal" type="FAILURE">
+<![CDATA[  [e2e-chrome] › e2e/lead-capture-modal.spec.js:141:7 › Lead Capture Modal - E2E Tests › should show course information in modal 
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: locator('#leadCaptureModal')
+    Expected: visible
+    Received: hidden
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for locator('#leadCaptureModal')
+        9 × locator resolved to <div role="dialog" aria-modal="true" id="leadCaptureModal" class="modal-overlay" aria-labelledby="modalTitle">…</div>
+          - unexpected value "hidden"
+
+
+      144 |     await ctaButton.click();
+      145 |     
+    > 146 |     await expect(page.locator('#leadCaptureModal')).toBeVisible();
+          |                                                     ^
+      147 |     
+      148 |     // Should show course info
+      149 |     await expect(page.locator('.course-info')).toBeVisible();
+        at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:146:53
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-9a3a8-course-information-in-modal-e2e-chrome/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-9a3a8-course-information-in-modal-e2e-chrome/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/artifacts/e2e-lead-capture-modal-Lea-9a3a8-course-information-in-modal-e2e-chrome/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-9a3a8-course-information-in-modal-e2e-chrome/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/artifacts/e2e-lead-capture-modal-Lea-9a3a8-course-information-in-modal-e2e-chrome/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-9a3a8-course-information-in-modal-e2e-chrome/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-9a3a8-course-information-in-modal-e2e-chrome/video.webm]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-9a3a8-course-information-in-modal-e2e-chrome/error-context.md]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-9a3a8-course-information-in-modal-e2e-chrome/trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Lead Capture Modal - E2E Tests › should handle accessibility correctly" classname="e2e/lead-capture-modal.spec.js" time="8.428">
+<failure message="lead-capture-modal.spec.js:158:7 should handle accessibility correctly" type="FAILURE">
+<![CDATA[  [e2e-chrome] › e2e/lead-capture-modal.spec.js:158:7 › Lead Capture Modal - E2E Tests › should handle accessibility correctly 
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: locator('#leadCaptureModal')
+    Expected: visible
+    Received: hidden
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for locator('#leadCaptureModal')
+        9 × locator resolved to <div role="dialog" aria-modal="true" id="leadCaptureModal" class="modal-overlay" aria-labelledby="modalTitle">…</div>
+          - unexpected value "hidden"
+
+
+      162 |     
+      163 |     const modal = page.locator('#leadCaptureModal');
+    > 164 |     await expect(modal).toBeVisible();
+          |                         ^
+      165 |     
+      166 |     // Should have proper ARIA attributes
+      167 |     await expect(modal).toHaveAttribute('role', 'dialog');
+        at /Users/shounakshetty/Desktop/csuite23/tests/e2e/lead-capture-modal.spec.js:164:25
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-f7e5c-dle-accessibility-correctly-e2e-chrome/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-f7e5c-dle-accessibility-correctly-e2e-chrome/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/artifacts/e2e-lead-capture-modal-Lea-f7e5c-dle-accessibility-correctly-e2e-chrome/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/artifacts/e2e-lead-capture-modal-Lea-f7e5c-dle-accessibility-correctly-e2e-chrome/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/artifacts/e2e-lead-capture-modal-Lea-f7e5c-dle-accessibility-correctly-e2e-chrome/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-f7e5c-dle-accessibility-correctly-e2e-chrome/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-f7e5c-dle-accessibility-correctly-e2e-chrome/video.webm]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-f7e5c-dle-accessibility-correctly-e2e-chrome/error-context.md]]
+
+[[ATTACHMENT|artifacts/e2e-lead-capture-modal-Lea-f7e5c-dle-accessibility-correctly-e2e-chrome/trace.zip]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

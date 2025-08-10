@@ -1506,6 +1506,7 @@
     </style>
 
     <!-- Load non-critical CSS asynchronously -->
+    <link rel="stylesheet" href="css/modal.css">
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M3JWN37C"
@@ -1584,9 +1585,9 @@
                 This is an educational course designed to enhance financial literacy. Not personalized investment advice.
             </p>
 
-            <a href="https://payments.cashfree.com/forms/lotuslion-course" class="cta-button" style="display: inline-block; margin-bottom: 24px;">
+            <button class="cta-button" style="display: inline-block; margin-bottom: 24px; border: none; background: none;" onclick="window.leadCapture?.show()">
                 START LEARNING TODAY
-            </a>
+            </button>
 
             <div class="price-box">
                 <span class="original">₹9,999</span>
@@ -1771,7 +1772,7 @@
                         <li><span class="feature-icon">✓</span>Lifetime access & future updates</li>
                         <li><span class="feature-icon">✓</span>Access to student community</li>
                     </ul>
-                    <a href="https://payments.cashfree.com/forms/lotuslion-course" class="cta-button">ENROLL NOW</a>
+                    <button class="cta-button" style="border: none; background: none;" onclick="window.leadCapture?.show()">ENROLL NOW</button>
                     <div class="pricing-guarantee"><span class="guarantee-badge-small">🛡️ 48-Hour Money Back Guarantee</span></div>
                 </div>
             </div>
@@ -1929,7 +1930,7 @@
         <div class="container animate-hidden animate-in">
             <h2 class="section-title">Ready to Master Investment Analysis?</h2>
             <p style="font-size: 20px; margin-bottom: 32px; color: rgba(255, 255, 255, 0.9);">Join professionals who've enhanced their financial analysis skills through structured, institutional-grade education.</p>
-            <a href="https://payments.cashfree.com/forms/lotuslion-course" class="cta-button">ENROLL NOW - ₹1,999</a>
+            <button class="cta-button" style="border: none; background: none;" onclick="window.leadCapture?.show()">ENROLL NOW - ₹1,999</button>
             <p style="margin-top: 24px; color: rgba(255, 255, 255, 0.8); font-size: 16px;">
                 Lifetime Access • Mobile Compatible • 48-Hour Refund Policy
             </p>
@@ -2112,7 +2113,86 @@
     <script src="js/faq-accordion.js" defer></script>
     <script src="js/lazy-loading.js" defer></script>
     
-    <!-- Razorpay Checkout Integration -->
-    <script src="js/razorpay-checkout.js" defer></script>
+    <!-- Lead Capture Modal -->
+    <div id="leadCaptureModal" class="modal-overlay" role="dialog" aria-labelledby="modalTitle" aria-modal="true">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h2 id="modalTitle">Get Instant Access to The Complete Indian Investor</h2>
+          <p class="subtitle">Start your journey to institutional-grade investment knowledge</p>
+          <button class="modal-close" aria-label="Close modal">&times;</button>
+        </div>
+
+        <form id="leadCaptureForm" class="modal-form" novalidate>
+          <div class="course-info">
+            <h3>The Complete Indian Investor Course</h3>
+            <div class="price">
+              <span class="current-price">₹1,999</span>
+              <span class="original-price">₹9,999</span>
+              <span class="savings">80% OFF</span>
+            </div>
+            <ul class="features">
+              <li>Institutional-grade investment frameworks</li>
+              <li>Financial statement analysis mastery</li>
+              <li>Valuation methodologies</li>
+              <li>Risk assessment techniques</li>
+              <li>Lifetime access to all materials</li>
+            </ul>
+          </div>
+
+          <div class="form-group">
+            <label for="leadName">Full Name *</label>
+            <input type="text" id="leadName" name="name" required 
+                   placeholder="Enter your full name" 
+                   autocomplete="name">
+            <div class="error-message"></div>
+            <div class="success-message"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="leadEmail">Email Address *</label>
+            <input type="email" id="leadEmail" name="email" required 
+                   placeholder="Enter your email address" 
+                   autocomplete="email">
+            <div class="error-message"></div>
+            <div class="success-message"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="leadPhone">Mobile Number *</label>
+            <input type="tel" id="leadPhone" name="phone" required 
+                   placeholder="Enter 10-digit mobile number" 
+                   pattern="[6-9][0-9]{9}"
+                   autocomplete="tel">
+            <div class="error-message"></div>
+            <div class="success-message"></div>
+          </div>
+
+          <div class="checkbox-group">
+            <label>
+              <input type="checkbox" name="terms" required>
+              <span>I agree to the <a href="terms.html" target="_blank">Terms & Conditions</a> and <a href="privacy.html" target="_blank">Privacy Policy</a> *</span>
+            </label>
+            <div class="error-message"></div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" onclick="window.leadCapture?.close()">
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-primary">
+              <div class="loading-spinner" style="display: none;"></div>
+              <span class="btn-text">Get Instant Access</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Meta Pixel Integration -->
+    <script src="js/meta-pixel.js" defer></script>
+    <!-- Razorpay Checkout Integration (disabled - using new flow) -->
+    <!-- <script src="js/razorpay-checkout.js" defer></script> -->
+    <!-- Lead Capture Modal Integration -->
+    <script src="js/lead-capture-modal.js" defer></script>
 </body>
 </html>

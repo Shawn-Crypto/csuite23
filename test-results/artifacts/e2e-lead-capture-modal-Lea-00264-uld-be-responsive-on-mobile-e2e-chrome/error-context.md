@@ -1,0 +1,262 @@
+# Page snapshot
+
+```yaml
+- navigation "Main navigation":
+  - link "Home":
+    - /url: "#hero"
+  - link "Who This Is For":
+    - /url: "#who-this-is-for"
+  - link "What You'll Master":
+    - /url: "#problems"
+  - link "Teaching Method":
+    - /url: "#solution"
+  - link "What's Included":
+    - /url: "#whats-included"
+  - link "Pricing":
+    - /url: "#pricing"
+  - link "Access Details":
+    - /url: "#course-access"
+  - link "Your Instructor":
+    - /url: "#instructor"
+  - link "FAQ":
+    - /url: "#faq"
+  - link "Enroll Now":
+    - /url: "#enroll"
+- text: 📚 Learn Institutional Investment Analysis - Special Educational Pricing Available
+- button "Close banner": ×
+- text: 17+ YEARS EXPERT TEACHING
+- heading "Learn Smart Stock Investing" [level=1]
+- paragraph: Learn how professionals pick winning stocks step-by-step
+- text: 17+ Years at Top Investment Banks 100+ Companies Analyzed ₹10+ Trn Institutional AUM Advised
+- paragraph: Learn the exact methods used by top investment professionals to pick winning stocks in the Indian market.
+- paragraph:
+  - emphasis: Educational content only. Not SEBI registered investment advice. Consult qualified advisors for personalized recommendations.
+- paragraph: This is an educational course designed to enhance financial literacy. Not personalized investment advice.
+- text: START LEARNING TODAY ₹9,999 ₹1,999 80% OFF - Limited Period Or just
+- strong: ₹333/month
+- text: (6 EMI) 🛡️
+- strong: Learning Success Guarantee
+- text: We're confident in our institutional methodology*
+- heading "Who This Course Is Perfect For" [level=2]
+- paragraph: This educational course is designed for professionals who want to understand institutional investment frameworks
+- heading "💼 Working Professionals" [level=3]
+- list:
+  - listitem: Want to understand financial markets better
+  - listitem: Seeking structured learning approach
+  - listitem: Limited time for extensive research
+- heading "📊 Finance Enthusiasts" [level=3]
+- list:
+  - listitem: Want to read financial statements
+  - listitem: Seeking systematic frameworks
+  - listitem: Interested in fundamental analysis
+- heading "🎯 Serious Learners" [level=3]
+- list:
+  - listitem: Committed to long-term learning
+  - listitem: Want institutional-grade knowledge
+  - listitem: Prefer depth over quick tips
+- heading "🔍 Research-Oriented Minds" [level=3]
+- list:
+  - listitem: Enjoy analyzing companies
+  - listitem: Want to understand valuation
+  - listitem: Seek data-driven approaches
+- heading "What You'll Master" [level=2]
+- paragraph: Four core competencies that form the foundation of professional investment analysis
+- paragraph:
+  - emphasis: Educational content only. Not SEBI registered investment advice. Consult qualified advisors for personalized recommendations.
+- heading "📈 Financial Statement Analysis" [level=3]
+- paragraph: Learn to read and interpret balance sheets, income statements, and cash flow statements like institutional analysts do.
+- heading "🎯 Valuation Frameworks" [level=3]
+- paragraph: Master multiple valuation methodologies including DCF, relative valuation, and asset-based approaches.
+- heading "🔄 Sector Analysis" [level=3]
+- paragraph: Understand how to analyze different sectors, their key metrics, and what drives performance in each industry.
+- heading "📊 Risk Assessment" [level=3]
+- paragraph: Develop frameworks for evaluating business risk, financial risk, and portfolio risk management strategies.
+- heading "Our Educational Framework" [level=2]
+- paragraph: A structured approach to learning institutional investment analysis
+- text: 📚
+- heading "Structured Learning" [level=3]
+- paragraph: Progressive curriculum designed to build foundational knowledge before advancing to complex concepts and practical applications.
+- text: 🎯
+- heading "Practical Application" [level=3]
+- paragraph: Every theory is reinforced with real-world examples and case studies from actual companies and market scenarios.
+- text: 🔄
+- heading "Continuous Learning" [level=3]
+- paragraph: Gain lifetime access to materials, regular updates, and a supportive community to ensure your growth continues beyond the course.
+- heading "What's Included in Your Course" [level=2]
+- paragraph: Every component designed to accelerate your learning journey and build lasting expertise.
+- text: 📱
+- heading "Mobile & Desktop Access" [level=3]
+- paragraph: Learn anytime, anywhere. Our platform is fully responsive, allowing seamless access from any device.
+- text: ♾️
+- heading "Lifetime Access & Updates" [level=3]
+- paragraph: Enroll once, learn forever. Get permanent access to all course materials and future updates at no extra cost.
+- text: 📄
+- heading "Downloadable Resources" [level=3]
+- paragraph: Access ready-to-use analysis worksheets, financial models, checklists, and quick reference guides.
+- text: 🔄
+- heading "Real-World Case Studies" [level=3]
+- paragraph: Apply frameworks to actual Indian companies, solidifying your understanding through practical examples.
+- text: 💬
+- heading "Exclusive Community Access" [level=3]
+- paragraph: Join a vibrant community of fellow learners. Share insights, ask questions, and grow together in a supportive environment.
+- heading "Investment in Your Knowledge" [level=2]
+- paragraph: Secure your access to institutional-grade investment education.
+- text: Special Launch Offer ₹1,999 ₹9,999
+- list:
+  - listitem: ✓ Access to all 5 core modules
+  - listitem: ✓ 15+ hours of structured content
+  - listitem: ✓ Downloadable analysis templates
+  - listitem: ✓ Real-world Indian case studies
+  - listitem: ✓ Lifetime access & future updates
+  - listitem: ✓ Access to student community
+- text: ENROLL NOW 🛡️ 48-Hour Money Back Guarantee
+- heading "How You'll Access the Course" [level=2]
+- heading "Instant Access" [level=3]
+- paragraph: Get login details delivered to your email within minutes of enrollment, so you can start learning immediately.
+- heading "Online Platform" [level=3]
+- paragraph: Access all course content, downloadable resources, and community features through our dedicated, easy-to-use learning portal.
+- heading "Direct Communication" [level=3]
+- paragraph: Receive important updates, session schedules, and bonus content directly in your inbox to keep you informed.
+- heading "Secure & Private" [level=3]
+- paragraph: Your data and learning progress are kept secure with industry-standard encryption, ensuring a safe learning environment.
+- heading "Learn from Institutional Experience" [level=2]
+- heading "17+ Years" [level=3]
+- paragraph: Institutional Equity Research
+- heading "100+" [level=3]
+- paragraph: Companies Analyzed
+- heading "20+ Sectors" [level=3]
+- paragraph: Deep Domain Expertise
+- heading "₹10+ Trn" [level=3]
+- paragraph: Institutional AUM Advised
+- paragraph: Leadership Experience - Rohit Ahuja
+- paragraph: Head of Research at ICRA (Moody's Company)
+- paragraph: Head of Research at Bank of Baroda Capital Markets
+- paragraph: MBA Finance + B.Sc. Mathematics from Mumbai University
+- paragraph: Rohit Ahuja has spent 17+ years working at top financial companies in India. He has helped analyze investments worth over ₹10 trillion and has worked across many different industries.
+- paragraph: At ICRA (part of Moody's) and Bank of Baroda Capital Markets, Rohit developed simple methods to study companies and make investment decisions. He has successfully navigated major market events like 2008 financial crisis, demonetization, and COVID-19.
+- heading "Why Learn from Institutional Experience?" [level=4]
+- paragraph: "\"I don't teach theory or give stock tips. I teach the same methods that big institutions use to manage thousands of crores. These are proven strategies that have worked across different market conditions.\""
+- paragraph: "\"My goal is to make you independent. You'll learn to analyze companies and make smart investment decisions on your own, just like professional investors do.\""
+- paragraph: This course teaches you the same systematic approach used by professional fund managers. Every method has been tested in real markets and proven to work for long-term wealth creation.
+- link "Verify Professional Background on LinkedIn":
+  - /url: https://www.linkedin.com/in/rohit-ahuja-41710a4
+  - text: Verify Professional Background on LinkedIn
+  - img
+- heading "Frequently Asked Questions" [level=2]
+- paragraph: Get answers to common questions about our course, learning approach, and what you can expect from your investment education journey.
+- button "Is this course suitable for complete beginners? +"
+- paragraph:
+  - strong: Absolutely.
+  - text: This course is designed to take you from zero knowledge to confident analysis. We start with the fundamental concepts that every investor needs to understand, then gradually build your expertise using the same progression used to train institutional analysts.
+- paragraph: No prior finance background is required-just a commitment to learning and the patience to work through the material systematically.
+- button "How is this different from free YouTube content? +"
+- paragraph:
+  - strong: Structure and depth.
+  - text: While YouTube offers scattered tips and opinions, this course provides a comprehensive, sequential curriculum based on institutional methodologies.
+- list:
+  - listitem: The exact frameworks used at top investment firms
+  - listitem: How concepts connect and build upon each other
+  - listitem: Practical application through real case studies
+  - listitem: Professional-grade analysis techniques simplified for individual learners
+- paragraph: Think of it as the difference between reading random articles about medicine versus taking a structured medical course.
+- button "What makes Rohit qualified to teach this? +"
+- paragraph:
+  - strong: 17+ years of institutional experience.
+  - text: Rohit has held senior research positions at ICRA (Moody's company) and Bank of Baroda Capital Markets, where he advised on over ₹10 trillion in institutional assets.
+- list:
+  - listitem: Head of Research at leading institutional firms
+  - listitem: MBA Finance + B.Sc. Mathematics from Mumbai University
+  - listitem: Direct experience analyzing 100+ companies across 20+ sectors
+  - listitem: Proven track record through multiple market cycles
+- paragraph: Unlike content creators who theorize, Rohit teaches from actual institutional experience.
+- button "How much time do I need to dedicate? +"
+- paragraph:
+  - strong: Flexible, but consistent.
+  - text: The total content is approximately 17-20 hours, but you can learn at your own pace.
+- list:
+  - listitem:
+    - strong: "Intensive:"
+    - text: 1-2 hours daily for 2-3 weeks
+  - listitem:
+    - strong: "Steady:"
+    - text: 3-4 hours weekly for 6-8 weeks
+  - listitem:
+    - strong: "Casual:"
+    - text: 1-2 hours weekly for 3-4 months
+- paragraph: The key is consistency rather than speed. You have lifetime access, so you can revisit concepts as needed.
+- button "Will this help me pick winning stocks? +"
+- paragraph:
+  - strong: This course teaches analysis, not stock picking.
+  - text: We focus on building your analytical skills so you can make informed decisions based on your own research and risk tolerance.
+- list:
+  - listitem: Evaluate company quality and business models
+  - listitem: Understand valuation and fair pricing
+  - listitem: Assess risks and make informed decisions
+  - listitem: Build systematic approaches to analysis
+- paragraph:
+  - strong: "Important:"
+  - text: This is educational content, not investment advice. All investment decisions remain your responsibility.
+- button "Is the content updated for current market conditions? +"
+- paragraph:
+  - strong: Yes.
+  - text: While the fundamental frameworks remain timeless, the course includes current examples and case studies relevant to today's Indian market.
+- list:
+  - listitem: Recent market dynamics and regulatory changes
+  - listitem: Current sector themes and opportunities
+  - listitem: Modern valuation considerations
+  - listitem: Updated financial reporting standards
+- paragraph: Plus, you'll receive updates to keep the content fresh and relevant.
+- button "What if I'm not satisfied? +"
+- paragraph:
+  - strong: We stand behind our educational quality.
+  - text: If you complete the first 2 modules and feel the course doesn't meet your expectations, contact our support team at investoreducation@lotuslion.in within 30 days. We'll work with you to ensure your satisfaction. Full refund policy available on request.
+- button "Can I access the course on mobile devices? +"
+- paragraph:
+  - strong: Fully optimized for mobile.
+  - text: The entire course is designed for busy professionals who learn on-the-go.
+- list:
+  - listitem: Mobile-responsive course platform
+  - listitem: Downloadable resources for offline access
+  - listitem: Progress tracking across devices
+  - listitem: Clean, touch-friendly interface
+- paragraph: Whether you're commuting, traveling, or learning from home, you'll have full access to all course materials.
+- heading "Still Have Questions?" [level=3]
+- paragraph: We're here to help! Reach out to our support team and we'll get back to you within 24 hours.
+- link "Contact Support":
+  - /url: mailto:investoreducation@lotuslion.in
+- heading "Ready to Master Investment Analysis?" [level=2]
+- paragraph: Join professionals who've enhanced their financial analysis skills through structured, institutional-grade education.
+- text: ENROLL NOW - ₹1,999
+- paragraph: Lifetime Access • Mobile Compatible • 48-Hour Refund Policy
+- paragraph: Secure payment processing • Instant access upon enrollment • Educational content only
+- paragraph: 🎓 Ready to Start Learning?
+- paragraph: After enrollment, you'll receive immediate access to all course materials and can begin learning the same analytical frameworks used by institutional investors.
+- paragraph: Educational content only • Not personalized investment advice • Results may vary
+- contentinfo:
+  - heading "Support & Policies" [level=4]
+  - link "Course Support":
+    - /url: mailto:investoreducation@lotuslion.in
+  - link "Terms & Conditions":
+    - /url: /terms.html
+  - link "Privacy Policy":
+    - /url: /privacy.html
+  - link "Refund Policy":
+    - /url: /refund.html
+  - heading "Course Information" [level=4]
+  - link "Course Overview":
+    - /url: "#hero"
+  - link "Course Investment":
+    - /url: "#pricing"
+  - link "Meet Your Instructor":
+    - /url: "#instructor"
+  - heading "Legal & Disclaimers" [level=4]
+  - link "Instructor LinkedIn":
+    - /url: https://www.linkedin.com/in/rohit-ahuja-41710a4
+  - paragraph: Educational content for learning purposes only
+  - paragraph: Not personalized investment advice
+  - paragraph: © 2025 Lotuslion Venture LLP. All rights reserved.
+  - paragraph: This educational course is designed to enhance financial literacy and analytical skills. Investment decisions remain the sole responsibility of individual learners.
+  - paragraph:
+    - strong: "DISCLAIMER:"
+    - text: Educational course for financial literacy enhancement. Lotuslion Venture LLP provides general education, not personalized investment advice. Past examples for illustration only. *Satisfaction guarantee subject to completion of core modules.
+```

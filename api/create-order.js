@@ -1,4 +1,5 @@
 const Razorpay = require('razorpay');
+const errorHandler = require('./lib/error-handler');
 
 const razorpay = new Razorpay({
   key_id: process.env.RAZORPAY_KEY_ID || 'rzp_test_SWb5ypxKYwCUKK',
@@ -17,14 +18,31 @@ module.exports = async (req, res) => {
   }
 
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
+    const { response, statusCode } = errorHandler.createAPIResponse(
+      'Method not allowed. Use POST request.',
+      { method: req.method, endpoint: '/api/create-order' },
+      405
+    );
+    return res.status(statusCode).json(response);
   }
 
   try {
     const { amount, currency = 'INR', receipt, notes = {} } = req.body;
 
     if (!amount) {
-      return res.status(400).json({ error: 'Amount is required' });
+      const { response, statusCode } = errorHandler.createAPIResponse(
+        'REQUIRED_FIELD_MISSING',
+        { field: 'amount', endpoint: '/api/create-order' }
+      );
+      return res.status(statusCode).json(response);
+    }
+
+    if (typeof amount !== 'number' || amount <= 0) {
+      const { response, statusCode } = errorHandler.createAPIResponse(
+        'VALIDATION_ERROR',
+        { field: 'amount', value: amount, endpoint: '/api/create-order' }
+      );
+      return res.status(statusCode).json(response);
     }
 
     const orderData = {
@@ -60,11 +78,15 @@ module.exports = async (req, res) => {
       key_id: process.env.RAZORPAY_KEY_ID || 'rzp_test_SWb5ypxKYwCUKK'
     });
   } catch (error) {
-    console.error('Error creating order:', error);
-    res.status(500).json({
-      success: false,
-      error: 'Failed to create order',
-      message: error.message
-    });
+    const context = {
+      endpoint: '/api/create-order',
+      amount: req.body?.amount,
+      currency: req.body?.currency,
+      userAgent: req.headers['user-agent'],
+      ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress
+    };
+    
+    const { response, statusCode } = errorHandler.createAPIResponse(error, context);
+    return res.status(statusCode).json(response);
   }
 };

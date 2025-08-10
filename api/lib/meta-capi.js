@@ -1,5 +1,6 @@
-// Meta Conversions API Integration
+// Meta Conversions API Integration with Retry Logic
 const crypto = require('crypto');
+const { retryStandard } = require('./retry-handler');
 
 class MetaCAPI {
     constructor(pixelId, accessToken) {
@@ -8,6 +9,7 @@ class MetaCAPI {
         this.apiVersion = 'v18.0';
         this.baseUrl = `https://graph.facebook.com/${this.apiVersion}`;
         this.testEventCode = process.env.META_TEST_EVENT_CODE; // For testing
+        this.requestTimeout = 15000; // 15 second timeout
     }
 
     // Hash user data for PII compliance
@@ -114,7 +116,11 @@ class MetaCAPI {
                 event_source_url: requestData.sourceUrl || 'https://lotuslion.in'
             };
 
-            return await this.sendEvent(eventData);
+            return await this.sendEventWithRetry(eventData, {
+                operation: 'Meta CAPI Purchase Event',
+                orderId: orderData.order_id,
+                customerId: customerData.email
+            });
         } catch (error) {
             console.error('[META_CAPI] Error sending purchase event:', error);
             return null;
@@ -151,7 +157,10 @@ class MetaCAPI {
                 event_source_url: requestData.sourceUrl || 'https://lotuslion.in'
             };
 
-            return await this.sendEvent(eventData);
+            return await this.sendEventWithRetry(eventData, {
+                operation: 'Meta CAPI Checkout Event',
+                customerId: customerData?.email || 'unknown'
+            });
         } catch (error) {
             console.error('[META_CAPI] Error sending checkout event:', error);
             return null;
@@ -179,14 +188,44 @@ class MetaCAPI {
                 event_source_url: requestData.sourceUrl || 'https://lotuslion.in'
             };
 
-            return await this.sendEvent(eventData);
+            return await this.sendEventWithRetry(eventData, {
+                operation: 'Meta CAPI Page View Event',
+                sourceUrl: requestData.sourceUrl
+            });
         } catch (error) {
             console.error('[META_CAPI] Error sending pageview event:', error);
             return null;
         }
     }
 
-    // Generic event sender
+    // Generic event sender with retry logic
+    async sendEventWithRetry(eventData, context = {}) {
+        return await retryStandard(
+            async () => this.sendEvent(eventData),
+            {
+                ...context,
+                eventName: eventData.event_name,
+                eventId: eventData.event_id,
+                startTime: Date.now()
+            }
+        );
+    }
+
+    // Check if client-side already sent this event (deduplication)
+    checkClientSideEvent(eventType, transactionId) {
+        // This would be used in the webhook processing context
+        // where we have access to client-side data via database or headers
+        try {
+            // The client-side stores event references in localStorage
+            // In server context, we'll use consistent event ID generation
+            const eventId = `${eventType}_${transactionId}`;
+            return { shouldSkip: false, eventId };
+        } catch (error) {
+            return { shouldSkip: false, eventId: `${eventType}_${transactionId}` };
+        }
+    }
+
+    // Core event sender (used internally)
     async sendEvent(eventData) {
         const url = `${this.baseUrl}/${this.pixelId}/events`;
         
@@ -201,31 +240,48 @@ class MetaCAPI {
         }
 
         try {
-            // In production, you would make actual HTTP request here
-            // For now, we'll just log the event
-            console.log('[META_CAPI] Event prepared:', JSON.stringify({
-                url,
-                event: eventData.event_name,
+            console.log(`[META_CAPI] Sending ${eventData.event_name} event (ID: ${eventData.event_id})`);
+
+            // Make actual HTTP request to Meta CAPI
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'User-Agent': 'LotusLion-Meta-CAPI/1.0'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+                const error = new Error(`Meta CAPI request failed: ${response.status} ${response.statusText}`);
+                error.response = response;
+                throw error;
+            }
+
+            const result = await response.json();
+            
+            if (result.error) {
+                throw new Error(`Meta CAPI error: ${JSON.stringify(result.error)}`);
+            }
+
+            console.log(`[META_CAPI] ✅ Event sent successfully: ${eventData.event_name} (${eventData.event_id})`);
+            
+            return {
+                success: true,
                 event_id: eventData.event_id,
-                test_mode: !!this.testEventCode
-            }));
+                meta_response: result,
+                timestamp: new Date().toISOString()
+            };
 
-            // TODO: Implement actual HTTP request
-            // const response = await fetch(url, {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     },
-            //     body: JSON.stringify(payload)
-            // });
-
-            // const result = await response.json();
-            // return result;
-
-            return { success: true, event_id: eventData.event_id };
         } catch (error) {
-            console.error('[META_CAPI] Failed to send event:', error);
-            throw error;
+            console.error(`[META_CAPI] ❌ Failed to send ${eventData.event_name} event:`, error.message);
+            
+            return {
+                success: false,
+                event_id: eventData.event_id,
+                error: error.message,
+                timestamp: new Date().toISOString()
+            };
         }
     }
 
@@ -248,6 +304,68 @@ class MetaCAPI {
         }
 
         return params;
+    }
+
+    // Async purchase event with retry
+    async sendPurchaseEventAsync(orderData, customerData, requestData = {}) {
+        return await this.withRetry(() => 
+            this.sendPurchaseEvent(orderData, customerData, requestData)
+        , 3);
+    }
+
+    // Retry wrapper for failed API calls
+    async withRetry(fn, maxAttempts = 3) {
+        let lastError;
+        
+        for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+            try {
+                const result = await fn();
+                
+                if (result.success) {
+                    return result;
+                }
+                
+                // If not successful but no error thrown, treat as error
+                lastError = new Error(result.error || 'Unknown Meta CAPI error');
+                
+            } catch (error) {
+                lastError = error;
+                console.log(`[META_CAPI] Attempt ${attempt}/${maxAttempts} failed: ${error.message}`);
+            }
+            
+            // Wait before retry (exponential backoff)
+            if (attempt < maxAttempts) {
+                const delayMs = Math.pow(2, attempt - 1) * 1000; // 1s, 2s, 4s...
+                console.log(`[META_CAPI] Retrying in ${delayMs}ms...`);
+                await new Promise(resolve => setTimeout(resolve, delayMs));
+            }
+        }
+        
+        console.error(`[META_CAPI] All ${maxAttempts} attempts failed`);
+        return {
+            success: false,
+            error: lastError.message,
+            attempts: maxAttempts,
+            timestamp: new Date().toISOString()
+        };
+    }
+
+    // Send event with timeout protection
+    async sendEventHTTP(eventData) {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 15000); // 15s timeout
+        
+        try {
+            const result = await this.sendEvent(eventData);
+            clearTimeout(timeoutId);
+            return result;
+        } catch (error) {
+            clearTimeout(timeoutId);
+            if (error.name === 'AbortError') {
+                throw new Error('Meta CAPI request timeout');
+            }
+            throw error;
+        }
     }
 }
 

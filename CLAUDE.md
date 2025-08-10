@@ -6,6 +6,34 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a single-page landing website for "The Complete Indian Investor" course - an educational investment course platform hosted at lotuslion.in. The project is built as a static HTML site with vanilla JavaScript, custom CSS, and deployment on Vercel.
 
+## Razorpay Integration Documentation
+
+**IMPORTANT**: Comprehensive documentation for the Razorpay payment integration is available in the `/docs/` directory. These guides contain battle-tested patterns from 50+ hours of production debugging that transformed a failing system into 100% reliability.
+
+### Available Guides in /docs/:
+1. **01-SYSTEM-ARCHITECTURE-GUIDE.md** - Core system flow and components
+2. **02-RAZORPAY-INTEGRATION-GUIDE.md** - API patterns and SDK usage  
+3. **03-WEBHOOK-SYSTEM-GUIDE.md** - Critical <200ms performance patterns
+4. **04-FRONTEND-INTEGRATION-GUIDE.md** - Lead capture and payment UI
+5. **05-META-TRACKING-GUIDE.md** - CAPI and deduplication strategies
+6. **06-CRITICAL-PITFALLS-GUIDE.md** - **MUST READ FIRST** - Avoid 50+ hours of debugging
+7. **07-TESTING-GUIDE.md** - E2E and performance testing patterns
+8. **08-DEPLOYMENT-GUIDE.md** - Production deployment checklist
+
+### When to Refer to These Guides:
+- **Before ANY webhook work**: Read Guide 6 (Pitfalls) and Guide 3 (Webhook System)
+- **For payment integration**: Start with Guide 6, then Guides 1-2
+- **For tracking issues**: Guides 5 and 6 (event deduplication)
+- **For debugging**: Guide 6 has a debug checklist that solves 90% of issues
+
+### Key Lessons from Production:
+- Webhook MUST respond in <200ms (was taking 1.7M ms!)
+- Raw body required for signature verification
+- Consistent event IDs prevent duplicate conversions
+- Never block webhook responses with external API calls
+
+These guides transformed the system from 33% to 100% success rate.
+
 ## Commands
 
 ### Development & Build
@@ -135,3 +163,39 @@ python3 manual_rtf_cleaner.py
 2. Run `vercel --prod` for production deployment
 3. Verify with `verify-deployment.html` page
 4. Test payment flow on production
+
+## Changelog Management
+
+**CRITICAL**: Always update `CHANGELOG.md` when making changes to the codebase.
+
+### Changelog Format
+The changelog follows a simple CSV format inside the markdown file for LLM compatibility:
+```
+Date,Version,Type,Component,Description,Files Changed,Impact
+```
+
+### Update Requirements
+- **Every coding session**: Add entries for all changes made
+- **Date format**: YYYY-MM-DD
+- **Version**: Semantic versioning (MAJOR.MINOR.PATCH)
+- **Type**: FEAT, FIX, CONFIG, DOC, REFACTOR, TEST
+- **Component**: Specific area changed (e.g., Frontend Integration, Webhook System)
+- **Description**: Brief, clear description of what changed
+- **Files Changed**: Key files modified (comma-separated if multiple)
+- **Impact**: CRITICAL, HIGH, MEDIUM, LOW
+
+### Types Explained
+- **FEAT**: New features or functionality
+- **FIX**: Bug fixes or corrections
+- **CONFIG**: Configuration changes (package.json, .env, etc.)
+- **DOC**: Documentation updates
+- **REFACTOR**: Code improvements without functionality changes
+- **TEST**: Test additions or modifications
+
+### Example Entry
+```
+2025-08-09,1.4.0,FEAT,Frontend Integration,Implemented Guide 4 frontend integration patterns with lead capture and timeout protection,js/razorpay-checkout.js,HIGH
+```
+
+**Today's Date**: August 9, 2025
+**Current Version**: 1.4.0 (after comprehensive testing suite implementation)

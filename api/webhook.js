@@ -1,135 +1,223 @@
 const crypto = require('crypto');
 
-// Event deduplication cache (in production, use Redis or similar)
+// Event deduplication cache (in production, use Redis)
 const processedEvents = new Set();
 
-module.exports = async (req, res) => {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
-
+async function handler(req, res) {
+  const startTime = process.hrtime.bigint();
+  
   try {
-    const webhookSecret = process.env.RAZORPAY_WEBHOOK_SECRET;
-    const webhookSignature = req.headers['x-razorpay-signature'];
-    
-    if (!webhookSignature) {
-      console.error('Missing webhook signature');
-      return res.status(400).json({ error: 'Missing webhook signature' });
+    // Step 1: Quick method validation
+    if (req.method !== 'POST') {
+      return res.status(405).json({ error: 'Method not allowed' });
     }
 
-    // Verify webhook signature if secret is configured
-    if (webhookSecret) {
-      const expectedSignature = crypto
-        .createHmac('sha256', webhookSecret)
-        .update(JSON.stringify(req.body))
-        .digest('hex');
-
-      if (expectedSignature !== webhookSignature) {
-        console.error('Invalid webhook signature');
-        return res.status(400).json({ error: 'Invalid webhook signature' });
-      }
+    // Step 2: Extract raw body and signature
+    const rawBody = await streamToString(req);
+    const signature = req.headers['x-razorpay-signature'];
+    
+    // Step 3: Fast signature verification
+    if (!verifySignatureFast(rawBody, signature)) {
+      const duration = Number(process.hrtime.bigint() - startTime) / 1000000;
+      console.error(`❌ Invalid signature (${Math.round(duration)}ms)`);
+      return res.status(401).json({ error: 'Invalid signature' });
     }
 
-    const { event, payload } = req.body;
+    // Step 4: Parse payload
+    const webhookData = JSON.parse(rawBody);
+    const { event, payload } = webhookData;
     
-    // Implement idempotency - prevent duplicate processing
-    const eventId = `${event}_${payload?.payment?.entity?.id || payload?.order?.entity?.id}`;
+    // Step 5: Quick event validation
+    if (!event || !payload) {
+      return res.status(400).json({ error: 'Invalid webhook payload' });
+    }
+
+    // Step 6: Deduplication check
+    const eventId = `${event}_${payload?.payment?.entity?.id || payload?.order?.entity?.id || Date.now()}`;
     if (processedEvents.has(eventId)) {
-      console.log('Duplicate event, skipping:', eventId);
-      return res.status(200).json({ status: 'duplicate_skipped' });
+      console.log(`🔄 Duplicate event skipped: ${eventId}`);
+      return res.status(200).json({ status: 'duplicate_skipped', event_id: eventId });
     }
     processedEvents.add(eventId);
 
-    // Handle different webhook events
-    switch (event) {
-      case 'payment.captured':
-        await handlePaymentCaptured(payload.payment.entity);
-        break;
-      
-      case 'payment.failed':
-        await handlePaymentFailed(payload.payment.entity);
-        break;
-      
-      case 'order.paid':
-        await handleOrderPaid(payload.order.entity);
-        break;
-      
-      case 'refund.created':
-        await handleRefundCreated(payload.refund.entity);
-        break;
-      
-      default:
-        console.log('Unhandled webhook event:', event);
-    }
-
-    // Log webhook for Vercel analytics
-    console.log('Webhook processed:', {
+    // Step 7: Respond immediately (CRITICAL for performance)
+    const endTime = process.hrtime.bigint();
+    const duration = Number(endTime - startTime) / 1000000;
+    
+    res.status(200).json({
+      success: true,
       event,
-      payment_id: payload?.payment?.entity?.id,
-      order_id: payload?.order?.entity?.id,
-      amount: payload?.payment?.entity?.amount || payload?.order?.entity?.amount,
+      processing_time_ms: Math.round(duration),
       timestamp: new Date().toISOString()
     });
 
-    res.status(200).json({ status: 'success' });
+    // Step 8: Process asynchronously AFTER response sent
+    setImmediate(() => processWebhookAsync(webhookData, rawBody, signature));
 
   } catch (error) {
-    console.error('Webhook processing error:', error);
-    res.status(500).json({ error: 'Webhook processing failed' });
+    const endTime = process.hrtime.bigint();
+    const duration = Number(endTime - startTime) / 1000000;
+    
+    console.error(`❌ Webhook error (${Math.round(duration)}ms):`, error);
+    
+    res.status(500).json({
+      error: 'Processing failed',
+      processing_time_ms: Math.round(duration)
+    });
   }
+}
+
+// Optimized body reading
+function streamToString(stream) {
+  const chunks = [];
+  return new Promise((resolve, reject) => {
+    stream.on('data', chunk => chunks.push(chunk));
+    stream.on('error', reject);
+    stream.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
+  });
+}
+
+// Fast signature verification
+function verifySignatureFast(body, signature) {
+  if (!signature || !process.env.RAZORPAY_WEBHOOK_SECRET) {
+    return false;
+  }
+  
+  try {
+    const expectedSignature = crypto
+      .createHmac('sha256', process.env.RAZORPAY_WEBHOOK_SECRET)
+      .update(body)
+      .digest('hex');
+      
+    // Ensure both signatures are the same length before comparison
+    if (signature.length !== expectedSignature.length) {
+      return false;
+    }
+      
+    return crypto.timingSafeEqual(
+      Buffer.from(signature, 'hex'),
+      Buffer.from(expectedSignature, 'hex')
+    );
+  } catch (error) {
+    console.error('Signature verification error:', error);
+    return false;
+  }
+}
+
+// Async processing after response sent
+async function processWebhookAsync(webhookData, rawBody, signature) {
+  const { event, payload } = webhookData;
+  
+  try {
+    console.log(`🔄 Processing webhook event: ${event}`);
+    
+    // Route to specific event handlers
+    switch (event) {
+      case 'payment.captured':
+        await processPaymentCaptured(payload.payment.entity);
+        break;
+      case 'payment.failed':
+        await processPaymentFailed(payload.payment.entity);
+        break;
+      case 'order.paid':
+        await processOrderPaid(payload.order.entity);
+        break;
+      default:
+        console.log(`ℹ️ Unhandled event type: ${event}`);
+    }
+
+    console.log(`✅ Webhook processing completed: ${event}`);
+    
+  } catch (error) {
+    console.error(`❌ Async webhook processing failed:`, error);
+  }
+}
+
+async function processPaymentCaptured(payment) {
+  console.log(`💰 Payment captured: ${payment.id} (₹${payment.amount / 100})`);
+  
+  // Parallel processing of external APIs
+  await Promise.allSettled([
+    sendToZapier(payment),
+    sendToMetaCAPI(payment),
+    logToDatabase(payment)
+  ]);
+}
+
+async function processPaymentFailed(payment) {
+  console.log(`❌ Payment failed: ${payment.id} - ${payment.error_description}`);
+  
+  // Log failed payment for analytics
+  await logToDatabase(payment);
+}
+
+async function processOrderPaid(order) {
+  console.log(`📦 Order paid: ${order.id} (₹${order.amount / 100})`);
+  
+  // Update order status
+  await logToDatabase(order);
+}
+
+// Zapier integration
+const { sendToZapier: zapierSendToZapier } = require('./lib/zapier-webhook');
+
+async function sendToZapier(payment) {
+  const orderData = {
+    id: payment.id,
+    order_id: payment.order_id,
+    amount: payment.amount,
+    method: payment.method,
+    created_at: payment.created_at
+  };
+  
+  const customerData = {
+    name: payment.notes?.customer_name,
+    email: payment.email,
+    phone: payment.contact,
+    customer_name: payment.notes?.customer_name,
+    customer_email: payment.email
+  };
+  
+  return await zapierSendToZapier(orderData, customerData);
+}
+
+// Meta CAPI integration
+const { getMetaCAPI } = require('./lib/meta-capi');
+
+async function sendToMetaCAPI(payment) {
+  const metaCAPI = getMetaCAPI();
+  
+  const orderData = {
+    order_id: payment.order_id,
+    amount: payment.amount / 100, // Convert paise to rupees
+    currency: 'INR',
+    payment_id: payment.id
+  };
+  
+  const customerData = {
+    name: payment.notes?.customer_name,
+    email: payment.email,
+    phone: payment.contact
+  };
+  
+  // Use consistent event ID for deduplication across client/server
+  const eventId = `purchase_${payment.order_id}`;
+  orderData.order_id = eventId; // Use as event ID
+  
+  return await metaCAPI.sendPurchaseEventAsync(orderData, customerData);
+}
+
+async function logToDatabase(data) {
+  console.log('💾 Database logging - placeholder');
+}
+
+// Export handler and config for Vercel
+module.exports = handler;
+module.exports.config = {
+  api: { bodyParser: false }
 };
 
-async function handlePaymentCaptured(payment) {
-  console.log('Payment captured:', {
-    id: payment.id,
-    order_id: payment.order_id,
-    amount: payment.amount / 100,
-    method: payment.method,
-    email: payment.email,
-    contact: payment.contact,
-    timestamp: new Date().toISOString()
-  });
-
-  // TODO: Implement these actions
-  // 1. Update order status in database
-  // 2. Send confirmation email
-  // 3. Trigger Zapier webhook for Kajabi integration
-  // 4. Send event to Meta CAPI
-  // 5. Log conversion in Google Analytics
-}
-
-async function handlePaymentFailed(payment) {
-  console.log('Payment failed:', {
-    id: payment.id,
-    order_id: payment.order_id,
-    amount: payment.amount / 100,
-    error_code: payment.error_code,
-    error_description: payment.error_description,
-    timestamp: new Date().toISOString()
-  });
-
-  // TODO: Log failed payment for analytics
-}
-
-async function handleOrderPaid(order) {
-  console.log('Order paid:', {
-    id: order.id,
-    amount: order.amount / 100,
-    amount_paid: order.amount_paid / 100,
-    timestamp: new Date().toISOString()
-  });
-
-  // TODO: Update order status
-}
-
-async function handleRefundCreated(refund) {
-  console.log('Refund created:', {
-    id: refund.id,
-    payment_id: refund.payment_id,
-    amount: refund.amount / 100,
-    timestamp: new Date().toISOString()
-  });
-
-  // TODO: Update order/payment status
-  // TODO: Send refund confirmation email
-}
+// For testing: clear processed events cache
+module.exports.clearProcessedEvents = function() {
+  processedEvents.clear();
+};
