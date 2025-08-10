@@ -1,6 +1,9 @@
 # CHANGELOG
 
 Date,Version,Type,Component,Description,Files Changed,Impact
+2025-08-10,1.6.3,FIX,CTA Button Styling,Fixed first CTA button styling by removing conflicting inline styles - now matches other CTA buttons with proper background and hover effects,index.html,MEDIUM
+2025-08-10,1.6.2,FEAT,Modal Optimization,Made lead capture modal lean by removing course details section - streamlined UX with essential form fields only for faster conversion,index.html,MEDIUM
+2025-08-10,1.6.1,FEAT,Brand Consistency,Updated secure.html to match index.html brand palette and design language - eliminated purple theme and created seamless user experience,secure.html css/secure.css,HIGH
 2025-08-10,1.6.0,FEAT,Premium Design,Completely redesigned secure.html with premium financial services aesthetic - mobile-optimized for Indian users with clean professional styling,secure.html css/secure.css,CRITICAL
 2025-08-10,1.5.2,FIX,CTA Integration,Fixed overlapping modals issue - CTA buttons now properly trigger lead capture modal only instead of Razorpay directly,index.html js/razorpay-checkout.js,CRITICAL
 2025-08-10,1.5.1,TEST,Flow Validation,Successfully tested complete Lead Capture → Upsell → Razorpay flow with Playwright - all functionality working perfectly,Playwright testing suite,HIGH
