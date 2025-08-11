@@ -71,6 +71,11 @@ class LeadCaptureModal {
 
   validateField(input) {
     const formGroup = input.closest('.form-group');
+    if (!formGroup) {
+      console.warn('Form group not found for input:', input);
+      return false;
+    }
+    
     const errorMsg = formGroup.querySelector('.error-message');
     const successMsg = formGroup.querySelector('.success-message');
     
@@ -126,7 +131,7 @@ class LeadCaptureModal {
     }
 
     // Update UI based on validation
-    if (isValid && input.value.trim()) {
+    if (isValid && (input.type === 'checkbox' ? input.checked : input.value.trim())) {
       formGroup.classList.add('has-success');
       if (successMsg) successMsg.textContent = 'Looks good!';
     } else if (!isValid) {
@@ -139,6 +144,10 @@ class LeadCaptureModal {
 
   clearFieldError(input) {
     const formGroup = input.closest('.form-group');
+    if (!formGroup) {
+      console.warn('Form group not found for input:', input);
+      return;
+    }
     formGroup.classList.remove('has-error');
   }
 
@@ -180,6 +189,24 @@ class LeadCaptureModal {
     leadData.event_id = eventId;
 
     this.setSubmitting(true);
+
+    // Check if we're running in development mode (localhost)
+    const isDevelopment = window.location.hostname === 'localhost' || 
+                         window.location.hostname === '127.0.0.1' || 
+                         window.location.port === '3000';
+
+    if (isDevelopment) {
+      // Skip API call in development mode and directly proceed to success
+      console.log('Development mode: Skipping API call', leadData);
+      
+      // Track successful lead capture
+      this.trackLeadCapture(leadData, eventId);
+      
+      // Show success state and proceed to upsell page
+      this.handleSubmitSuccess(leadData);
+      this.setSubmitting(false);
+      return;
+    }
 
     try {
       // Set timeout protection

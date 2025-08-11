@@ -1,6 +1,9 @@
 # CHANGELOG
 
 Date,Version,Type,Component,Description,Files Changed,Impact
+2025-08-11,1.6.6,FIX,Modal Validation,Fixed modal JavaScript validation errors by adding defensive null checks in validateField() and clearFieldError() methods - prevents TypeError crashes,js/lead-capture-modal.js,CRITICAL
+2025-08-11,1.6.5,FIX,Modal Flow,Fixed modal form submission flow - now properly redirects to upsell page after successful form completion in development mode with API bypass,js/lead-capture-modal.js,CRITICAL
+2025-08-10,1.6.4,FIX,Modal JavaScript,Fixed lead capture modal JavaScript errors by updating form structure and validation logic for checkbox handling,index.html js/lead-capture-modal.js,CRITICAL
 2025-08-10,1.6.3,FIX,CTA Button Styling,Fixed first CTA button styling by removing conflicting inline styles - now matches other CTA buttons with proper background and hover effects,index.html,MEDIUM
 2025-08-10,1.6.2,FEAT,Modal Optimization,Made lead capture modal lean by removing course details section - streamlined UX with essential form fields only for faster conversion,index.html,MEDIUM
 2025-08-10,1.6.1,FEAT,Brand Consistency,Updated secure.html to match index.html brand palette and design language - eliminated purple theme and created seamless user experience,secure.html css/secure.css,HIGH
