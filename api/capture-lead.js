@@ -31,7 +31,10 @@ module.exports = async function handler(req, res) {
 
   try {
     // Step 1: Enhanced validation with security checks
-    const { name, email, phone, consent, event_id, ...otherFields } = req.body;
+    const { name, email, phone, consent, terms, event_id, ...otherFields } = req.body;
+    
+    // Handle both 'consent' and 'terms' fields for backward compatibility
+    const userConsent = consent !== undefined ? consent : terms;
     
     const context = {
       ip: req.headers['x-forwarded-for'] || req.connection?.remoteAddress,
@@ -44,7 +47,7 @@ module.exports = async function handler(req, res) {
       name, 
       email, 
       phone, 
-      consent,
+      consent: userConsent,
       ...otherFields
     }, context);
     

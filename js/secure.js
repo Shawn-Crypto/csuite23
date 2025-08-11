@@ -250,9 +250,10 @@
                     amount: currentTotal
                 });
             } else {
-                // Fallback - redirect to Razorpay page
+                // Fallback - use direct Razorpay SDK checkout
                 setTimeout(() => {
-                    window.location.href = `https://pages.razorpay.com/pl_Oa8vBJrKHEBhXU/view?prefill_name=${encodeURIComponent(paymentCustomerData.name)}&prefill_email=${encodeURIComponent(paymentCustomerData.email)}&prefill_contact=${encodeURIComponent(paymentCustomerData.phone)}`;
+                    // Use the existing payment function instead of broken Payment Link
+                    initiateRazorpayPayment();
                 }, 1000);
             }
 

@@ -180,6 +180,7 @@ class LeadCaptureModal {
       name: formData.get('name').trim(),
       email: formData.get('email').trim().toLowerCase(),
       phone: formData.get('phone').replace(/\D/g, ''), // Clean phone number
+      consent: formData.get('terms') === 'on', // Map 'terms' checkbox to 'consent' field
       source: 'lead_capture_modal',
       timestamp: new Date().toISOString()
     };

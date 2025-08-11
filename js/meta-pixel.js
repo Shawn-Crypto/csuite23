@@ -1,7 +1,10 @@
 /**
- * Meta Pixel Client-Side Integration with GTM Synchronization
- * Implements proper deduplication and event coordination between client and server
- * Fixes all identified GTM issues: deduplication, ViewContent, InitiateCheckout, Advanced Matching
+ * Meta Pixel Client-Side Integration with Enhanced GTM Synchronization
+ * LFG Ventures Best Practices Implementation:
+ * - Perfect event deduplication with shared event_id
+ * - GTM Enhanced integration for single source of truth
+ * - Advanced Matching with proper hashing
+ * - Server-side CAPI coordination
  */
 
 class MetaPixelClient {
@@ -12,8 +15,35 @@ class MetaPixelClient {
         this.sentEvents = new Set(); // For client-side deduplication
         this.debugMode = window.location.hostname === 'localhost' || window.location.search.includes('debug=1');
         
-        // Initialize immediately
-        this.init();
+        // Wait for GTM Enhanced to initialize first
+        this.waitForGTMEnhanced().then(() => {
+            this.init();
+        });
+    }
+
+    /**
+     * Wait for GTM Enhanced to be available
+     */
+    async waitForGTMEnhanced() {
+        let attempts = 0;
+        const maxAttempts = 50; // 5 seconds max wait
+        
+        return new Promise((resolve) => {
+            const checkGTMEnhanced = () => {
+                if (window.gtmEnhanced && window.gtmEnhanced.initialized) {
+                    this.gtmEnhanced = window.gtmEnhanced;
+                    resolve();
+                } else if (attempts < maxAttempts) {
+                    attempts++;
+                    setTimeout(checkGTMEnhanced, 100);
+                } else {
+                    // Fallback - proceed without GTM Enhanced
+                    this.log('GTM Enhanced not found, proceeding without integration');
+                    resolve();
+                }
+            };
+            checkGTMEnhanced();
+        });
     }
 
     /**
@@ -66,27 +96,72 @@ class MetaPixelClient {
     }
 
     /**
-     * Set up GTM data layer event listeners for deduplication
+     * Set up GTM Enhanced integration for perfect deduplication
      */
     setupDataLayerListeners() {
-        // Listen for GTM data layer pushes
+        if (this.gtmEnhanced) {
+            // Listen to the enhanced GTM system's data layer pushes
+            const originalPush = this.gtmEnhanced.masterDataLayerRef.push;
+            const self = this;
+            
+            // Intercept enhanced events AFTER GTM Enhanced processes them
+            this.gtmEnhanced.masterDataLayerRef.push = function(event) {
+                const result = originalPush.apply(this, arguments);
+                
+                // Process Meta Pixel events with shared event_id
+                if (event && typeof event === 'object' && event.event_id) {
+                    self.handleEnhancedDataLayerEvent(event);
+                }
+                
+                return result;
+            };
+        } else {
+            // Fallback to original method if GTM Enhanced not available
+            this.setupLegacyDataLayerListeners();
+        }
+
+        // Set up mutation observer for dynamic content
+        this.setupContentObserver();
+    }
+
+    /**
+     * Handle enhanced GTM events with perfect deduplication
+     */
+    handleEnhancedDataLayerEvent(event) {
+        const eventType = event.event;
+        const eventId = event.event_id; // This is the SHARED event_id from GTM Enhanced
+        
+        switch(eventType) {
+            case 'Purchase':
+                this.handlePurchaseEventEnhanced(event, eventId);
+                break;
+            case 'InitiateCheckout':
+                this.handleInitiateCheckoutEventEnhanced(event, eventId);
+                break;
+            case 'ViewContent':
+                this.handleViewContentEventEnhanced(event, eventId);
+                break;
+            case 'Lead':
+                this.handleLeadEventEnhanced(event, eventId);
+                break;
+        }
+    }
+
+    /**
+     * Legacy data layer listener for backward compatibility
+     */
+    setupLegacyDataLayerListeners() {
         const originalPush = window.dataLayer?.push || function() {};
         
         if (window.dataLayer) {
             const self = this;
             window.dataLayer.push = function(event) {
-                // Process Meta Pixel events with deduplication
                 if (event && typeof event === 'object') {
                     self.handleDataLayerEvent(event);
                 }
-                
-                // Call original push
                 return originalPush.apply(window.dataLayer, arguments);
             };
         }
-
-        // Set up mutation observer for dynamic content
-        this.setupContentObserver();
     }
 
     /**
@@ -114,7 +189,87 @@ class MetaPixelClient {
     }
 
     /**
-     * Handle purchase events with proper deduplication
+     * Handle enhanced purchase events with perfect deduplication
+     */
+    handlePurchaseEventEnhanced(eventData, eventId) {
+        // Use the shared event_id for perfect deduplication
+        if (this.sentEvents.has(eventId)) {
+            this.log('Purchase event already sent with event_id:', eventId);
+            return;
+        }
+
+        const purchaseData = {
+            content_ids: eventData.ecommerce?.items?.map(item => item.item_id) || ['complete_indian_investor'],
+            content_type: 'product',
+            currency: eventData.ecommerce?.currency || 'INR',
+            value: eventData.ecommerce?.value || 1999,
+            num_items: eventData.ecommerce?.items?.length || 1
+        };
+
+        // Send with the SAME event_id as GTM - this prevents double counting
+        this.sendEvent('Purchase', purchaseData, eventId);
+    }
+
+    /**
+     * Handle enhanced initiate checkout events
+     */
+    handleInitiateCheckoutEventEnhanced(eventData, eventId) {
+        if (this.sentEvents.has(eventId)) {
+            this.log('InitiateCheckout event already sent with event_id:', eventId);
+            return;
+        }
+
+        const checkoutData = {
+            content_ids: ['complete_indian_investor'],
+            content_type: 'product',
+            currency: 'INR',
+            value: eventData.ecommerce?.value || 1999,
+            num_items: 1
+        };
+
+        this.sendEvent('InitiateCheckout', checkoutData, eventId);
+    }
+
+    /**
+     * Handle enhanced view content events
+     */
+    handleViewContentEventEnhanced(eventData, eventId) {
+        if (this.sentEvents.has(eventId)) {
+            this.log('ViewContent event already sent with event_id:', eventId);
+            return;
+        }
+
+        const viewData = {
+            content_ids: eventData.content_ids || ['complete_indian_investor'],
+            content_type: 'product',
+            content_name: eventData.content_name || 'The Complete Indian Investor Course'
+        };
+
+        this.sendEvent('ViewContent', viewData, eventId);
+    }
+
+    /**
+     * Handle enhanced lead events
+     */
+    handleLeadEventEnhanced(eventData, eventId) {
+        if (this.sentEvents.has(eventId)) {
+            this.log('Lead event already sent with event_id:', eventId);
+            return;
+        }
+
+        const leadData = {
+            content_ids: ['complete_indian_investor'],
+            content_type: 'product',
+            content_name: 'The Complete Indian Investor Course',
+            value: 1999,
+            currency: 'INR'
+        };
+
+        this.sendEvent('Lead', leadData, eventId);
+    }
+
+    /**
+     * Handle purchase events with proper deduplication (Legacy)
      */
     handlePurchaseEvent(eventData) {
         const transactionId = eventData.ecommerce?.transaction_id || 
