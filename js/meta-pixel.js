@@ -14,6 +14,7 @@ class MetaPixelClient {
         this.eventQueue = [];
         this.sentEvents = new Set(); // For client-side deduplication
         this.debugMode = window.location.hostname === 'localhost' || window.location.search.includes('debug=1');
+        this.isProduction = window.location.hostname !== 'localhost' && !window.location.hostname.includes('vercel.app');
         
         // Wait for GTM Enhanced to initialize first
         this.waitForGTMEnhanced().then(() => {

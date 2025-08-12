@@ -2,133 +2,105 @@
 (function() {
     'use strict';
 
-    // Configuration
-    const BASE_COURSE_PRICE = 1999;
-    let currentTotal = BASE_COURSE_PRICE;
-    let selectedAddons = new Set();
-    let customerData = null;
+    // --- State Management ---
+    const state = {
+        basePrice: 1999,
+        addons: {
+            'premium-tools': { name: 'Analysis Arsenal', price: 1999, selected: false },
+            '1on1-mentorship': { name: '1-on-1 Mentorship', price: 9999, selected: false }
+        },
+        bundle: {
+            name: 'The Professional Investor Transformation',
+            price: 11999,
+            selected: false
+        },
+        customerData: null,
+        get total() {
+            if (this.bundle.selected) {
+                return this.bundle.price;
+            }
+            let total = this.basePrice;
+            for (const key in this.addons) {
+                if (this.addons[key].selected) {
+                    total += this.addons[key].price;
+                }
+            }
+            return total;
+        },
+        get savings() {
+            if (this.bundle.selected) {
+                const individualPrice = this.basePrice + this.addons['premium-tools'].price + this.addons['1on1-mentorship'].price;
+                return individualPrice - this.bundle.price;
+            }
+            return 0;
+        }
+    };
 
-    // Initialize when DOM is ready
+    // --- Initialization ---
     document.addEventListener('DOMContentLoaded', function() {
-        initializeSecurePage();
+        loadCustomerData();
         setupEventListeners();
+        render();
+        trackPageView();
     });
 
-    function initializeSecurePage() {
-        // Load customer data from lead capture
+    function loadCustomerData() {
         const leadDataString = sessionStorage.getItem('leadCaptureData');
         if (leadDataString) {
             try {
-                customerData = JSON.parse(leadDataString);
-                
-                // Personalize the experience
-                personalizeExperience();
-                
-                // Store for hidden div (for debugging)
+                state.customerData = JSON.parse(leadDataString);
                 document.getElementById('customer-data').textContent = leadDataString;
-                
-                console.log('✅ Customer data loaded:', customerData);
+                personalizeExperience();
+                console.log('✅ Customer data loaded:', state.customerData);
             } catch (error) {
                 console.warn('Failed to parse customer data:', error);
-                customerData = null;
             }
         } else {
-            console.warn('No customer data found - user may have accessed directly');
+            console.warn('No customer data found.');
         }
-
-        // Track page view
-        trackPageView();
     }
 
     function personalizeExperience() {
-        if (!customerData || !customerData.name) return;
-
-        try {
-            const firstName = customerData.name.split(' ')[0];
-            const heroTitle = document.querySelector('.hero-title');
-            
-            if (heroTitle && firstName) {
-                heroTitle.innerHTML = `🎉 <span class="highlight">Welcome ${firstName}!</span> Maximize Your Success?`;
-            }
-        } catch (error) {
-            console.warn('Failed to personalize experience:', error);
+        if (!state.customerData || !state.customerData.name) return;
+        const firstName = state.customerData.name.split(' ')[0];
+        const heroTitle = document.querySelector('.hero-title');
+        if (heroTitle && firstName) {
+            heroTitle.innerHTML = `🎉 <span class="highlight">Welcome ${firstName}!</span> Maximize Your Success?`;
         }
     }
 
+    // --- Event Listeners ---
     function setupEventListeners() {
-        // Handle individual addon selections
         document.querySelectorAll('.add-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                handleAddonToggle(this);
-            });
+            button.addEventListener('click', () => handleAddonToggle(button.closest('.upsell-card').dataset.product));
         });
 
-        // Handle bundle selection
-        const bundleButton = document.getElementById('selectBundle');
-        if (bundleButton) {
-            bundleButton.addEventListener('click', handleBundleSelection);
-        }
-
-        // Handle payment buttons
-        const proceedButton = document.getElementById('proceedToPay');
-        if (proceedButton) {
-            proceedButton.addEventListener('click', handleProceedToPayment);
-        }
-
-        const skipButton = document.getElementById('skipAddons');
-        if (skipButton) {
-            skipButton.addEventListener('click', handleSkipAddons);
-        }
+        document.getElementById('selectBundle').addEventListener('click', handleBundleSelection);
+        document.getElementById('proceedToPay').addEventListener('click', handleProceedToPayment);
+        document.getElementById('skipAddons').addEventListener('click', handleSkipAddons);
     }
 
-    function handleAddonToggle(button) {
-        const card = button.closest('.upsell-card');
-        const product = card.dataset.product;
-        const price = parseInt(button.dataset.price);
-        const btnText = button.querySelector('.btn-text');
+    // --- Event Handlers ---
+    function handleAddonToggle(productKey) {
+        state.bundle.selected = false; // Selecting an individual addon deselects the bundle
+        state.addons[productKey].selected = !state.addons[productKey].selected;
         
-        if (selectedAddons.has(product)) {
-            // Remove addon
-            selectedAddons.delete(product);
-            currentTotal -= price;
-            btnText.textContent = btnText.textContent.replace('✅ Added!', 'Yes! Add');
-            button.classList.remove('selected');
-            hideAddonLine(product);
-            
-            // Track removal
-            trackAddonRemoved(product, price);
+        if (state.addons[productKey].selected) {
+            trackAddonAdded(productKey);
         } else {
-            // Add addon
-            selectedAddons.add(product);
-            currentTotal += price;
-            btnText.textContent = btnText.textContent.replace('Yes!', '✅ Added!');
-            button.classList.add('selected');
-            showAddonLine(product, price);
-            
-            // Track addition
-            trackAddonAdded(product, price);
+            trackAddonRemoved(productKey);
         }
         
-        updateOrderSummary();
+        render();
     }
 
     function handleBundleSelection() {
-        // Clear individual selections
-        selectedAddons.clear();
-        document.querySelectorAll('.add-btn').forEach(btn => {
-            btn.classList.remove('selected');
-            const btnText = btn.querySelector('.btn-text');
-            btnText.textContent = btnText.textContent.replace('✅ Added!', 'Yes! Add');
-        });
-        
-        // Set bundle
-        currentTotal = 11999;
-        selectedAddons.add('bundle');
-        showBundleSelection();
-        updateOrderSummary();
-
-        // Track bundle selection
+        state.bundle.selected = true;
+        // Ensure individual addons are marked as selected for visual consistency
+        state.addons['premium-tools'].selected = true;
+        state.addons['1on1-mentorship'].selected = true;
         trackBundleSelected();
+        render();
     }
 
     function handleProceedToPayment() {
@@ -137,118 +109,85 @@
     }
 
     function handleSkipAddons() {
-        // Reset to base course only
-        selectedAddons.clear();
-        currentTotal = BASE_COURSE_PRICE;
-        resetOrderSummary();
-        
-        // Track skip
+        // Reset state to base course only
+        state.bundle.selected = false;
+        state.addons['premium-tools'].selected = false;
+        state.addons['1on1-mentorship'].selected = false;
         trackAddonsSkipped();
-        
-        // Proceed to payment
         initiateRazorpayPayment();
     }
 
-    function showAddonLine(product, price) {
-        const lineId = getAddonLineId(product);
-        const line = document.getElementById(lineId);
-        if (line) {
-            line.style.display = 'flex';
+    // --- Rendering / DOM Updates ---
+    function render() {
+        // Update Addon Buttons
+        for (const key in state.addons) {
+            const card = document.querySelector(`.upsell-card[data-product="${key}"]`);
+            if (card) {
+                const button = card.querySelector('.add-btn');
+                const btnText = button.querySelector('.btn-text');
+                if (state.addons[key].selected) {
+                    button.classList.add('selected');
+                    btnText.textContent = btnText.textContent.replace(/Yes!.*$/, '✅ Added!');
+                } else {
+                    button.classList.remove('selected');
+                    btnText.textContent = btnText.textContent.replace('✅ Added!', `Yes! Give Me The ${state.addons[key].name}`);
+                }
+            }
         }
-    }
 
-    function hideAddonLine(product) {
-        const lineId = getAddonLineId(product);
-        const line = document.getElementById(lineId);
-        if (line) {
-            line.style.display = 'none';
-        }
-    }
+        // Update Order Summary
+        document.getElementById('tools-line').style.display = state.addons['premium-tools'].selected ? 'flex' : 'none';
+        document.getElementById('mentorship-line').style.display = state.addons['1on1-mentorship'].selected ? 'flex' : 'none';
 
-    function getAddonLineId(product) {
-        switch(product) {
-            case 'premium-tools':
-                return 'tools-line';
-            case '1on1-mentorship':
-                return 'mentorship-line';
-            default:
-                return null;
-        }
-    }
-
-    function showBundleSelection() {
-        document.getElementById('tools-line').style.display = 'flex';
-        document.getElementById('mentorship-line').style.display = 'flex';
-    }
-
-    function updateOrderSummary() {
-        // Update total amounts
-        document.getElementById('total-amount').textContent = formatCurrency(currentTotal);
-        document.getElementById('cta-amount').textContent = formatCurrency(currentTotal);
-        
-        // Show/hide savings
-        const savings = calculateSavings();
         const savingsLine = document.getElementById('savings-line');
-        const savingsAmount = document.getElementById('savings-amount');
-        
-        if (savings > 0) {
+        if (state.savings > 0) {
             savingsLine.style.display = 'flex';
-            savingsAmount.textContent = formatCurrency(savings);
+            document.getElementById('savings-amount').textContent = formatCurrency(state.savings);
         } else {
             savingsLine.style.display = 'none';
         }
-    }
 
-    function calculateSavings() {
-        let totalSavings = 0;
-        
-        if (selectedAddons.has('premium-tools')) {
-            totalSavings += 0; // No savings shown for Analysis Arsenal
-        }
-        
-        if (selectedAddons.has('1on1-mentorship')) {
-            totalSavings += 0; // No savings shown for 1-on-1 Mentorship
-        }
-        
-        if (selectedAddons.has('bundle')) {
-            totalSavings = 998; // ₹12,997 - ₹11,999
-        }
-        
-        return totalSavings;
-    }
-
-    function resetOrderSummary() {
-        document.getElementById('tools-line').style.display = 'none';
-        document.getElementById('mentorship-line').style.display = 'none';
-        document.getElementById('savings-line').style.display = 'none';
-        updateOrderSummary();
+        // Update Totals
+        document.getElementById('total-amount').textContent = formatCurrency(state.total);
+        document.getElementById('cta-amount').textContent = formatCurrency(state.total);
     }
 
     function formatCurrency(amount) {
         return `₹${amount.toLocaleString('en-IN')}`;
     }
 
-    // Direct Razorpay checkout without dependencies
+    // --- Payment Logic ---
+    async function initiateRazorpayPayment() {
+        try {
+            showLoadingOverlay();
+            const paymentCustomerData = getPaymentCustomerData();
+            trackCheckoutInitiated(paymentCustomerData);
+            await createDirectRazorpayCheckout(paymentCustomerData);
+        } catch (error) {
+            console.error('Payment initiation error:', error);
+            hideLoadingOverlay();
+            alert('Payment initialization failed. Please try again or contact support.');
+            trackPaymentError(error);
+        }
+    }
+
     async function createDirectRazorpayCheckout(customerData) {
         try {
             console.log('🔧 Creating direct Razorpay checkout for:', customerData);
-            showLoadingOverlay();
-            
-            // Create order via API
             const orderResponse = await fetch('/api/create-order', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    amount: currentTotal,
+                    amount: state.total,
                     currency: 'INR',
                     receipt: `secure_order_${Date.now()}`,
                     notes: {
                         customer_name: customerData.name,
                         customer_email: customerData.email,
                         customer_phone: customerData.phone,
-                        source: 'secure_page_direct'
+                        source: 'secure_page_direct',
+                        bundle_selected: state.bundle.selected,
+                        addons: Object.keys(state.addons).filter(k => state.addons[k].selected)
                     }
                 })
             });
@@ -260,15 +199,9 @@
             const orderData = await orderResponse.json();
             console.log('✅ Order created successfully:', orderData);
 
-            // Load Razorpay SDK dynamically
-            if (!window.Razorpay) {
-                console.log('🔧 Loading Razorpay SDK...');
-                await loadRazorpaySDK();
-            }
-
+            if (!window.Razorpay) await loadRazorpaySDK();
             hideLoadingOverlay();
 
-            // Initialize Razorpay checkout
             const options = {
                 key: orderData.key_id,
                 amount: orderData.order.amount,
@@ -281,22 +214,11 @@
                     email: customerData.email,
                     contact: customerData.phone
                 },
-                theme: {
-                    color: '#1a365d'
-                },
-                handler: function(response) {
-                    console.log('✅ Payment successful:', response);
-                    handleDirectPaymentSuccess(response);
-                },
-                modal: {
-                    ondismiss: function() {
-                        hideLoadingOverlay();
-                        console.log('ℹ️ Payment modal dismissed by user');
-                    }
-                }
+                theme: { color: '#1a365d' },
+                handler: handleDirectPaymentSuccess,
+                modal: { ondismiss: () => hideLoadingOverlay() }
             };
 
-            console.log('🔧 Opening Razorpay checkout with options:', options);
             const rzp = new window.Razorpay(options);
             rzp.open();
 
@@ -304,259 +226,123 @@
             console.error('❌ Direct checkout failed:', error);
             hideLoadingOverlay();
             alert('Payment system error. Please try again or contact support.');
+            throw error; // Re-throw to be caught by initiateRazorpayPayment
         }
     }
 
-    // Load Razorpay SDK dynamically
     function loadRazorpaySDK() {
         return new Promise((resolve, reject) => {
-            if (window.Razorpay) {
-                resolve();
-                return;
-            }
-
+            if (window.Razorpay) return resolve();
             const script = document.createElement('script');
             script.src = 'https://checkout.razorpay.com/v1/checkout.js';
-            script.onload = () => {
-                console.log('✅ Razorpay SDK loaded successfully');
-                resolve();
-            };
-            script.onerror = () => {
-                console.error('❌ Failed to load Razorpay SDK');
-                reject(new Error('Failed to load Razorpay SDK'));
-            };
+            script.onload = resolve;
+            script.onerror = () => reject(new Error('Failed to load Razorpay SDK'));
             document.head.appendChild(script);
         });
     }
 
-    // Handle direct payment success
     function handleDirectPaymentSuccess(response) {
-        // Track purchase with enhanced GTM
-        if (window.gtmEnhanced) {
-            window.gtmEnhanced.trackPurchase({
-                transaction_id: response.razorpay_order_id,
-                payment_id: response.razorpay_payment_id,
-                value: currentTotal,
-                payment_method: 'razorpay'
-            });
-        }
-        
-        // Redirect to success page
+        console.log('✅ Payment successful:', response);
+        // GTM tracking can be added here
         window.location.href = `/success.html?payment_id=${response.razorpay_payment_id}&order_id=${response.razorpay_order_id}`;
     }
 
-    async function initiateRazorpayPayment() {
-        try {
-            // Show loading
-            showLoadingOverlay();
-
-            // Prepare customer data
-            const paymentCustomerData = getPaymentCustomerData();
-
-            // Track checkout initiation
-            trackCheckoutInitiated(paymentCustomerData);
-
-            // Use existing Razorpay checkout functionality
-            if (window.razorpayCheckout && window.razorpayCheckout.initializeCheckout) {
-                // Hide loading overlay
-                hideLoadingOverlay();
-                
-                // Initialize with current total and customer data
-                window.razorpayCheckout.initializeCheckout({
-                    ...paymentCustomerData,
-                    amount: currentTotal
-                });
-            } else {
-                // Fallback - use direct Razorpay SDK checkout
-                setTimeout(() => {
-                    console.log('🔧 DEBUG: Fallback triggered - window.razorpayCheckout not available');
-                    console.log('🔧 DEBUG: Attempting direct Razorpay SDK integration');
-                    
-                    // Create order and open Razorpay directly
-                    createDirectRazorpayCheckout(paymentCustomerData);
-                }, 1000);
-            }
-
-        } catch (error) {
-            console.error('Payment initiation error:', error);
-            hideLoadingOverlay();
-            
-            // Show error message
-            alert('Payment initialization failed. Please try again or contact support.');
-            
-            // Track error
-            trackPaymentError(error);
-        }
-    }
-
     function getPaymentCustomerData() {
-        // Use customer data from lead capture or fallback
-        if (customerData) {
-            return {
-                name: customerData.name || 'Student',
-                email: customerData.email || 'student@lotuslion.in',
-                phone: customerData.phone || '9876543210'
-            };
-        } else {
-            return {
-                name: 'Student',
-                email: 'student@lotuslion.in', 
-                phone: '9876543210'
-            };
-        }
+        return {
+            name: state.customerData?.name || 'Student',
+            email: state.customerData?.email || 'student@lotuslion.in',
+            phone: state.customerData?.phone || '9876543210'
+        };
     }
 
     function showLoadingOverlay() {
-        const overlay = document.getElementById('loading-overlay');
-        if (overlay) {
-            overlay.style.display = 'flex';
-        }
+        document.getElementById('loading-overlay').style.display = 'flex';
     }
 
     function hideLoadingOverlay() {
-        const overlay = document.getElementById('loading-overlay');
-        if (overlay) {
-            overlay.style.display = 'none';
-        }
+        document.getElementById('loading-overlay').style.display = 'none';
     }
 
-    // Analytics & Tracking Functions
+    // --- Analytics & Tracking ---
     function trackPageView() {
-        if (window.gtag) {
-            gtag('event', 'page_view', {
-                page_title: 'Upsell Page',
-                page_location: window.location.href,
-                custom_parameters: {
-                    customer_id: customerData?.email || 'unknown',
-                    has_customer_data: !!customerData
-                }
-            });
-        }
-
-        // Track with dataLayer for consistency
         if (window.dataLayer) {
             window.dataLayer.push({
                 event: 'upsell_page_view',
-                customer_data: !!customerData,
-                page_title: 'Complete Your Investment Journey'
+                customer_data: !!state.customerData,
             });
         }
     }
 
-    function trackAddonAdded(product, price) {
-        const eventId = `addon_added_${product}_${Date.now()}`;
-        
+    function trackAddonAdded(productKey) {
         if (window.dataLayer) {
             window.dataLayer.push({
-                event: 'addon_added',
-                event_id: eventId,
-                addon_product: product,
-                addon_price: price,
-                total_amount: currentTotal,
-                customer_email: customerData?.email || 'unknown'
-            });
-        }
-
-        if (window.gtag) {
-            gtag('event', 'addon_added', {
-                event_category: 'ecommerce',
-                event_label: product,
-                value: price,
-                custom_parameters: {
-                    total_amount: currentTotal,
-                    addon_count: selectedAddons.size
+                event: 'add_to_cart',
+                ecommerce: {
+                    currency: 'INR',
+                    value: state.addons[productKey].price,
+                    items: [{
+                        item_id: productKey,
+                        item_name: state.addons[productKey].name,
+                        price: state.addons[productKey].price,
+                        quantity: 1
+                    }]
                 }
             });
         }
     }
 
-    function trackAddonRemoved(product, price) {
-        const eventId = `addon_removed_${product}_${Date.now()}`;
-        
+    function trackAddonRemoved(productKey) {
         if (window.dataLayer) {
             window.dataLayer.push({
-                event: 'addon_removed', 
-                event_id: eventId,
-                addon_product: product,
-                addon_price: price,
-                total_amount: currentTotal
+                event: 'remove_from_cart',
+                ecommerce: {
+                    currency: 'INR',
+                    value: state.addons[productKey].price,
+                    items: [{
+                        item_id: productKey,
+                        item_name: state.addons[productKey].name,
+                        price: state.addons[productKey].price,
+                        quantity: 1
+                    }]
+                }
             });
         }
     }
-
+    
     function trackBundleSelected() {
-        const eventId = `bundle_selected_${Date.now()}`;
-        
         if (window.dataLayer) {
             window.dataLayer.push({
-                event: 'bundle_selected',
-                event_id: eventId,
-                bundle_price: 11999,
-                bundle_savings: 998,
-                customer_email: customerData?.email || 'unknown'
-            });
-        }
-
-        if (window.gtag) {
-            gtag('event', 'bundle_selected', {
-                event_category: 'ecommerce',
-                event_label: 'complete_success_bundle',
-                value: 11999,
-                custom_parameters: {
-                    savings_amount: 998,
-                    discount_percent: 8
+                event: 'add_to_cart',
+                ecommerce: {
+                    currency: 'INR',
+                    value: state.bundle.price,
+                    items: [{
+                        item_id: 'bundle',
+                        item_name: state.bundle.name,
+                        price: state.bundle.price,
+                        quantity: 1
+                    }]
                 }
             });
         }
     }
 
     function trackInitiateCheckout() {
-        const eventId = `initiate_checkout_${Date.now()}`;
-        
         if (window.dataLayer) {
             window.dataLayer.push({
-                event: 'initiate_checkout',
-                event_id: eventId,
-                value: currentTotal,
-                currency: 'INR',
-                items: [{
-                    item_id: 'complete-indian-investor',
-                    item_name: 'The Complete Indian Investor',
-                    price: currentTotal,
-                    quantity: 1
-                }],
-                customer_data: {
-                    email: customerData?.email || 'unknown',
-                    source: 'upsell_page'
+                event: 'begin_checkout',
+                ecommerce: {
+                    currency: 'INR',
+                    value: state.total,
+                    items: getCartItems()
                 }
             });
         }
     }
-
-    function trackCheckoutInitiated(paymentCustomerData) {
-        const eventId = `checkout_initiated_${Date.now()}`;
-        
-        if (window.dataLayer) {
-            window.dataLayer.push({
-                event: 'checkout_initiated',
-                event_id: eventId,
-                checkout_value: currentTotal,
-                currency: 'INR',
-                addons_selected: Array.from(selectedAddons),
-                customer_name: paymentCustomerData.name,
-                customer_email: paymentCustomerData.email
-            });
-        }
-    }
-
+    
     function trackAddonsSkipped() {
         if (window.dataLayer) {
-            window.dataLayer.push({
-                event: 'addons_skipped',
-                event_id: `addons_skipped_${Date.now()}`,
-                final_amount: BASE_COURSE_PRICE,
-                customer_email: customerData?.email || 'unknown'
-            });
+            window.dataLayer.push({ event: 'addons_skipped', final_amount: state.basePrice });
         }
     }
 
@@ -564,24 +350,39 @@
         if (window.dataLayer) {
             window.dataLayer.push({
                 event: 'payment_error',
-                event_id: `payment_error_${Date.now()}`,
                 error_message: error.message || 'Unknown error',
-                attempted_amount: currentTotal
+                attempted_amount: state.total
             });
         }
     }
-
-    // Expose functions for debugging and testing
-    window.securePageDebug = {
-        customerData: () => customerData,
-        currentTotal: () => currentTotal,
-        selectedAddons: () => Array.from(selectedAddons),
-        initiatePayment: initiateRazorpayPayment,
-        resetToBase: () => {
-            selectedAddons.clear();
-            currentTotal = BASE_COURSE_PRICE;
-            resetOrderSummary();
+    
+    function getCartItems() {
+        const items = [{
+            item_id: 'base_course',
+            item_name: 'The Complete Indian Investor',
+            price: state.basePrice,
+            quantity: 1
+        }];
+        if (state.bundle.selected) {
+            items.push({
+                item_id: 'bundle_discount',
+                item_name: 'Bundle Discount',
+                price: state.bundle.price - (state.basePrice + state.addons['premium-tools'].price + state.addons['1on1-mentorship'].price),
+                quantity: 1
+            });
+        } else {
+            for (const key in state.addons) {
+                if (state.addons[key].selected) {
+                    items.push({
+                        item_id: key,
+                        item_name: state.addons[key].name,
+                        price: state.addons[key].price,
+                        quantity: 1
+                    });
+                }
+            }
         }
-    };
+        return items;
+    }
 
 })();

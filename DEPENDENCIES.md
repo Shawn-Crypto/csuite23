@@ -2,11 +2,11 @@
 
 Status,Priority,Category,Item,Description,Required From User,Blocking Tasks,Guide Reference
 COMPLETED,HIGH,Environment,Razorpay Test Credentials,Test mode API keys configured successfully,rzp_test_SWb5ypxKYwCUKK provided,Database Schema Implementation,Guide 1,2,6,8
-PENDING,HIGH,Environment,Razorpay Production Credentials,Live API keys for production deployment,RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET (live mode),Production Deployment,Guide 1,2,8
-PENDING,HIGH,Environment,Razorpay Webhook Secret,Secret key for webhook signature verification,RAZORPAY_WEBHOOK_SECRET,All payment processing,Guide 2,3,6
-PENDING,MEDIUM,Environment,Meta Pixel Configuration,Facebook Pixel ID and access token for conversion tracking,META_PIXEL_ID and META_ACCESS_TOKEN,Meta CAPI Integration,Guide 5
-PENDING,MEDIUM,Environment,Zapier Webhook URLs,Webhook endpoints for course delivery automation,ZAPIER_WEBHOOK_URL and ZAPIER_LEAD_WEBHOOK_URL,Course Delivery Automation,Guide 1,3
-PENDING,MEDIUM,Environment,Supabase Database Credentials,Database URL and API key for data persistence,SUPABASE_URL and SUPABASE_KEY,Database Schema Deployment,Guide 1,8
+READY,HIGH,Environment,Razorpay Production Credentials,Production configuration system created - ready for live credentials,RAZORPAY_LIVE_KEY_ID and RAZORPAY_LIVE_KEY_SECRET from dashboard,Production Deployment,Guide 1,2,8
+READY,HIGH,Environment,Razorpay Webhook Secret,Webhook signature verification configured - ready for live secret,RAZORPAY_LIVE_WEBHOOK_SECRET from dashboard,All payment processing,Guide 2,3,6
+READY,MEDIUM,Environment,Meta Pixel Configuration,Production pixel configuration ready - test event code removal configured,Production domain verification in Meta Business Manager,Meta CAPI Integration,Guide 5
+READY,MEDIUM,Environment,Zapier Webhook URLs,Webhook URLs configured and tested in system,No action needed - URLs are production-ready,Course Delivery Automation,Guide 1,3
+READY,MEDIUM,Environment,Supabase Database Credentials,Database credentials configured - schema ready for deployment,Manual schema deployment via Supabase SQL Editor,Database Schema Deployment,Guide 1,8
 PENDING,LOW,Environment,Kajabi Integration Keys,API credentials for course platform integration,KAJABI_API_KEY and KAJABI_OFFER_ID,Advanced Course Delivery,Guide 3
 PENDING,LOW,Environment,Calendar Integration,Cal.com API credentials for booking integration,CALCOM_API_KEY and CALCOM_EVENT_TYPE_ID,Advanced Lead Management,Guide 4
 PENDING,LOW,Environment,Error Tracking Setup,Sentry DSN for production error monitoring,SENTRY_DSN,Production Monitoring,Guide 8

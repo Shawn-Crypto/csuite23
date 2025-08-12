@@ -20,7 +20,7 @@ async function setupDatabase() {
   
   try {
     // Read the schema file
-    const schemaSQL = readFileSync(join(__dirname, '../sql/schema.sql'), 'utf8');
+    const schemaSQL = readFileSync(join(__dirname, '../database/schema.sql'), 'utf8');
     
     // Split into individual statements (simple approach)
     const statements = schemaSQL
