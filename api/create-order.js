@@ -1,10 +1,19 @@
 const Razorpay = require('razorpay');
 const errorHandler = require('./lib/error-handler');
 
+// Initialize Razorpay directly from environment variables for robustness
 const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID || 'rzp_test_SWb5ypxKYwCUKK',
-  key_secret: process.env.RAZORPAY_KEY_SECRET || 'eUqfESP2Az0g76dorqwGmHpt'
+    key_id: process.env.RAZORPAY_LIVE_KEY_ID || process.env.RAZORPAY_KEY_ID,
+    key_secret: process.env.RAZORPAY_LIVE_KEY_SECRET || process.env.RAZORPAY_KEY_SECRET
 });
+
+// Log initialization status
+if (process.env.RAZORPAY_LIVE_KEY_ID || process.env.RAZORPAY_KEY_ID) {
+    console.log('🔧 Razorpay initialized using environment variables.');
+} else {
+    console.error('❌ Razorpay KEY_ID is not configured in environment variables.');
+}
+
 
 module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Credentials', true);
@@ -75,7 +84,7 @@ module.exports = async (req, res) => {
         currency: order.currency,
         receipt: order.receipt
       },
-      key_id: process.env.RAZORPAY_KEY_ID || 'rzp_test_SWb5ypxKYwCUKK'
+      key_id: process.env.RAZORPAY_LIVE_KEY_ID || process.env.RAZORPAY_KEY_ID
     });
   } catch (error) {
     const context = {
