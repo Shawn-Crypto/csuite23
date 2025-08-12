@@ -122,7 +122,7 @@
         });
         
         // Set bundle
-        currentTotal = 5999;
+        currentTotal = 11999;
         selectedAddons.add('bundle');
         showBundleSelection();
         updateOrderSummary();
@@ -203,15 +203,15 @@
         let totalSavings = 0;
         
         if (selectedAddons.has('premium-tools')) {
-            totalSavings += 3000; // ₹4,999 - ₹1,999
+            totalSavings += 0; // No savings shown for Analysis Arsenal
         }
         
         if (selectedAddons.has('1on1-mentorship')) {
-            totalSavings += 7500; // ₹9,999 - ₹2,499  
+            totalSavings += 0; // No savings shown for 1-on-1 Mentorship
         }
         
         if (selectedAddons.has('bundle')) {
-            totalSavings = 11000; // ₹16,997 - ₹5,999
+            totalSavings = 998; // ₹12,997 - ₹11,999
         }
         
         return totalSavings;
@@ -226,6 +226,123 @@
 
     function formatCurrency(amount) {
         return `₹${amount.toLocaleString('en-IN')}`;
+    }
+
+    // Direct Razorpay checkout without dependencies
+    async function createDirectRazorpayCheckout(customerData) {
+        try {
+            console.log('🔧 Creating direct Razorpay checkout for:', customerData);
+            showLoadingOverlay();
+            
+            // Create order via API
+            const orderResponse = await fetch('/api/create-order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    amount: currentTotal,
+                    currency: 'INR',
+                    receipt: `secure_order_${Date.now()}`,
+                    notes: {
+                        customer_name: customerData.name,
+                        customer_email: customerData.email,
+                        customer_phone: customerData.phone,
+                        source: 'secure_page_direct'
+                    }
+                })
+            });
+
+            if (!orderResponse.ok) {
+                throw new Error(`Order creation failed: ${orderResponse.status}`);
+            }
+
+            const orderData = await orderResponse.json();
+            console.log('✅ Order created successfully:', orderData);
+
+            // Load Razorpay SDK dynamically
+            if (!window.Razorpay) {
+                console.log('🔧 Loading Razorpay SDK...');
+                await loadRazorpaySDK();
+            }
+
+            hideLoadingOverlay();
+
+            // Initialize Razorpay checkout
+            const options = {
+                key: orderData.key_id,
+                amount: orderData.order.amount,
+                currency: orderData.order.currency,
+                name: 'LotusLion Venture',
+                description: 'The Complete Indian Investor Course',
+                order_id: orderData.order.id,
+                prefill: {
+                    name: customerData.name,
+                    email: customerData.email,
+                    contact: customerData.phone
+                },
+                theme: {
+                    color: '#1a365d'
+                },
+                handler: function(response) {
+                    console.log('✅ Payment successful:', response);
+                    handleDirectPaymentSuccess(response);
+                },
+                modal: {
+                    ondismiss: function() {
+                        hideLoadingOverlay();
+                        console.log('ℹ️ Payment modal dismissed by user');
+                    }
+                }
+            };
+
+            console.log('🔧 Opening Razorpay checkout with options:', options);
+            const rzp = new window.Razorpay(options);
+            rzp.open();
+
+        } catch (error) {
+            console.error('❌ Direct checkout failed:', error);
+            hideLoadingOverlay();
+            alert('Payment system error. Please try again or contact support.');
+        }
+    }
+
+    // Load Razorpay SDK dynamically
+    function loadRazorpaySDK() {
+        return new Promise((resolve, reject) => {
+            if (window.Razorpay) {
+                resolve();
+                return;
+            }
+
+            const script = document.createElement('script');
+            script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+            script.onload = () => {
+                console.log('✅ Razorpay SDK loaded successfully');
+                resolve();
+            };
+            script.onerror = () => {
+                console.error('❌ Failed to load Razorpay SDK');
+                reject(new Error('Failed to load Razorpay SDK'));
+            };
+            document.head.appendChild(script);
+        });
+    }
+
+    // Handle direct payment success
+    function handleDirectPaymentSuccess(response) {
+        // Track purchase with enhanced GTM
+        if (window.gtmEnhanced) {
+            window.gtmEnhanced.trackPurchase({
+                transaction_id: response.razorpay_order_id,
+                payment_id: response.razorpay_payment_id,
+                value: currentTotal,
+                payment_method: 'razorpay'
+            });
+        }
+        
+        // Redirect to success page
+        window.location.href = `/success.html?payment_id=${response.razorpay_payment_id}&order_id=${response.razorpay_order_id}`;
     }
 
     async function initiateRazorpayPayment() {
@@ -252,8 +369,11 @@
             } else {
                 // Fallback - use direct Razorpay SDK checkout
                 setTimeout(() => {
-                    // Use the existing payment function instead of broken Payment Link
-                    initiateRazorpayPayment();
+                    console.log('🔧 DEBUG: Fallback triggered - window.razorpayCheckout not available');
+                    console.log('🔧 DEBUG: Attempting direct Razorpay SDK integration');
+                    
+                    // Create order and open Razorpay directly
+                    createDirectRazorpayCheckout(paymentCustomerData);
                 }, 1000);
             }
 
@@ -371,8 +491,8 @@
             window.dataLayer.push({
                 event: 'bundle_selected',
                 event_id: eventId,
-                bundle_price: 5999,
-                bundle_savings: 11000,
+                bundle_price: 11999,
+                bundle_savings: 998,
                 customer_email: customerData?.email || 'unknown'
             });
         }
@@ -381,10 +501,10 @@
             gtag('event', 'bundle_selected', {
                 event_category: 'ecommerce',
                 event_label: 'complete_success_bundle',
-                value: 5999,
+                value: 11999,
                 custom_parameters: {
-                    savings_amount: 11000,
-                    discount_percent: 65
+                    savings_amount: 998,
+                    discount_percent: 8
                 }
             });
         }
