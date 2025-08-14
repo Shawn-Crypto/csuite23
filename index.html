@@ -6,8 +6,7 @@
     <title>The Complete Indian Investor - Master the Market with Lotuslion</title>
     <!-- Removed Google Fonts links -->
     <!-- Using system fonts for better performance -->
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-    <link rel="preconnect" href="https://payments.cashfree.com" crossorigin>
+    <!-- GTM preconnect removed - using direct tracking implementation -->
     <meta name="description" content="Learn institutional-grade investment analysis with CSuite23. Our courses provide educational frameworks for enhancing financial literacy. This is not investment advice.">
 
     <meta property="og:title" content="The Complete Indian Investor - Master the Market with Lotuslion">
@@ -23,33 +22,7 @@
 
     <link rel="canonical" href="https://lotuslion.in">
 
-    <!-- Optimized GTM implementation for better performance -->
-    <script>
-    // Optimized GTM loading with performance considerations
-    (function(w,d,s,l,i){
-        w[l]=w[l]||[];
-        w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-        
-        // Load GTM after critical content is loaded
-        function loadGTM() {
-            var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-            j.async=true;
-            j.defer=true;  // Add defer for better performance
-            j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-            f.parentNode.insertBefore(j,f);
-        }
-        
-        // Load GTM after page content is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', loadGTM);
-        } else {
-            // Small delay to ensure critical content renders first
-            setTimeout(loadGTM, 100);
-        }
-        
-    })(window,document,'script','dataLayer','GTM-M3JWN37C');
-    </script>
+    <!-- GTM removed - using direct tracking implementation for better performance -->
 
     <!-- Optimized dataLayer events -->
     <script>
@@ -111,10 +84,8 @@
     </script>
     
     <!-- Performance optimizations for LCP -->
-    <link rel="preconnect" href="https://payments.cashfree.com" crossorigin>
 
     <!-- Additional performance optimizations -->
-    <link rel="preconnect" href="https://payments.cashfree.com" crossorigin>
     
     <!-- Resource hints for better performance -->
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
@@ -129,10 +100,9 @@
     .hero h1{font-size:clamp(36px,8vw,64px);font-weight:800;margin-bottom:24px;line-height:1.1;letter-spacing:-0.02em}
     </style>
     
-    <!-- DNS prefetch for external resources -->
-    <link rel="dns-prefetch" href="https://payments.cashfree.com">
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://payments.cashfree.com" crossorigin>
+    <!-- DNS prefetch for tracking resources -->
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
 
     <style>
         /* Critical above-the-fold styles for LCP optimization */
@@ -1509,8 +1479,7 @@
     <link rel="stylesheet" href="css/modal.css">
 </head>
 <body>
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M3JWN37C"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- GTM noscript removed - direct tracking handles all scenarios -->
 
     <div class="nav-trigger" onclick="toggleNav()" aria-label="Toggle navigation menu">
         <span></span>
@@ -2168,10 +2137,12 @@
       </div>
     </div>
 
-    <!-- Enhanced GTM Integration (LFG Ventures Best Practices) -->
+    <!-- Direct Tracking Implementation (No GTM) -->
     <script src="js/gtm-enhanced.js" defer></script>
     <!-- Meta Pixel Integration -->
     <script src="js/meta-pixel.js" defer></script>
+    <!-- Microsoft Clarity Analytics -->
+    <script src="js/microsoft-clarity.js" defer></script>
     <!-- Razorpay Checkout Integration -->
     <script src="js/razorpay-checkout.js" defer></script>
     <!-- Lead Capture Modal Integration -->

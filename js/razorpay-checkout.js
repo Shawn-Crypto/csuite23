@@ -437,8 +437,8 @@
 
     // Initialize on page load
     document.addEventListener('DOMContentLoaded', function() {
-        // Replace all Cashfree links with Razorpay checkout
-        const paymentLinks = document.querySelectorAll('a[href*="payments.cashfree.com"]');
+        // Replace all payment links with Razorpay checkout
+        const paymentLinks = document.querySelectorAll('a[href*="payments.cashfree.com"], .cta-button, .payment-button');
         
         paymentLinks.forEach(link => {
             link.removeAttribute('href');

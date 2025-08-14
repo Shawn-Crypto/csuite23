@@ -12,6 +12,7 @@
  * This generates runtime configuration files based on environment variables
  */
 
+require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 

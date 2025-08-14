@@ -1,6 +1,6 @@
 {
-  "environment": "SANDBOX",
-  "buildTime": "2025-08-13T22:01:03.834Z",
+  "environment": "PRODUCTION",
+  "buildTime": "2025-08-14T08:02:33.138Z",
   "version": "1.7.0",
   "requiredEnvVars": [
     "RAZORPAY_KEY_ID_PRODUCTION",

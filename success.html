@@ -282,37 +282,67 @@
         window.dataLayer = window.dataLayer || [];
         
         // Read the transaction details from the browser's storage
-        const orderId = localStorage.getItem('pendingTransactionId');
-        const amount = localStorage.getItem('pendingTransactionValue') || 1999.00;
+        // First check for the correct format used by razorpay-checkout.js
+        const lastPurchaseData = localStorage.getItem('lastPurchase');
+        let orderId, amount, paymentId, eventId;
+        
+        if (lastPurchaseData) {
+            try {
+                const purchaseData = JSON.parse(lastPurchaseData);
+                orderId = purchaseData.order_id;
+                paymentId = purchaseData.payment_id;
+                eventId = purchaseData.event_id;
+                amount = purchaseData.amount;
+                
+                console.log('✅ Found purchase data:', purchaseData);
+            } catch (error) {
+                console.error('Error parsing lastPurchase data:', error);
+            }
+        }
+        
+        // Fallback to legacy format if needed
+        if (!orderId) {
+            orderId = localStorage.getItem('pendingTransactionId');
+            amount = localStorage.getItem('pendingTransactionValue') || 1999.00;
+            console.log('Using legacy format:', { orderId, amount });
+        }
         
         if (orderId) {
-            dataLayer.push({
+            // Fire GTM purchase event with consistent event ID for deduplication
+            const purchaseEvent = {
                 'event': 'purchase',
+                'event_id': eventId || `purchase_${orderId}`,
                 'ecommerce': {
                     'transaction_id': orderId,
-                    'value': parseFloat(amount),
+                    'value': parseFloat(amount || 1999),
                     'currency': 'INR',
                     'items': [{
-                        'item_id': 'lotuslion-course',
-                        'item_name': 'LotusLion Course',
-                        'price': parseFloat(amount),
+                        'item_id': 'complete-indian-investor',
+                        'item_name': 'The Complete Indian Investor',
+                        'price': parseFloat(amount || 1999),
                         'quantity': 1
                     }]
                 }
-            });
+            };
             
-            // Log for debugging (remove in production)
-            console.log('Purchase event tracked:', {
-                transaction_id: orderId,
-                value: parseFloat(amount),
-                currency: 'INR'
-            });
+            if (paymentId) {
+                purchaseEvent.payment_id = paymentId;
+            }
+            
+            dataLayer.push(purchaseEvent);
+            
+            // Log for debugging
+            console.log('🎯 Purchase event tracked:', purchaseEvent);
             
             // Clear the stored data to prevent re-tracking on page refresh
+            if (lastPurchaseData) {
+                localStorage.removeItem('lastPurchase');
+            }
             localStorage.removeItem('pendingTransactionId');
             localStorage.removeItem('pendingTransactionValue');
         } else {
-            console.log('No pending transaction found in localStorage');
+            console.warn('❌ No purchase data found in localStorage - tracking will fail!');
+            console.log('Available localStorage keys:', Object.keys(localStorage));
         }
         
         // Set current year in copyright
