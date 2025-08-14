@@ -388,6 +388,26 @@ const fastRetry = RetryHandlerFactory.createFastRetry();
 const patientRetry = RetryHandlerFactory.createPatientRetry();
 const aggressiveRetry = RetryHandlerFactory.createAggressiveRetry();
 
+/**
+ * Legacy exponential backoff retry function for compatibility
+ * @param {Function} fn - Function to retry
+ * @param {Object} options - Retry options
+ * @returns {Promise} Result of successful execution
+ */
+async function retryExponential(fn, options = {}) {
+  const retryHandler = new RetryHandler({
+    maxRetries: options.maxAttempts || 3,
+    initialDelay: options.initialDelay || 1000,
+    operation: options.operation || 'Operation'
+  });
+  
+  return retryHandler.execute(fn, {
+    operation: options.operation || 'Operation',
+    context: options.context || {},
+    startTime: Date.now()
+  });
+}
+
 // Export everything
 module.exports = {
   RetryHandler,
@@ -405,6 +425,9 @@ module.exports = {
   retryFast: (fn, context) => fastRetry.execute(fn, context),
   retryPatient: (fn, context) => patientRetry.execute(fn, context),
   retryAggressive: (fn, context) => aggressiveRetry.execute(fn, context),
+  
+  // Legacy compatibility
+  retryExponential,
   
   // Utility functions
   retryHttp: RetryUtils.retryHttpRequest,

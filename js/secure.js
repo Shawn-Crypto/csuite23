@@ -136,20 +136,37 @@
         }
 
         // Update Order Summary
-        document.getElementById('tools-line').style.display = state.addons['premium-tools'].selected ? 'flex' : 'none';
-        document.getElementById('mentorship-line').style.display = state.addons['1on1-mentorship'].selected ? 'flex' : 'none';
+        const toolsLine = document.getElementById('tools-line');
+        if (toolsLine) {
+            toolsLine.style.display = state.addons['premium-tools'].selected ? 'flex' : 'none';
+        }
+        
+        const mentorshipLine = document.getElementById('mentorship-line');
+        if (mentorshipLine) {
+            mentorshipLine.style.display = state.addons['1on1-mentorship'].selected ? 'flex' : 'none';
+        }
 
         const savingsLine = document.getElementById('savings-line');
-        if (state.savings > 0) {
+        if (savingsLine && state.savings > 0) {
             savingsLine.style.display = 'flex';
-            document.getElementById('savings-amount').textContent = formatCurrency(state.savings);
-        } else {
+            const savingsAmount = document.getElementById('savings-amount');
+            if (savingsAmount) {
+                savingsAmount.textContent = formatCurrency(state.savings);
+            }
+        } else if (savingsLine) {
             savingsLine.style.display = 'none';
         }
 
         // Update Totals
-        document.getElementById('total-amount').textContent = formatCurrency(state.total);
-        document.getElementById('cta-amount').textContent = formatCurrency(state.total);
+        const totalAmount = document.getElementById('total-amount');
+        if (totalAmount) {
+            totalAmount.textContent = formatCurrency(state.total);
+        }
+        
+        const ctaAmount = document.getElementById('cta-amount');
+        if (ctaAmount) {
+            ctaAmount.textContent = formatCurrency(state.total);
+        }
     }
 
     function formatCurrency(amount) {
@@ -161,7 +178,7 @@
         try {
             showLoadingOverlay();
             const paymentCustomerData = getPaymentCustomerData();
-            trackCheckoutInitiated(paymentCustomerData);
+            // trackCheckoutInitiated(paymentCustomerData); // Will be handled by trackInitiateCheckout
             await createDirectRazorpayCheckout(paymentCustomerData);
         } catch (error) {
             console.error('Payment initiation error:', error);

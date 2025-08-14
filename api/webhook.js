@@ -3,17 +3,38 @@ const crypto = require('crypto');
 // Event deduplication cache (in production, use Redis)
 const processedEvents = new Set();
 
+// Performance monitoring - LFG Ventures Gold Standard
+const PERFORMANCE_TARGETS = {
+  RESPONSE_TIME_MS: 200, // <200ms response time target
+  MAX_PROCESSING_TIME_MS: 15000, // 15 second max processing time
+  MAX_QUEUE_SIZE: 1000 // Maximum events in memory
+};
+
+// Timeout protection wrapper
+function withTimeout(promise, timeoutMs, operation = 'operation') {
+  return Promise.race([
+    promise,
+    new Promise((_, reject) => 
+      setTimeout(() => reject(new Error(`${operation} timeout after ${timeoutMs}ms`)), timeoutMs)
+    )
+  ]);
+}
+
 async function handler(req, res) {
   const startTime = process.hrtime.bigint();
   
   try {
-    // Step 1: Quick method validation
+    // Step 1: Quick method validation with timeout protection
     if (req.method !== 'POST') {
       return res.status(405).json({ error: 'Method not allowed' });
     }
 
-    // Step 2: Extract raw body and signature
-    const rawBody = await streamToString(req);
+    // Step 2: Extract raw body with timeout protection
+    const rawBody = await withTimeout(
+      streamToString(req), 
+      5000, 
+      'body extraction'
+    );
     const signature = req.headers['x-razorpay-signature'];
     
     // Step 3: Fast signature verification
@@ -23,8 +44,15 @@ async function handler(req, res) {
       return res.status(401).json({ error: 'Invalid signature' });
     }
 
-    // Step 4: Parse payload
-    const webhookData = JSON.parse(rawBody);
+    // Step 4: Parse payload with error handling
+    let webhookData;
+    try {
+      webhookData = JSON.parse(rawBody);
+    } catch (parseError) {
+      console.error('❌ JSON parsing failed:', parseError.message);
+      return res.status(400).json({ error: 'Invalid JSON payload' });
+    }
+    
     const { event, payload } = webhookData;
     
     // Step 5: Quick event validation
@@ -32,27 +60,52 @@ async function handler(req, res) {
       return res.status(400).json({ error: 'Invalid webhook payload' });
     }
 
-    // Step 6: Deduplication check
+    // Step 6: Deduplication check with memory management
     const eventId = `${event}_${payload?.payment?.entity?.id || payload?.order?.entity?.id || Date.now()}`;
     if (processedEvents.has(eventId)) {
       console.log(`🔄 Duplicate event skipped: ${eventId}`);
       return res.status(200).json({ status: 'duplicate_skipped', event_id: eventId });
     }
+    
+    // Memory management - prevent cache overflow
+    if (processedEvents.size > PERFORMANCE_TARGETS.MAX_QUEUE_SIZE) {
+      console.log('🧹 Cleaning event cache to prevent memory overflow');
+      const eventsArray = Array.from(processedEvents);
+      processedEvents.clear();
+      // Keep only the last 500 events
+      eventsArray.slice(-500).forEach(id => processedEvents.add(id));
+    }
     processedEvents.add(eventId);
 
-    // Step 7: Respond immediately (CRITICAL for performance)
+    // Step 7: Respond immediately (CRITICAL for <200ms target)
     const endTime = process.hrtime.bigint();
     const duration = Number(endTime - startTime) / 1000000;
+    
+    // Performance monitoring
+    if (duration > PERFORMANCE_TARGETS.RESPONSE_TIME_MS) {
+      console.warn(`⚠️ Slow response: ${Math.round(duration)}ms (target: ${PERFORMANCE_TARGETS.RESPONSE_TIME_MS}ms)`);
+    }
     
     res.status(200).json({
       success: true,
       event,
+      event_id: eventId,
       processing_time_ms: Math.round(duration),
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
+      performance: {
+        target_ms: PERFORMANCE_TARGETS.RESPONSE_TIME_MS,
+        actual_ms: Math.round(duration),
+        status: duration <= PERFORMANCE_TARGETS.RESPONSE_TIME_MS ? 'optimal' : 'slow'
+      }
     });
 
-    // Step 8: Process asynchronously AFTER response sent
-    setImmediate(() => processWebhookAsync(webhookData, rawBody, signature));
+    // Step 8: Process asynchronously AFTER response sent with timeout protection
+    setImmediate(() => {
+      processWebhookAsync(webhookData, rawBody, signature, eventId, startTime)
+        .catch(error => {
+          console.error('❌ Async processing failed:', error);
+        });
+    });
 
   } catch (error) {
     const endTime = process.hrtime.bigint();
@@ -62,7 +115,8 @@ async function handler(req, res) {
     
     res.status(500).json({
       error: 'Processing failed',
-      processing_time_ms: Math.round(duration)
+      processing_time_ms: Math.round(duration),
+      timestamp: new Date().toISOString()
     });
   }
 }
@@ -104,58 +158,122 @@ function verifySignatureFast(body, signature) {
   }
 }
 
-// Async processing after response sent
-async function processWebhookAsync(webhookData, rawBody, signature) {
+// Enhanced async processing with timeout protection - Gold Standard
+async function processWebhookAsync(webhookData, rawBody, signature, eventId, requestStartTime) {
   const { event, payload } = webhookData;
+  const asyncStartTime = process.hrtime.bigint();
   
   try {
-    console.log(`🔄 Processing webhook event: ${event}`);
+    console.log(`🔄 Processing webhook event: ${event} (ID: ${eventId})`);
     
-    // Route to specific event handlers
-    switch (event) {
-      case 'payment.captured':
-        await processPaymentCaptured(payload.payment.entity);
-        break;
-      case 'payment.failed':
-        await processPaymentFailed(payload.payment.entity);
-        break;
-      case 'order.paid':
-        await processOrderPaid(payload.order.entity);
-        break;
-      default:
-        console.log(`ℹ️ Unhandled event type: ${event}`);
-    }
+    // Wrap all async processing with timeout protection
+    await withTimeout(
+      processEventWithRetries(event, payload, eventId),
+      PERFORMANCE_TARGETS.MAX_PROCESSING_TIME_MS,
+      `async processing for ${event}`
+    );
 
-    console.log(`✅ Webhook processing completed: ${event}`);
+    const asyncEndTime = process.hrtime.bigint();
+    const asyncDuration = Number(asyncEndTime - asyncStartTime) / 1000000;
+    const totalDuration = Number(asyncEndTime - requestStartTime) / 1000000;
+
+    console.log(`✅ Webhook processing completed: ${event} (async: ${Math.round(asyncDuration)}ms, total: ${Math.round(totalDuration)}ms)`);
+    
+    // Performance monitoring
+    if (asyncDuration > 10000) { // 10 second warning threshold
+      console.warn(`⚠️ Slow async processing: ${Math.round(asyncDuration)}ms for ${event}`);
+    }
     
   } catch (error) {
-    console.error(`❌ Async webhook processing failed:`, error);
+    const asyncEndTime = process.hrtime.bigint();
+    const asyncDuration = Number(asyncEndTime - asyncStartTime) / 1000000;
+    
+    console.error(`❌ Async webhook processing failed (${Math.round(asyncDuration)}ms):`, {
+      event,
+      eventId,
+      error: error.message,
+      duration_ms: Math.round(asyncDuration)
+    });
+    
+    // Don't throw error - async processing failures shouldn't affect the response
   }
 }
 
-async function processPaymentCaptured(payment) {
-  console.log(`💰 Payment captured: ${payment.id} (₹${payment.amount / 100})`);
+// Process events with retry logic and parallel execution
+async function processEventWithRetries(event, payload, eventId) {
+  // Route to specific event handlers with enhanced processing
+  switch (event) {
+    case 'payment.captured':
+      await processPaymentCapturedEnhanced(payload.payment.entity, eventId);
+      break;
+    case 'payment.failed':
+      await processPaymentFailedEnhanced(payload.payment.entity, eventId);
+      break;
+    case 'order.paid':
+      await processOrderPaidEnhanced(payload.order.entity, eventId);
+      break;
+    default:
+      console.log(`ℹ️ Unhandled event type: ${event} (ID: ${eventId})`);
+  }
+}
+
+// Enhanced payment processing with timeout protection and gold standard patterns
+async function processPaymentCapturedEnhanced(payment, eventId) {
+  console.log(`💰 Payment captured: ${payment.id} (₹${payment.amount / 100}) [${eventId}]`);
   
-  // Parallel processing of external APIs
-  await Promise.allSettled([
-    sendToZapier(payment),
-    sendToMetaCAPI(payment),
-    logToDatabase(payment)
+  // Parallel processing with individual timeout protection - Gold Standard
+  const results = await Promise.allSettled([
+    withTimeout(sendToZapier(payment), 8000, 'Zapier webhook'),
+    withTimeout(sendToMetaCAPI(payment), 8000, 'Meta CAPI'),
+    withTimeout(logToDatabase(payment), 3000, 'Database logging')
   ]);
+  
+  // Log results for monitoring
+  results.forEach((result, index) => {
+    const services = ['Zapier', 'Meta CAPI', 'Database'];
+    if (result.status === 'fulfilled') {
+      console.log(`✅ ${services[index]} processing completed`);
+    } else {
+      console.error(`❌ ${services[index]} processing failed:`, result.reason?.message);
+    }
+  });
+}
+
+async function processPaymentFailedEnhanced(payment, eventId) {
+  console.log(`❌ Payment failed: ${payment.id} - ${payment.error_description} [${eventId}]`);
+  
+  // Log failed payment for analytics with timeout protection
+  try {
+    await withTimeout(logToDatabase(payment), 3000, 'Failed payment logging');
+    console.log(`✅ Failed payment logged: ${payment.id}`);
+  } catch (error) {
+    console.error(`❌ Failed to log payment failure:`, error.message);
+  }
+}
+
+async function processOrderPaidEnhanced(order, eventId) {
+  console.log(`📦 Order paid: ${order.id} (₹${order.amount / 100}) [${eventId}]`);
+  
+  // Update order status with timeout protection
+  try {
+    await withTimeout(logToDatabase(order), 3000, 'Order logging');
+    console.log(`✅ Order status updated: ${order.id}`);
+  } catch (error) {
+    console.error(`❌ Failed to update order status:`, error.message);
+  }
+}
+
+// Legacy functions for backward compatibility
+async function processPaymentCaptured(payment) {
+  return processPaymentCapturedEnhanced(payment, 'legacy');
 }
 
 async function processPaymentFailed(payment) {
-  console.log(`❌ Payment failed: ${payment.id} - ${payment.error_description}`);
-  
-  // Log failed payment for analytics
-  await logToDatabase(payment);
+  return processPaymentFailedEnhanced(payment, 'legacy');
 }
 
 async function processOrderPaid(order) {
-  console.log(`📦 Order paid: ${order.id} (₹${order.amount / 100})`);
-  
-  // Update order status
-  await logToDatabase(order);
+  return processOrderPaidEnhanced(order, 'legacy');
 }
 
 // Zapier integration

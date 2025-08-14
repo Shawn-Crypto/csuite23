@@ -1,0 +1,26 @@
+{
+  "environment": "SANDBOX",
+  "buildTime": "2025-08-13T22:01:03.834Z",
+  "version": "1.7.0",
+  "requiredEnvVars": [
+    "RAZORPAY_KEY_ID_PRODUCTION",
+    "RAZORPAY_KEY_SECRET_PRODUCTION",
+    "META_PIXEL_ID",
+    "META_ACCESS_TOKEN"
+  ],
+  "optionalEnvVars": [
+    "ZAPIER_WEBHOOK_URL",
+    "GA4_MEASUREMENT_ID",
+    "META_TEST_EVENT_CODE"
+  ],
+  "healthChecks": [
+    "/api/health",
+    "/api/health-check"
+  ],
+  "performance": {
+    "webhookTimeout": 15000,
+    "retryAttempts": 3,
+    "enableCaching": false,
+    "enableCompression": true
+  }
+}
