@@ -526,19 +526,16 @@
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), API_TIMEOUT);
             
-            const response = await fetch(`${API_BASE}/capture-lead`, {
+            const response = await fetch(`${API_BASE}/capture-lead-simple`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    name: customerData.name,
+                    firstName: customerData.name.split(' ')[0] || customerData.name,
+                    lastName: customerData.name.split(' ').slice(1).join(' ') || '',
                     email: customerData.email,
-                    phone: customerData.phone,
-                    source: 'checkout_form',
-                    utm_source: getUrlParameter('utm_source'),
-                    utm_medium: getUrlParameter('utm_medium'),
-                    utm_campaign: getUrlParameter('utm_campaign')
+                    phone: customerData.phone
                 }),
                 signal: controller.signal
             });

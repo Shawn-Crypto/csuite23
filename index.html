@@ -104,24 +104,7 @@
         fbq('init', '726737740336667');
         fbq('track', 'PageView');
         
-        // Debug logging for Meta Events Manager verification
-        console.log('✅ Meta Pixel initialized - ID: 726737740336667');
-        console.log('✅ PageView event fired at:', new Date().toISOString());
-        
-        // Track pixel loading success
-        window.addEventListener('load', function() {
-            if (typeof fbq === 'function') {
-                console.log('✅ Meta Pixel fbq function available');
-                // Test event for debugging (will show in Events Manager Test Events)
-                fbq('trackCustom', 'PixelTest', {
-                    test_parameter: 'meta_events_manager_debug',
-                    timestamp: Date.now()
-                });
-                console.log('✅ Test event fired for Events Manager verification');
-            } else {
-                console.error('❌ Meta Pixel fbq function NOT available');
-            }
-        });
+        // Production Meta Pixel - clean implementation
     </script>
 
     <!-- Critical CSS inlined for hero section -->
@@ -2177,8 +2160,8 @@
     <!-- Meta Pixel implementation moved to HTML head for guide compliance -->
     <!-- Microsoft Clarity Analytics -->
     <script src="js/microsoft-clarity.js" defer></script>
-    <!-- Razorpay Checkout Integration -->
-    <script src="js/razorpay-checkout.js" defer></script>
+    <!-- Razorpay removed from index.html - only on secure.html -->
+    <!-- Users go: index.html → lead capture → secure.html → razorpay -->
     <!-- Lead Capture Modal Integration -->
     <script src="js/lead-capture-modal.js" defer></script>
 </body>
