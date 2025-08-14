@@ -177,17 +177,17 @@ class LeadCaptureModal {
   async submitLead() {
     const formData = new FormData(this.form);
     const leadData = {
-      name: formData.get('name').trim(),
+      firstName: formData.get('name').trim().split(' ')[0] || formData.get('name').trim(),
+      lastName: formData.get('name').trim().split(' ').slice(1).join(' ') || '',
       email: formData.get('email').trim().toLowerCase(),
-      phone: formData.get('phone').replace(/\D/g, ''), // Clean phone number
-      consent: formData.get('terms') === 'on', // Map 'terms' checkbox to 'consent' field
-      source: 'lead_capture_modal',
-      timestamp: new Date().toISOString()
+      phone: formData.get('phone').replace(/\D/g, '') // Clean phone number
     };
 
-    // Generate event ID for consistency across tracking
-    const eventId = `lead_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-    leadData.event_id = eventId;
+    // Check terms checkbox
+    if (formData.get('terms') !== 'on') {
+      this.showError('Please accept the terms and conditions to continue.');
+      return;
+    }
 
     this.setSubmitting(true);
 
@@ -200,11 +200,14 @@ class LeadCaptureModal {
       // Skip API call in development mode and directly proceed to success
       console.log('Development mode: Skipping API call', leadData);
       
+      // Generate event ID for tracking
+      const eventId = `lead_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+      
       // Track successful lead capture
-      this.trackLeadCapture(leadData, eventId);
+      this.trackLeadCapture({...leadData, event_id: eventId}, eventId);
       
       // Show success state and proceed to upsell page
-      this.handleSubmitSuccess(leadData);
+      this.handleSubmitSuccess({...leadData, event_id: eventId});
       this.setSubmitting(false);
       return;
     }
@@ -214,7 +217,7 @@ class LeadCaptureModal {
       const controller = new AbortController();
       this.submitTimeout = setTimeout(() => controller.abort(), this.API_TIMEOUT);
 
-      const response = await fetch(`${this.API_BASE}/api/capture-lead`, {
+      const response = await fetch(`${this.API_BASE}/api/capture-lead-simple`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -231,11 +234,12 @@ class LeadCaptureModal {
 
       const result = await response.json();
       
-      // Track successful lead capture
-      this.trackLeadCapture(leadData, eventId);
+      // Track successful lead capture using returned event_id
+      const eventId = result.event_id || `lead_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+      this.trackLeadCapture({...leadData, event_id: eventId}, eventId);
       
       // Show success state and proceed to payment
-      this.handleSubmitSuccess(leadData);
+      this.handleSubmitSuccess({...leadData, event_id: eventId});
       
     } catch (error) {
       clearTimeout(this.submitTimeout);
@@ -251,7 +255,7 @@ class LeadCaptureModal {
     
     // Store lead data for the upsell page
     sessionStorage.setItem('leadCaptureData', JSON.stringify({
-      name: leadData.name,
+      name: (leadData.firstName + ' ' + (leadData.lastName || '')).trim(),
       email: leadData.email,
       phone: leadData.phone,
       timestamp: new Date().toISOString(),
@@ -301,6 +305,8 @@ class LeadCaptureModal {
   }
 
   trackLeadCapture(leadData, eventId) {
+    console.log('🎯 Tracking lead capture:', { leadData, eventId });
+    
     // GTM Data Layer push
     if (window.dataLayer) {
       window.dataLayer.push({
@@ -317,22 +323,30 @@ class LeadCaptureModal {
           currency: 'INR'
         }
       });
+      console.log('✅ DataLayer lead event pushed');
     }
 
-    // Use integrated Meta Pixel tracking
-    if (window.MetaPixel) {
-      window.MetaPixel.trackEvent('Lead', {
-        content_name: 'Complete Indian Investor Course',
-        content_category: 'Education',
-        value: 1999,
-        currency: 'INR',
-        user_data: {
-          email: leadData.email,
-          phone: leadData.phone,
-          first_name: leadData.name?.split(' ')[0],
-          last_name: leadData.name?.split(' ').slice(1).join(' ')
-        }
-      }, { eventId });
+    // Direct Meta Pixel tracking (since meta-pixel-clean.js was removed)
+    if (typeof fbq !== 'undefined') {
+      try {
+        fbq('track', 'Lead', {
+          content_name: 'Complete Indian Investor Course',
+          content_category: 'Education',
+          value: 1999,
+          currency: 'INR'
+        }, {
+          eventID: eventId
+        });
+        
+        console.log('✅ Meta Pixel Lead event fired:', {
+          eventID: eventId,
+          timestamp: new Date().toISOString()
+        });
+      } catch (error) {
+        console.error('❌ Meta Pixel Lead event failed:', error);
+      }
+    } else {
+      console.error('❌ fbq not available for lead tracking');
     }
   }
 
@@ -402,7 +416,19 @@ class LeadCaptureModal {
   }
 
   show() {
+    // Check for modal conflicts
+    if (window.modalState?.isAnyModalOpen) {
+      console.warn('Another modal is already open, preventing lead capture modal');
+      return;
+    }
+    
     this.modal.style.display = 'flex';
+    
+    // Update modal state
+    if (window.modalState) {
+      window.modalState.isAnyModalOpen = true;
+      window.modalState.activeModal = 'lead-capture';
+    }
     
     // Trigger animation
     requestAnimationFrame(() => {
@@ -429,6 +455,12 @@ class LeadCaptureModal {
 
   close() {
     this.modal.classList.remove('show');
+    
+    // Reset modal state
+    if (window.modalState) {
+      window.modalState.isAnyModalOpen = false;
+      window.modalState.activeModal = null;
+    }
     
     setTimeout(() => {
       this.modal.style.display = 'none';
@@ -463,17 +495,25 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function setupModalTriggers() {
-  // Bind all CTA buttons to show lead capture modal
-  const ctaButtons = document.querySelectorAll('.cta-button, .pricing-cta, .hero-cta, [data-action="enroll"]');
+  // IMPORTANT: Only bind lead capture to specific lead-capture triggers, NOT payment CTA buttons
+  // This prevents conflict with Razorpay checkout flow
+  const leadCaptureButtons = document.querySelectorAll('[data-action="lead-capture"], .lead-capture-trigger');
   
-  ctaButtons.forEach(button => {
+  leadCaptureButtons.forEach(button => {
     button.addEventListener('click', function(e) {
       e.preventDefault();
+      e.stopPropagation(); // Prevent event bubbling
       if (window.leadCapture) {
         window.leadCapture.show();
       }
     });
   });
+  
+  // Add global modal state management
+  window.modalState = window.modalState || {
+    isAnyModalOpen: false,
+    activeModal: null
+  };
 }
 
 // Export for global access

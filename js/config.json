@@ -15,10 +15,10 @@
     "enabled": true
   },
   "analytics": {
-    "gtmId": "GTM-M3JWN37C",
-    "ga4MeasurementId": "G-XXXXXXXXXX",
-    "ga4PropertyId": "491307873",
-    "enabled": true
+    "gtmId": null,
+    "ga4MeasurementId": null,
+    "ga4PropertyId": null,
+    "enabled": false
   },
   "zapier": {
     "webhookUrl": "https://hooks.zapier.com/hooks/catch/23606322/u34shwt/",
@@ -40,15 +40,12 @@
       "api.razorpay.com",
       "connect.facebook.net",
       "www.facebook.com",
-      "www.googletagmanager.com",
-      "www.google-analytics.com"
     ],
     "allowedScriptSources": [
       "'self'",
       "'unsafe-inline'",
       "https://checkout.razorpay.com",
       "https://connect.facebook.net",
-      "https://www.googletagmanager.com"
     ]
   }
 }

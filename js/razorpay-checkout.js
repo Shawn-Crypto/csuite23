@@ -344,6 +344,12 @@
         if (modal) {
             modal.style.display = 'none';
         }
+        
+        // Reset modal state
+        if (window.modalState) {
+            window.modalState.isAnyModalOpen = false;
+            window.modalState.activeModal = null;
+        }
     }
 
     // Expose hideModal globally for button onclick
@@ -351,6 +357,18 @@
 
     // Customer form modal
     function showCustomerForm(callback) {
+        // Check for modal conflicts
+        if (window.modalState?.isAnyModalOpen) {
+            console.warn('Another modal is already open, preventing Razorpay modal');
+            return;
+        }
+        
+        // Update modal state
+        if (window.modalState) {
+            window.modalState.isAnyModalOpen = true;
+            window.modalState.activeModal = 'razorpay-checkout';
+        }
+        
         const modal = createModal();
         const content = modal.querySelector('.modal-content');
         
@@ -446,6 +464,13 @@
             
             link.addEventListener('click', function(e) {
                 e.preventDefault();
+                e.stopPropagation(); // Prevent event bubbling to avoid conflicts
+                
+                // Check if another modal is already open
+                if (window.modalState?.isAnyModalOpen) {
+                    console.warn('Another modal is already open, skipping payment modal');
+                    return;
+                }
                 
                 // Track checkout initiation with event ID
                 const checkoutEventId = `begin_checkout_${Date.now()}`;

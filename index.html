@@ -88,8 +88,41 @@
     <!-- Additional performance optimizations -->
     
     <!-- Resource hints for better performance -->
-    <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <link rel="dns-prefetch" href="https://connect.facebook.net">
+
+    <!-- Meta Pixel - Guide Compliant Implementation -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        
+        fbq('init', '726737740336667');
+        fbq('track', 'PageView');
+        
+        // Debug logging for Meta Events Manager verification
+        console.log('✅ Meta Pixel initialized - ID: 726737740336667');
+        console.log('✅ PageView event fired at:', new Date().toISOString());
+        
+        // Track pixel loading success
+        window.addEventListener('load', function() {
+            if (typeof fbq === 'function') {
+                console.log('✅ Meta Pixel fbq function available');
+                // Test event for debugging (will show in Events Manager Test Events)
+                fbq('trackCustom', 'PixelTest', {
+                    test_parameter: 'meta_events_manager_debug',
+                    timestamp: Date.now()
+                });
+                console.log('✅ Test event fired for Events Manager verification');
+            } else {
+                console.error('❌ Meta Pixel fbq function NOT available');
+            }
+        });
+    </script>
 
     <!-- Critical CSS inlined for hero section -->
     <style>
@@ -102,7 +135,6 @@
     
     <!-- DNS prefetch for tracking resources -->
     <link rel="dns-prefetch" href="https://connect.facebook.net">
-    <link rel="dns-prefetch" href="https://www.google-analytics.com">
 
     <style>
         /* Critical above-the-fold styles for LCP optimization */
@@ -1479,7 +1511,11 @@
     <link rel="stylesheet" href="css/modal.css">
 </head>
 <body>
-    <!-- GTM noscript removed - direct tracking handles all scenarios -->
+    <!-- Meta Pixel noscript fallback for when JavaScript is disabled -->
+    <noscript>
+        <img height="1" width="1" style="display:none" 
+        src="https://www.facebook.com/tr?id=726737740336667&ev=PageView&noscript=1" />
+    </noscript>
 
     <div class="nav-trigger" onclick="toggleNav()" aria-label="Toggle navigation menu">
         <span></span>
@@ -2138,9 +2174,7 @@
     </div>
 
     <!-- Direct Tracking Implementation (No GTM) -->
-    <script src="js/gtm-enhanced.js" defer></script>
-    <!-- Meta Pixel Integration -->
-    <script src="js/meta-pixel.js" defer></script>
+    <!-- Meta Pixel implementation moved to HTML head for guide compliance -->
     <!-- Microsoft Clarity Analytics -->
     <script src="js/microsoft-clarity.js" defer></script>
     <!-- Razorpay Checkout Integration -->

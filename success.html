@@ -6,13 +6,20 @@
     <title>Payment Successful - The Complete Indian Stock Investor</title>
     <meta name="description" content="Thank you for enrolling in The Complete Indian Stock Investor course.">
     
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-M3JWN37C');</script>
-    <!-- End Google Tag Manager -->
+    <!-- Meta Pixel - Guide Compliant Implementation -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        
+        fbq('init', '726737740336667');
+        fbq('track', 'PageView');
+    </script>
     
     <style>
         * {
@@ -224,10 +231,11 @@
     </style>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M3JWN37C"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    <!-- Meta Pixel noscript fallback for when JavaScript is disabled -->
+    <noscript>
+        <img height="1" width="1" style="display:none" 
+        src="https://www.facebook.com/tr?id=726737740336667&ev=PageView&noscript=1" />
+    </noscript>
     
     <div class="container">
         <!-- Success Icon -->
@@ -308,10 +316,40 @@
         }
         
         if (orderId) {
-            // Fire GTM purchase event with consistent event ID for deduplication
+            // Fire purchase event using guide-compliant Meta Pixel pattern
+            const purchaseEventId = eventId || `purchase_${orderId}`;
+            
+            // Guide-compliant error handling pattern
+            if (typeof fbq !== 'undefined') {
+                try {
+                    fbq('track', 'Purchase', {
+                        value: parseFloat(amount || 1999),
+                        currency: 'INR',
+                        content_ids: ['complete-indian-investor'],
+                        content_type: 'product',
+                        content_name: 'The Complete Indian Investor',
+                        num_items: 1
+                    }, {
+                        eventID: purchaseEventId // Consistent with server-side
+                    });
+                    
+                    console.log('✅ Meta Pixel Purchase event fired:', {
+                        eventID: purchaseEventId,
+                        value: parseFloat(amount || 1999),
+                        currency: 'INR',
+                        timestamp: new Date().toISOString()
+                    });
+                } catch (error) {
+                    console.error('❌ Purchase event failed:', error);
+                }
+            } else {
+                console.error('❌ fbq not available - Meta Pixel not loaded');
+            }
+            
+            // Also push to dataLayer for compatibility
             const purchaseEvent = {
                 'event': 'purchase',
-                'event_id': eventId || `purchase_${orderId}`,
+                'event_id': purchaseEventId,
                 'ecommerce': {
                     'transaction_id': orderId,
                     'value': parseFloat(amount || 1999),

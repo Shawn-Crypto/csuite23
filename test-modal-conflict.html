@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Conflict Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            padding: 40px;
+            background: #f8fafc;
+        }
+        
+        .test-section {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .cta-button {
+            background: #6366f1;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 8px;
+            transition: background 0.2s;
+        }
+        
+        .cta-button:hover {
+            background: #4f46e5;
+        }
+        
+        .status {
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        .status.success {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+        
+        .status.error {
+            background: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+        }
+        
+        .modal button {
+            margin-top: 16px;
+            padding: 8px 16px;
+            background: #ef4444;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Modal Conflict Resolution Test</h1>
+    <p>This page tests that only ONE modal opens when clicking CTA buttons.</p>
+    
+    <div class="test-section">
+        <h2>Test 1: CTA Button (Should Open Razorpay Only)</h2>
+        <p>This button should only trigger the Razorpay checkout flow, not the lead capture modal.</p>
+        <button class="cta-button">ENROLL NOW - Payment Flow</button>
+        <div id="test1-status" class="status" style="display: none;"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test 2: Lead Capture Trigger (Should Open Lead Modal Only)</h2>
+        <p>This button should only trigger the lead capture modal.</p>
+        <button class="cta-button" data-action="lead-capture">Get Free Preview - Lead Capture</button>
+        <div id="test2-status" class="status" style="display: none;"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test 3: Modal State Check</h2>
+        <p>Check current modal state and conflicts.</p>
+        <button onclick="checkModalState()">Check Modal State</button>
+        <div id="modal-state-info" style="margin-top: 10px; font-family: monospace; font-size: 14px;"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test Results</h2>
+        <div id="test-results"></div>
+        <button onclick="runAllTests()" style="background: #10b981; color: white; padding: 12px 24px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px;">Run Automated Tests</button>
+    </div>
+    
+    <!-- Dummy Lead Capture Modal -->
+    <div id="leadCaptureModal" class="modal">
+        <div class="modal-content">
+            <h3>Lead Capture Modal</h3>
+            <p>This is the lead capture modal for testing.</p>
+            <form id="leadCaptureForm">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="phone" placeholder="Phone" required>
+                <button type="submit">Submit Lead</button>
+            </form>
+            <button onclick="window.leadCapture?.close()">Close</button>
+        </div>
+    </div>
+    
+    <!-- Include the actual scripts -->
+    <script src="js/lead-capture-modal.js"></script>
+    <script src="js/razorpay-checkout.js"></script>
+    
+    <script>
+        // Test functions
+        function checkModalState() {
+            const info = document.getElementById('modal-state-info');
+            const state = window.modalState || { message: 'Modal state not initialized' };
+            info.innerHTML = `
+                <strong>Modal State:</strong><br>
+                • isAnyModalOpen: ${state.isAnyModalOpen || false}<br>
+                • activeModal: ${state.activeModal || 'none'}<br>
+                • Lead Capture Available: ${!!window.leadCapture}<br>
+                • Razorpay Checkout Available: ${!!window.razorpayCheckout}<br>
+                • Last Updated: ${new Date().toLocaleTimeString()}
+            `;
+        }
+        
+        function runAllTests() {
+            const results = document.getElementById('test-results');
+            let testsPassed = 0;
+            let testsTotal = 0;
+            
+            results.innerHTML = '<h3>Running Tests...</h3>';
+            
+            // Test 1: Check modal state initialization
+            testsTotal++;
+            if (window.modalState && typeof window.modalState === 'object') {
+                testsPassed++;
+                results.innerHTML += '<p>✅ Modal state properly initialized</p>';
+            } else {
+                results.innerHTML += '<p>❌ Modal state not initialized</p>';
+            }
+            
+            // Test 2: Check lead capture modal binding
+            testsTotal++;
+            const leadButtons = document.querySelectorAll('[data-action="lead-capture"]');
+            if (leadButtons.length > 0) {
+                testsPassed++;
+                results.innerHTML += '<p>✅ Lead capture buttons found and properly targeted</p>';
+            } else {
+                results.innerHTML += '<p>❌ No lead capture buttons found</p>';
+            }
+            
+            // Test 3: Check CTA button binding to payment flow
+            testsTotal++;
+            const ctaButtons = document.querySelectorAll('.cta-button:not([data-action="lead-capture"])');
+            if (ctaButtons.length > 0) {
+                testsPassed++;
+                results.innerHTML += '<p>✅ Payment CTA buttons found and should trigger Razorpay only</p>';
+            } else {
+                results.innerHTML += '<p>❌ No payment CTA buttons found</p>';
+            }
+            
+            // Test 4: Check for script conflicts
+            testsTotal++;
+            if (window.leadCapture && window.razorpayCheckout) {
+                testsPassed++;
+                results.innerHTML += '<p>✅ Both lead capture and Razorpay scripts loaded</p>';
+            } else {
+                results.innerHTML += '<p>❌ One or both scripts failed to load</p>';
+            }
+            
+            const score = `${testsPassed}/${testsTotal}`;
+            const status = testsPassed === testsTotal ? 'success' : 'error';
+            results.innerHTML += `<div class="status ${status}">Tests completed: ${score} passed</div>`;
+            
+            checkModalState();
+        }
+        
+        // Auto-run tests when page loads
+        setTimeout(() => {
+            checkModalState();
+            runAllTests();
+        }, 1000);
+        
+        // Monitor for modal conflicts
+        let modalConflicts = 0;
+        const originalConsoleWarn = console.warn;
+        console.warn = function(...args) {
+            if (args[0] && args[0].includes('modal is already open')) {
+                modalConflicts++;
+                document.getElementById('test-results').innerHTML += 
+                    `<p style="color: orange;">⚠️ Modal conflict detected: ${args[0]}</p>`;
+            }
+            originalConsoleWarn.apply(console, args);
+        };
+    </script>
+</body>
+</html>

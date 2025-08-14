@@ -65,8 +65,12 @@ class FormValidator {
       sanitized.phone = phoneResult.sanitized;
     }
 
-    // Validate consent checkbox
-    if (data.consent === undefined || data.consent === false || data.consent === 'false') {
+    // Validate consent checkbox - handle various boolean representations
+    const consent = data.consent;
+    if (consent === undefined || consent === null || 
+        consent === false || consent === 'false' || 
+        consent === 0 || consent === '0' || 
+        consent === '' || consent === 'off') {
       errors.consent = ['You must accept the terms and conditions to continue'];
     }
 

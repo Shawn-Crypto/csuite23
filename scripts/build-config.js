@@ -44,12 +44,12 @@ const metaConfig = {
     enabled: !!(process.env.META_PIXEL_ID && process.env.META_ACCESS_TOKEN)
 };
 
-// Analytics Configuration
+// Analytics Configuration - GTM/GA4 DISABLED
 const analyticsConfig = {
-    gtmId: process.env.GTM_CONTAINER_ID || 'GTM-M3JWN37C',
-    ga4MeasurementId: process.env.GA4_MEASUREMENT_ID || 'G-XXXXXXXXXX',
-    ga4PropertyId: process.env.GA4_PROPERTY_ID || '491307873',
-    enabled: !!process.env.GTM_CONTAINER_ID
+    gtmId: null, // GTM removed - using direct tracking
+    ga4MeasurementId: null, // GA4 removed - no Google Ads
+    ga4PropertyId: null, // GA4 removed - no Google Ads
+    enabled: false // Analytics disabled - using direct Meta tracking
 };
 
 // Zapier Configuration
@@ -230,7 +230,7 @@ META_ACCESS_TOKEN=EAAxxxxxxxxxxxxxxx
 META_TEST_EVENT_CODE=TEST12345
 
 # Analytics Configuration
-GTM_CONTAINER_ID=${config.analytics.gtmId}
+# GTM_CONTAINER_ID=${config.analytics.gtmId} # REMOVED - using direct tracking
 GA4_MEASUREMENT_ID=${config.analytics.ga4MeasurementId}
 GA4_PROPERTY_ID=${config.analytics.ga4PropertyId}
 

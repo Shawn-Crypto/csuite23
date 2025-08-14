@@ -25,10 +25,10 @@ window.GLOBAL_CONFIG = {
     "enabled": true
   },
   "analytics": {
-    "gtmId": "GTM-M3JWN37C",
-    "ga4MeasurementId": "G-XXXXXXXXXX",
-    "ga4PropertyId": "491307873",
-    "enabled": true
+    "gtmId": null,
+    "ga4MeasurementId": null,
+    "ga4PropertyId": null,
+    "enabled": false
   },
   "zapier": {
     "webhookUrl": "https://hooks.zapier.com/hooks/catch/23606322/u34shwt/",
@@ -50,15 +50,12 @@ window.GLOBAL_CONFIG = {
       "api.razorpay.com",
       "connect.facebook.net",
       "www.facebook.com",
-      "www.googletagmanager.com",
-      "www.google-analytics.com"
     ],
     "allowedScriptSources": [
       "'self'",
       "'unsafe-inline'",
       "https://checkout.razorpay.com",
       "https://connect.facebook.net",
-      "https://www.googletagmanager.com"
     ]
   }
 };
@@ -85,6 +82,6 @@ console.log('✅ Runtime configuration loaded:', {
     version: window.GLOBAL_CONFIG.version,
     razorpay: !!window.GLOBAL_CONFIG.razorpay.keyId,
     meta: window.GLOBAL_CONFIG.meta.enabled,
-    analytics: window.GLOBAL_CONFIG.analytics.enabled,
+    analytics: false,
     zapier: window.GLOBAL_CONFIG.zapier.enabled
 });
