@@ -6,8 +6,24 @@
       "maxDuration": 30,
       "memory": 512
     },
+    "api/verify-payment.js": {
+      "maxDuration": 10,
+      "memory": 256
+    },
+    "api/verify-razorpay-payment.js": {
+      "maxDuration": 10,
+      "memory": 256
+    },
+    "api/create-order.js": {
+      "maxDuration": 15,
+      "memory": 256
+    },
     "api/capture-lead.js": {
       "maxDuration": 15,
+      "memory": 256
+    },
+    "api/capture-lead-simple.js": {
+      "maxDuration": 10,
       "memory": 256
     },
     "api/health.js": {

@@ -1,0 +1,103 @@
+
+{
+  "test_report_summary": {
+    "report_date": "2025-08-15",
+    "quality_score": 90,
+    "overall_status": "Passed with critical issues",
+    "key_findings": "The application shows a high-quality profile with a strong success rate in backend API testing. However, significant failures in critical API endpoints, particularly the Razorpay Webhook and payment verification, indicate severe risks. The frontend testing was limited and revealed major issues in responsive design and core functionalities like payment processing and user input validation.",
+    "recommendations": "It is crucial to prioritize fixing the backend API failures, especially the webhook's inability to handle basic requests, which is business-critical. Frontend development should focus on implementing robust responsive design and ensuring all user-facing components, especially payment and lead capture forms, are fully functional and validated."
+  },
+  "backend_api_results": {
+    "summary": {
+      "total_apis_tested": 5,
+      "pass_fail_rate": "4/47 tests failed",
+      "status": "Failed"
+    },
+    "failed_endpoints": [
+      {
+        "api_name": "Razorpay Webhook",
+        "status": "0/10 Pass",
+        "failed_tests": [
+          {
+            "test_case": "Empty POST Request",
+            "priority": "High",
+            "error": "Expected status code 200 but got 404",
+            "cause": "The webhook endpoint does not properly handle empty POST requests, resulting in a 404 Not Found status code.",
+            "fix": "Implement handling for empty POST requests in the API code, ensuring that the endpoint can respond with a 200 status, possibly with a default success message or acknowledgment."
+          },
+          {
+            "test_case": "Invalid Signature Handling",
+            "priority": "High",
+            "error": "Expected status code 200 but got 404",
+            "cause": "The 404 status code indicates that the requested resource was not found on the server. This could be due to the webhook endpoint not being implemented to handle invalid signatures, or the endpoint path being incorrect.",
+            "fix": "Update the API endpoint to properly handle invalid signatures by ensuring it returns a 200 status code even when given an invalid signature, while logging appropriate information for further investigation."
+          }
+        ]
+      },
+      {
+        "api_name": "Verify Razorpay Payment",
+        "status": "0/10 Pass",
+        "failed_tests": [
+          {
+            "test_case": "Verify Successful Payment Confirmation",
+            "priority": "High",
+            "error": "Expected status code 200 but got 404",
+            "cause": "The endpoint https://lotuslion.in/api/verify-razorpay-payment.js may not exist or is improperly defined, leading to a 404 Not Found error.",
+            "fix": "Ensure that the API endpoint is correctly defined in the server routing configuration and that it is capable of handling POST requests to verify Razorpay payments. Verify that the endpoint exists in the application's context and is reachable."
+          }
+        ]
+      },
+      {
+        "api_name": "Capture Lead (Async)",
+        "status": "0/15 Pass",
+        "failed_tests": [
+          {
+            "test_case": "Empty Payload",
+            "priority": "Medium",
+            "error": "Expected status code 200 but got 404",
+            "cause": "The API endpoint could be incorrectly configured to handle empty payloads which may lead to a 404 Not Found error for this specific input. This suggests that the API does not recognize the empty payload as a valid request or there is a routing issue for requests without a valid lead payload.",
+            "fix": "Implement validation in the API to handle empty payloads appropriately. If an empty payload is acceptable, return a 200 status with a message indicating that no lead data was provided. If not acceptable, return a 400 Bad Request status with a relevant error message."
+          }
+        ]
+      },
+      {
+        "api_name": "Create Razorpay Order",
+        "status": "0/10 Pass",
+        "failed_tests": [
+          {
+            "test_case": "Negative Amount Value",
+            "priority": "High",
+            "error": "Expected status code 200 but got 404",
+            "cause": "The API endpoint may not be handling negative amount values correctly, resulting in a 404 Not Found error when such a value is provided. Additionally, the endpoint may not be set up to validate input parameters properly, leading to requests not being routed correctly for invalid data.",
+            "fix": "Implement input validation on the API side to reject negative amounts explicitly, returning a clear error message (such as a 400 Bad Request) instead of letting the request progress further. Ensure that the endpoint correctly exists for all valid paths and handles edge cases gracefully."
+          }
+        ]
+      }
+    ]
+  },
+  "frontend_ui_results": {
+    "summary": {
+      "total_websites_tested": 5,
+      "pass_fail_rate": "8/21 tests failed",
+      "status": "Failed"
+    },
+    "failed_tests": [
+      {
+        "test_case": "Invalid Data Validation Test",
+        "priority": "High",
+        "error": "The form validation process was successfully tested. Invalid email and phone number formats were submitted, and the correct error messages were displayed: 'Please enter a valid email address' and 'Enter valid 10-digit Indian mobile number'. After submitting valid data, the success message was confirmed. However, the monitoring of network requests for the 'Lead' event was not completed, which is a critical part of the task. Therefore, the task is not fully finished.",
+        "cause": "The hosting server may have restrictions or misconfigurations that prevent certain network requests from being processed or logged, particularly for the 'Lead' event, possibly due to CORS issues or server-side errors.",
+        "fix": "Review and configure the server settings to ensure that network requests for the 'Lead' event are properly handled. Check server logs for any errors related to these requests, and ensure that CORS policies allow requests from the client domain.",
+        "preview_link": "https://testsprite-videos.s3.us-east-1.amazonaws.com/24b8d478-90c1-7002-7230-be7244d7bc46/1755268605758407//tmp/093bd10f-5a32-470a-9811-0476b2acd654/result.webm"
+      },
+      {
+        "test_case": "Desktop Viewport Testing",
+        "priority": "High",
+        "error": "Tested the layout integrity, visibility of key elements, and functionality within the 1920x1080 viewport. Key elements such as the 'Learn Institutional Investment Analysis' banner, 'ENROLL NOW' button, and course details were checked. All elements fit well and function correctly without overlapping or truncation issues. The viewport was not successfully set to 1920x1080 due to input errors, but the layout was still assessed at 1280x1100.",
+        "cause": "The viewport setting error may be caused by the server not delivering responsive design files properly, leading to incorrect scaling of the webpage.",
+        "fix": "Ensure that the server is properly configured to serve responsive CSS and JavaScript files, and test the viewport settings in different browsers and device emulators to confirm correct layout rendering.",
+        "preview_link": "https://testsprite-videos.s3.us-east-1.amazonaws.com/24b8d478-90c1-7002-7230-be7244d7bc46/1755268544954139//tmp/612172ff-1edd-40e1-905b-3b338dc63e7f/result.webm"
+      }
+    ]
+  }
+}

@@ -37,6 +37,15 @@ module.exports = async (req, res) => {
 
   try {
     const { amount, currency = 'INR', receipt, notes = {} } = req.body;
+    
+    // Debug logging for amount issues
+    console.log('🔍 Create Order Request:', {
+      amount,
+      currency,
+      receipt,
+      notes,
+      timestamp: new Date().toISOString()
+    });
 
     if (!amount) {
       const { response, statusCode } = errorHandler.createAPIResponse(
@@ -49,7 +58,13 @@ module.exports = async (req, res) => {
     if (typeof amount !== 'number' || amount <= 0) {
       const { response, statusCode } = errorHandler.createAPIResponse(
         'VALIDATION_ERROR',
-        { field: 'amount', value: amount, endpoint: '/api/create-order' }
+        { 
+          field: 'amount', 
+          value: amount, 
+          endpoint: '/api/create-order',
+          error: amount < 0 ? 'Amount cannot be negative' : 'Amount must be a positive number'
+        },
+        400
       );
       return res.status(statusCode).json(response);
     }

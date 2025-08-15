@@ -82,7 +82,15 @@
 
     // --- Event Handlers ---
     function handleAddonToggle(productKey) {
-        state.bundle.selected = false; // Selecting an individual addon deselects the bundle
+        // If bundle is selected, deselect it first
+        if (state.bundle.selected) {
+            state.bundle.selected = false;
+            // Reset all addons when moving from bundle to individual selection
+            state.addons['premium-tools'].selected = false;
+            state.addons['1on1-mentorship'].selected = false;
+        }
+        
+        // Toggle the specific addon
         state.addons[productKey].selected = !state.addons[productKey].selected;
         
         if (state.addons[productKey].selected) {
@@ -91,15 +99,25 @@
             trackAddonRemoved(productKey);
         }
         
+        console.log('🔧 Addon toggled:', productKey, 'Selected:', state.addons[productKey].selected, 'Total:', state.total);
         render();
     }
 
     function handleBundleSelection() {
-        state.bundle.selected = true;
-        // Ensure individual addons are marked as selected for visual consistency
-        state.addons['premium-tools'].selected = true;
-        state.addons['1on1-mentorship'].selected = true;
-        trackBundleSelected();
+        // Toggle bundle selection
+        state.bundle.selected = !state.bundle.selected;
+        
+        if (state.bundle.selected) {
+            // When selecting bundle, deselect individual addons
+            state.addons['premium-tools'].selected = false;
+            state.addons['1on1-mentorship'].selected = false;
+            trackBundleSelected();
+        } else {
+            // When deselecting bundle, just clear the bundle selection
+            console.log('🔧 Bundle deselected');
+        }
+        
+        console.log('🔧 Bundle toggled:', 'Selected:', state.bundle.selected, 'Total:', state.total);
         render();
     }
 
@@ -125,13 +143,56 @@
             if (card) {
                 const button = card.querySelector('.add-btn');
                 const btnText = button.querySelector('.btn-text');
-                if (state.addons[key].selected) {
-                    button.classList.add('selected');
-                    btnText.textContent = btnText.textContent.replace(/Yes!.*$/, '✅ Added!');
-                } else {
+                const btnSavings = button.querySelector('.btn-savings');
+                
+                if (state.bundle.selected) {
+                    // If bundle is selected, disable individual addon buttons
+                    button.disabled = true;
+                    button.classList.add('disabled');
                     button.classList.remove('selected');
-                    btnText.textContent = btnText.textContent.replace('✅ Added!', `Yes! Give Me The ${state.addons[key].name}`);
+                    btnText.textContent = `Included in Bundle`;
+                } else {
+                    // Enable buttons and show correct state
+                    button.disabled = false;
+                    button.classList.remove('disabled');
+                    
+                    if (state.addons[key].selected) {
+                        button.classList.add('selected');
+                        btnText.textContent = `✅ Added!`;
+                        if (btnSavings) btnSavings.textContent = `(₹${state.addons[key].price.toLocaleString('en-IN')} Added)`;
+                    } else {
+                        button.classList.remove('selected');
+                        if (key === 'premium-tools') {
+                            btnText.textContent = `Yes! Give Me The Analysis Arsenal`;
+                        } else if (key === '1on1-mentorship') {
+                            btnText.textContent = `Yes! I Want Personal Guidance`;
+                        }
+                        if (btnSavings) btnSavings.textContent = `(₹${state.addons[key].price.toLocaleString('en-IN')} Only)`;
+                    }
                 }
+            }
+        }
+        
+        // Update Bundle Button
+        const bundleBtn = document.getElementById('selectBundle');
+        if (bundleBtn) {
+            const bundleBtnMain = bundleBtn.querySelector('.bundle-btn-main');
+            if (state.bundle.selected) {
+                bundleBtn.classList.add('selected');
+                bundleBtnMain.textContent = '✅ Bundle Selected - Best Value!';
+            } else {
+                bundleBtn.classList.remove('selected');
+                bundleBtnMain.textContent = '🚀 Transform Me Into A Pro Investor';
+            }
+            
+            // Disable bundle if both individual addons are selected (no additional savings)
+            if (state.addons['premium-tools'].selected && state.addons['1on1-mentorship'].selected) {
+                bundleBtn.disabled = true;
+                bundleBtn.classList.add('disabled');
+                bundleBtnMain.textContent = '✓ All Items Already Selected';
+            } else {
+                bundleBtn.disabled = false;
+                bundleBtn.classList.remove('disabled');
             }
         }
 
@@ -176,9 +237,17 @@
     // --- Payment Logic ---
     async function initiateRazorpayPayment() {
         try {
+            // Log the actual amount being sent
+            console.log('💰 Initiating payment with amount:', state.total);
+            console.log('📊 Current state:', {
+                bundle: state.bundle.selected,
+                tools: state.addons['premium-tools'].selected,
+                mentorship: state.addons['1on1-mentorship'].selected,
+                total: state.total
+            });
+            
             showLoadingOverlay();
             const paymentCustomerData = getPaymentCustomerData();
-            // trackCheckoutInitiated(paymentCustomerData); // Will be handled by trackInitiateCheckout
             await createDirectRazorpayCheckout(paymentCustomerData);
         } catch (error) {
             console.error('Payment initiation error:', error);

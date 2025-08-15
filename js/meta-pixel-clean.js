@@ -188,6 +188,7 @@ class MetaPixelDirect {
 
     /**
      * Get enhanced matching data for better attribution
+     * Includes Click ID (fbc) for 100% potential boost per Meta recommendations
      */
     getEnhancedMatchingData() {
         const userData = {};
@@ -212,6 +213,24 @@ class MetaPixelDirect {
             if (nameParts.length > 1) {
                 userData.ln = nameParts[nameParts.length - 1]?.toLowerCase().trim();
             }
+        }
+        
+        // Get Facebook Click ID (fbc) - CRITICAL for 100% conversion boost
+        const fbc = this.getFacebookClickId();
+        if (fbc) {
+            userData.fbc = fbc;
+        }
+        
+        // Get Facebook Browser ID (fbp) from cookie
+        const fbp = this.getFacebookBrowserId();
+        if (fbp) {
+            userData.fbp = fbp;
+        }
+        
+        // Add External ID for better matching (user session or visitor ID)
+        const externalId = this.getOrCreateExternalId();
+        if (externalId) {
+            userData.external_id = externalId;
         }
         
         return userData;
@@ -290,6 +309,77 @@ class MetaPixelDirect {
      */
     isValidEmail(email) {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    /**
+     * Get Facebook Click ID (fbc) from URL or stored cookie
+     * Critical for 100% conversion boost per Meta recommendations
+     */
+    getFacebookClickId() {
+        // Check if fbclid is in current URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const fbclid = urlParams.get('fbclid');
+        
+        if (fbclid) {
+            // Create proper fbc format: fb.{subdomain_index}.{timestamp}.{click_id}
+            const timestamp = Math.floor(Date.now() / 1000);
+            const fbc = `fb.1.${timestamp}.${fbclid}`;
+            
+            // Store for future use (7 days)
+            const expires = new Date();
+            expires.setDate(expires.getDate() + 7);
+            document.cookie = `_fbc=${fbc}; expires=${expires.toUTCString()}; path=/; SameSite=Lax`;
+            
+            this.log('Facebook Click ID captured:', fbc);
+            return fbc;
+        }
+        
+        // Try to get from existing cookie
+        const cookies = document.cookie.split(';');
+        for (let cookie of cookies) {
+            const [name, value] = cookie.trim().split('=');
+            if (name === '_fbc') {
+                this.log('Facebook Click ID from cookie:', value);
+                return value;
+            }
+        }
+        
+        return null;
+    }
+
+    /**
+     * Get Facebook Browser ID (fbp) from cookie
+     */
+    getFacebookBrowserId() {
+        const cookies = document.cookie.split(';');
+        for (let cookie of cookies) {
+            const [name, value] = cookie.trim().split('=');
+            if (name === '_fbp') {
+                this.log('Facebook Browser ID found:', value);
+                return value;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Get or create External ID for better user matching
+     * Uses consistent visitor ID across sessions
+     */
+    getOrCreateExternalId() {
+        // Try to get existing external ID
+        let externalId = localStorage.getItem('meta_external_id');
+        
+        if (!externalId) {
+            // Create new external ID using visitor pattern
+            externalId = 'visitor_' + Date.now() + '_' + Math.random().toString(36).substr(2, 12);
+            localStorage.setItem('meta_external_id', externalId);
+            this.log('Created new External ID:', externalId);
+        } else {
+            this.log('Using existing External ID:', externalId);
+        }
+        
+        return externalId;
     }
 
     /**

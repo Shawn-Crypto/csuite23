@@ -143,19 +143,22 @@ class MetaCAPI {
             enhanced.zp = [this.sha256Hash('400001')]; // Default Mumbai zip
         }
 
-        // 9. Facebook Click ID (fbc) - Direct from URL
+        // 9. Facebook Click ID (fbc) - CRITICAL for 100% conversion boost
         if (userData.fbc) {
-            enhanced.fbc = userData.fbc;
+            enhanced.fbc = userData.fbc; // Don't hash - per Meta spec
         }
 
-        // 10. Facebook Browser ID (fbp) - From _fbp cookie
+        // 10. Facebook Browser ID (fbp) - From _fbp cookie  
         if (userData.fbp) {
-            enhanced.fbp = userData.fbp;
+            enhanced.fbp = userData.fbp; // Don't hash - per Meta spec
         }
 
-        // 11. External ID (hashed) - Order ID for better matching
+        // 11. External ID (hashed) - Visitor/User ID for better matching
         if (userData.external_id) {
             enhanced.external_id = [this.sha256Hash(userData.external_id)];
+        } else if (userData.order_id) {
+            // Fallback to order ID if no external ID provided
+            enhanced.external_id = [this.sha256Hash(userData.order_id)];
         }
 
         // Additional browser data for attribution (not counted in 11 but important)
@@ -196,11 +199,12 @@ class MetaCAPI {
                 phone: customerData.phone,
                 firstName: customerData.name?.split(' ')[0],
                 lastName: customerData.name?.split(' ').slice(1).join(' '),
-                external_id: orderData.order_id, // Critical for matching per PDF
+                external_id: requestData.external_id || customerData.external_id, // Visitor ID for better matching
+                order_id: orderData.order_id, // Fallback for external_id
                 clientIp: requestData.clientIp,
                 userAgent: requestData.userAgent,
-                fbc: requestData.fbc,
-                fbp: requestData.fbp,
+                fbc: requestData.fbc, // CRITICAL for 100% conversion boost
+                fbp: requestData.fbp, // Browser ID for attribution
                 // Additional customer data for enhanced matching
                 city: customerData.city,
                 state: customerData.state,
@@ -430,14 +434,37 @@ class MetaCAPI {
             sourceUrl: req.headers['referer'] || `https://${req.headers['host']}${req.url}`
         };
 
-        // Extract Facebook click ID from query or cookies
+        // Extract Facebook click ID from query, cookies, or request body
         if (req.query?.fbclid) {
-            params.fbc = `fb.1.${Date.now()}.${req.query.fbclid}`;
+            // Create proper fbc format from URL parameter
+            params.fbc = `fb.1.${Math.floor(Date.now() / 1000)}.${req.query.fbclid}`;
+        } else if (req.cookies?._fbc) {
+            // Use existing fbc from cookie
+            params.fbc = req.cookies._fbc;
+        } else if (req.body?.fbc) {
+            // Use fbc passed from client-side
+            params.fbc = req.body.fbc;
         }
 
-        // Extract Facebook browser ID from cookies
+        // Extract Facebook browser ID from cookies or request body
         if (req.cookies?._fbp) {
             params.fbp = req.cookies._fbp;
+        } else if (req.body?.fbp) {
+            params.fbp = req.body.fbp;
+        }
+
+        // Extract external ID from request
+        if (req.body?.external_id) {
+            params.external_id = req.body.external_id;
+        }
+
+        // Log captured tracking parameters for debugging
+        if (params.fbc || params.fbp) {
+            console.log('[META_CAPI] Captured tracking params:', {
+                fbc: params.fbc ? 'present' : 'missing',
+                fbp: params.fbp ? 'present' : 'missing',
+                external_id: params.external_id ? 'present' : 'missing'
+            });
         }
 
         return params;

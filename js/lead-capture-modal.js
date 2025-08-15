@@ -180,7 +180,12 @@ class LeadCaptureModal {
       firstName: formData.get('name').trim().split(' ')[0] || formData.get('name').trim(),
       lastName: formData.get('name').trim().split(' ').slice(1).join(' ') || '',
       email: formData.get('email').trim().toLowerCase(),
-      phone: formData.get('phone').replace(/\D/g, '') // Clean phone number
+      phone: formData.get('phone').replace(/\D/g, ''), // Clean phone number
+      
+      // Include Facebook tracking parameters for enhanced matching
+      fbc: this.getFacebookClickId(),
+      fbp: this.getFacebookBrowserId(),
+      external_id: this.getExternalId()
     };
 
     // Check terms checkbox
@@ -483,6 +488,47 @@ class LeadCaptureModal {
     if (errorDiv) {
       errorDiv.remove();
     }
+  }
+
+  // Facebook tracking parameter helpers for enhanced matching
+  getFacebookClickId() {
+    // Check URL for fbclid parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const fbclid = urlParams.get('fbclid');
+    
+    if (fbclid) {
+      const timestamp = Math.floor(Date.now() / 1000);
+      return `fb.1.${timestamp}.${fbclid}`;
+    }
+    
+    // Check for existing _fbc cookie
+    return this.getCookieValue('_fbc');
+  }
+
+  getFacebookBrowserId() {
+    // Get _fbp cookie value
+    return this.getCookieValue('_fbp');
+  }
+
+  getExternalId() {
+    // Get or create consistent external ID for user
+    let externalId = localStorage.getItem('meta_external_id');
+    if (!externalId) {
+      externalId = 'visitor_' + Date.now() + '_' + Math.random().toString(36).substr(2, 12);
+      localStorage.setItem('meta_external_id', externalId);
+    }
+    return externalId;
+  }
+
+  getCookieValue(name) {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+      const [cookieName, value] = cookie.trim().split('=');
+      if (cookieName === name) {
+        return value;
+      }
+    }
+    return null;
   }
 }
 

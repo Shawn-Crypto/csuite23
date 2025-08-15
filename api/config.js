@@ -65,7 +65,6 @@ export const getDatabaseConfig = () => {
 // Zapier Configuration
 export const getZapierConfig = () => {
   return {
-    purchase_webhook: process.env.ZAPIER_WEBHOOK_URL,
     lead_webhook: process.env.ZAPIER_LEAD_WEBHOOK_URL
   };
 };
@@ -95,7 +94,7 @@ export const validateConfiguration = () => {
       razorpay_mode: razorpay.mode,
       has_meta_credentials: !!meta.pixel_id,
       has_database_credentials: !!database.supabase_url,
-      has_zapier_webhooks: !!zapier.purchase_webhook
+      has_zapier_webhooks: !!zapier.lead_webhook
     });
     
     return true;

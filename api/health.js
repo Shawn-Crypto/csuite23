@@ -96,7 +96,7 @@ function checkConfiguration() {
       environment: process.env.RAZORPAY_ENVIRONMENT || 'not_set'
     },
     zapier: {
-      webhook_configured: !!process.env.ZAPIER_WEBHOOK_URL,
+      webhook_configured: !!process.env.ZAPIER_LEAD_WEBHOOK_URL,
       lead_webhook_configured: !!process.env.ZAPIER_LEAD_WEBHOOK_URL
     },
     meta_capi: {
@@ -194,7 +194,7 @@ async function checkRazorpayIntegration() {
  */
 async function checkZapierIntegration() {
   try {
-    const webhookUrl = process.env.ZAPIER_WEBHOOK_URL;
+    const webhookUrl = process.env.ZAPIER_LEAD_WEBHOOK_URL;
     
     if (!webhookUrl) {
       return {

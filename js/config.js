@@ -31,7 +31,6 @@ window.GLOBAL_CONFIG = {
     "enabled": false
   },
   "zapier": {
-    "webhookUrl": "https://hooks.zapier.com/hooks/catch/23606322/u34shwt/",
     "leadWebhookUrl": "https://hooks.zapier.com/hooks/catch/23606322/u6t1nd5/",
     "enabled": true
   },
