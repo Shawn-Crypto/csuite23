@@ -17,14 +17,17 @@
         customerData: null,
         get total() {
             if (this.bundle.selected) {
+                console.log('🔥 Bundle selected, returning:', this.bundle.price);
                 return this.bundle.price;
             }
             let total = this.basePrice;
             for (const key in this.addons) {
                 if (this.addons[key].selected) {
                     total += this.addons[key].price;
+                    console.log(`🔥 Adding ${key}: ${this.addons[key].price}, running total: ${total}`);
                 }
             }
+            console.log('🔥 Final individual total:', total);
             return total;
         },
         get savings() {
@@ -104,20 +107,23 @@
     }
 
     function handleBundleSelection() {
+        console.log('🔥 BEFORE Bundle toggle - Bundle:', state.bundle.selected, 'Tools:', state.addons['premium-tools'].selected, 'Mentorship:', state.addons['1on1-mentorship'].selected);
+        
         // Toggle bundle selection
         state.bundle.selected = !state.bundle.selected;
         
         if (state.bundle.selected) {
-            // When selecting bundle, deselect individual addons
+            // When selecting bundle, FORCE deselect individual addons
             state.addons['premium-tools'].selected = false;
             state.addons['1on1-mentorship'].selected = false;
+            console.log('🔥 Bundle selected - forcing individual addons to FALSE');
             trackBundleSelected();
         } else {
             // When deselecting bundle, just clear the bundle selection
             console.log('🔧 Bundle deselected');
         }
         
-        console.log('🔧 Bundle toggled:', 'Selected:', state.bundle.selected, 'Total:', state.total);
+        console.log('🔥 AFTER Bundle toggle - Bundle:', state.bundle.selected, 'Tools:', state.addons['premium-tools'].selected, 'Mentorship:', state.addons['1on1-mentorship'].selected, 'Total:', state.total);
         render();
     }
 
@@ -190,7 +196,7 @@
                 bundleBtn.disabled = true;
                 bundleBtn.classList.add('disabled');
                 bundleBtnMain.textContent = '✓ All Items Already Selected';
-            } else {
+            } else if (!state.bundle.selected) {
                 bundleBtn.disabled = false;
                 bundleBtn.classList.remove('disabled');
             }
@@ -207,16 +213,7 @@
             mentorshipLine.style.display = state.addons['1on1-mentorship'].selected ? 'flex' : 'none';
         }
 
-        const savingsLine = document.getElementById('savings-line');
-        if (savingsLine && state.savings > 0) {
-            savingsLine.style.display = 'flex';
-            const savingsAmount = document.getElementById('savings-amount');
-            if (savingsAmount) {
-                savingsAmount.textContent = formatCurrency(state.savings);
-            }
-        } else if (savingsLine) {
-            savingsLine.style.display = 'none';
-        }
+        // Note: savings-line element doesn't exist in HTML, skip for now
 
         // Update Totals
         const totalAmount = document.getElementById('total-amount');
